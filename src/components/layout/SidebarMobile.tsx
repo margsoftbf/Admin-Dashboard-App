@@ -1,63 +1,11 @@
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import {
-	CalendarIcon,
-	ChartPieIcon,
-	Cog6ToothIcon,
-	DocumentDuplicateIcon,
-	FolderIcon,
-	HomeIcon,
-	UsersIcon,
 	XMarkIcon,
-	BuildingStorefrontIcon,
-	BanknotesIcon,
-	PresentationChartBarIcon,
-	BriefcaseIcon,
-	ChatBubbleLeftRightIcon,
-	CalendarDaysIcon,
-	NewspaperIcon,
-	CurrencyDollarIcon,
-	DocumentCheckIcon,
-	EnvelopeIcon,
-	LifebuoyIcon,
-	QuestionMarkCircleIcon,
-	UserCircleIcon,
+	ChevronDownIcon,
+	ChevronUpIcon,
 } from '@heroicons/react/24/outline';
-
-const navigation = [
-	{ name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
-	{
-		name: 'Ecommerce',
-		href: '#',
-		icon: BuildingStorefrontIcon,
-		current: false,
-	},
-	{ name: 'Finance', href: '#', icon: BanknotesIcon, current: false },
-	{ name: 'Jobs', href: '#', icon: BriefcaseIcon, current: false },
-	{
-		name: 'Analytics',
-		href: '#',
-		icon: PresentationChartBarIcon,
-		current: false,
-	},
-	{
-		name: 'Project Manage',
-		href: '#',
-		icon: NewspaperIcon,
-		current: false,
-	},
-	{ name: 'Chat', href: '#', icon: ChatBubbleLeftRightIcon, current: false },
-	{ name: 'Calendar', href: '#', icon: CalendarDaysIcon, current: false },
-	{ name: 'Invoices', href: '#', icon: DocumentDuplicateIcon, current: false },
-	{ name: 'Crypto', href: '#', icon: CurrencyDollarIcon, current: false },
-	{ name: 'Kanban', href: '#', icon: DocumentCheckIcon, current: false },
-	{ name: 'Social Network', href: '#', icon: ChartPieIcon, current: false },
-	{ name: 'Mailbox', href: '#', icon: EnvelopeIcon, current: false },
-	{ name: 'Help Center', href: '#', icon: LifebuoyIcon, current: false },
-	{ name: 'FAQ', href: '#', icon: QuestionMarkCircleIcon, current: false },
-	{ name: 'Profile', href: '#', icon: UserCircleIcon, current: false },
-];
-
+import { navigation } from '@/data/data';
 interface SidebarMobileProps {
 	sidebarOpen: boolean;
 	setSidebarOpen: (open: boolean) => void;
@@ -67,6 +15,11 @@ const SidebarMobile: React.FC<SidebarMobileProps> = ({
 	sidebarOpen,
 	setSidebarOpen,
 }) => {
+	const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
+
+	const toggleSubMenu = (name: string) => {
+		setExpandedMenu(expandedMenu === name ? null : name);
+	};
 	return (
 		<Transition.Root show={sidebarOpen} as={Fragment}>
 			<Dialog
@@ -120,7 +73,7 @@ const SidebarMobile: React.FC<SidebarMobileProps> = ({
 									</button>
 								</div>
 							</Transition.Child>
-							<div className='flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4 ring-1 ring-white/10'>
+							<div className='flex grow flex-col gap-y-5 overflow-y-auto bg-myPrimary px-6 pb-4 ring-1 ring-white/10'>
 								<div className='flex h-16 shrink-0 items-center gap-2'>
 									<img
 										className='h-8 w-auto'
@@ -139,35 +92,54 @@ const SidebarMobile: React.FC<SidebarMobileProps> = ({
 													<li key={item.name}>
 														<a
 															href={item.href}
+															onClick={(e) => {
+																if (item.subMenu) {
+																	e.preventDefault();
+																	toggleSubMenu(item.name);
+																}
+															}}
 															className={`${
 																item.current
-																	? 'bg-myViolet text-white'
-																	: 'text-gray-300 hover:text-white hover:bg-myViolet'
-															} 
-group flex gap-x-3 rounded-md p-2 text-sm font-semibold`}
+																	? 'bg-myViolet text-white font-medium '
+																	: 'text-gray-400 hover:text-white hover:bg-myViolet'
+															}
+              'group flex items-center justify-between gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
+            `}
 														>
-															<item.icon
-																className='h-6 w-6 shrink-0'
-																aria-hidden='true'
-															/>
-															{item.name}
+															<div className='flex gap-x-3'>
+																<item.icon
+																	className='h-6 w-6 shrink-0'
+																	aria-hidden='true'
+																/>
+																{item.name}
+															</div>
+															{item.subMenu &&
+																(expandedMenu === item.name ? (
+																	<ChevronUpIcon className='h-5 w-5' />
+																) : (
+																	<ChevronDownIcon className='h-5 w-5' />
+																))}
 														</a>
+														{item.subMenu && expandedMenu === item.name && (
+															<ul className='pl-9 my-2 '>
+																{item.subMenu.map((subItem) => (
+																	<li key={subItem.name}>
+																		<a
+																			href={subItem.href}
+																			className={`block text-gray-400 hover:bg-zinc-900 rounded-md hover:text-white p-2 font-inter text-xs`}
+																		>
+																			•{' '}
+																			<span className='ml-1'>
+																				{subItem.name}
+																			</span>
+																		</a>
+																	</li>
+																))}
+															</ul>
+														)}
 													</li>
 												))}
 											</ul>
-										</li>
-
-										<li className='mt-auto'>
-											<a
-												href='#'
-												className='group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white'
-											>
-												<Cog6ToothIcon
-													className='h-6 w-6 shrink-0'
-													aria-hidden='true'
-												/>
-												Settings
-											</a>
 										</li>
 									</ul>
 								</nav>

@@ -1,4 +1,94 @@
 import { Person } from "@/types/types";
+import {
+	ChartPieIcon,
+	DocumentDuplicateIcon,
+	HomeIcon,
+	BuildingStorefrontIcon,
+	BanknotesIcon,
+	PresentationChartBarIcon,
+	BriefcaseIcon,
+	ChatBubbleLeftRightIcon,
+	CalendarDaysIcon,
+	NewspaperIcon,
+	CurrencyDollarIcon,
+	DocumentCheckIcon,
+	EnvelopeIcon,
+	LifebuoyIcon,
+	QuestionMarkCircleIcon,
+	UserCircleIcon,
+} from '@heroicons/react/24/outline';
+
+export const navigation = [
+	{
+		name: 'Dashboard',
+		href: '#',
+		icon: HomeIcon,
+		current: true,
+		
+	},
+	{
+		name: 'Ecommerce',
+		href: '#',
+		icon: BuildingStorefrontIcon,
+		current: false,
+		subMenu: [
+			{ name: 'Dashboard', href: '#', current: false },
+			{ name: 'Product List', href: '#', current: false },
+			{ name: 'Product Details', href: '#', current: false },
+			{ name: 'Order List', href: '#', current: false },
+			{ name: 'Order Details', href: '#', current: false },
+			{ name: 'Transactions', href: '#', current: false },
+			{ name: 'Customer List', href: '#', current: false },
+			{ name: 'Customer Review', href: '#', current: false },
+		],
+	},
+	{
+		name: 'Finance',
+		href: '#',
+		icon: BanknotesIcon,
+		current: false,
+		subMenu: [
+			{ name: 'Dashboard', href: '#', current: false },
+			{ name: 'Cards', href: '#', current: false },
+			{ name: 'Transactions', href: '#', current: false },
+			{ name: 'Transactions Details', href: '#', current: false },
+		],
+	},
+	{
+		name: 'Jobs',
+		href: '#',
+		icon: BriefcaseIcon,
+		current: false,
+		subMenu: [
+			{ name: 'Dashboard', href: '#', current: false },
+			{ name: 'Job Listing', href: '#', current: false },
+			{ name: 'Add New Job', href: '#', current: false },
+		],
+	},
+	{
+		name: 'Analytics',
+		href: '#',
+		icon: PresentationChartBarIcon,
+		current: false,
+	},
+	{
+		name: 'Project Manage',
+		href: '#',
+		icon: NewspaperIcon,
+		current: false,
+	},
+	{ name: 'Chat', href: '#', icon: ChatBubbleLeftRightIcon, current: false },
+	{ name: 'Calendar', href: '#', icon: CalendarDaysIcon, current: false },
+	{ name: 'Invoices', href: '#', icon: DocumentDuplicateIcon, current: false },
+	{ name: 'Crypto', href: '#', icon: CurrencyDollarIcon, current: false },
+	{ name: 'Kanban', href: '#', icon: DocumentCheckIcon, current: false },
+	{ name: 'Social Network', href: '#', icon: ChartPieIcon, current: false },
+	{ name: 'Mailbox', href: '#', icon: EnvelopeIcon, current: false },
+	{ name: 'Help Center', href: '#', icon: LifebuoyIcon, current: false },
+	{ name: 'FAQ', href: '#', icon: QuestionMarkCircleIcon, current: false },
+	{ name: 'Profile', href: '#', icon: UserCircleIcon, current: false },
+];
+
 
 export const personsData: Person[] = [
 	{

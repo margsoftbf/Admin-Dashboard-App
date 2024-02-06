@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import {
 	XMarkIcon,
@@ -6,20 +6,21 @@ import {
 	ChevronUpIcon,
 } from '@heroicons/react/24/outline';
 import { navigation } from '@/data/data';
+import { useRouter } from 'next/router';
 interface SidebarMobileProps {
 	sidebarOpen: boolean;
 	setSidebarOpen: (open: boolean) => void;
+	expandedMenu: string | null;
+	toggleSubMenu: (name: string) => void;
 }
 
 const SidebarMobile: React.FC<SidebarMobileProps> = ({
 	sidebarOpen,
 	setSidebarOpen,
+	expandedMenu,
+	toggleSubMenu,
 }) => {
-	const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
-
-	const toggleSubMenu = (name: string) => {
-		setExpandedMenu(expandedMenu === name ? null : name);
-	};
+	const router = useRouter();
 	return (
 		<Transition.Root show={sidebarOpen} as={Fragment}>
 			<Dialog
@@ -99,7 +100,7 @@ const SidebarMobile: React.FC<SidebarMobileProps> = ({
 																}
 															}}
 															className={`${
-																item.current
+																router.pathname === item.href
 																	? 'bg-myViolet text-white font-medium '
 																	: 'text-gray-400 hover:text-white hover:bg-myViolet'
 															}

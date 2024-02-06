@@ -1,4 +1,4 @@
-import { Person } from "@/types/types";
+import { Person } from '@/types/types';
 import {
 	ChartPieIcon,
 	DocumentDuplicateIcon,
@@ -21,25 +21,40 @@ import {
 export const navigation = [
 	{
 		name: 'Dashboard',
-		href: '#',
+		href: '/',
 		icon: HomeIcon,
 		current: true,
-		
 	},
 	{
 		name: 'Ecommerce',
-		href: '#',
+		href: '/ecommerce',
 		icon: BuildingStorefrontIcon,
 		current: false,
 		subMenu: [
-			{ name: 'Dashboard', href: '#', current: false },
-			{ name: 'Product List', href: '#', current: false },
-			{ name: 'Product Details', href: '#', current: false },
-			{ name: 'Order List', href: '#', current: false },
-			{ name: 'Order Details', href: '#', current: false },
-			{ name: 'Transactions', href: '#', current: false },
-			{ name: 'Customer List', href: '#', current: false },
-			{ name: 'Customer Review', href: '#', current: false },
+			{ name: 'Dashboard', href: '/ecommerce', current: false },
+			{ name: 'Product List', href: '/ecommerce/product-list', current: false },
+			{
+				name: 'Product Details',
+				href: '/ecommerce/product-details',
+				current: false,
+			},
+			{ name: 'Order List', href: '/ecommerce/order-list', current: false },
+			{
+				name: 'Order Details',
+				href: '/ecommerce/order-details',
+				current: false,
+			},
+			{ name: 'Transactions', href: '/ecommerce/transactions', current: false },
+			{
+				name: 'Customer List',
+				href: '/ecommerce/customer-list',
+				current: false,
+			},
+			{
+				name: 'Customer Review',
+				href: '/ecommerce/customer-review',
+				current: false,
+			},
 		],
 	},
 	{
@@ -88,7 +103,6 @@ export const navigation = [
 	{ name: 'FAQ', href: '#', icon: QuestionMarkCircleIcon, current: false },
 	{ name: 'Profile', href: '#', icon: UserCircleIcon, current: false },
 ];
-
 
 export const personsData: Person[] = [
 	{

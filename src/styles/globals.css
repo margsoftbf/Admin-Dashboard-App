@@ -9,8 +9,17 @@
 	padding: 0;
 	text-align: center;
 	overflow: hidden;
-	font-family: 'Inter', sans-serif;
+	font-family: 'Poppins', sans-serif;
 }
+
+::-webkit-scrollbar {
+	width: 0.6rem;
+	background: white;
+}
+::-webkit-scrollbar-thumb {
+	background: #8b8b93;
+}
+
 @layer base {
 	body {
 		@apply bg-[#0F0F12];
@@ -21,4 +30,3 @@ select,
 textarea {
 	font-size: 16px;
 }
-

@@ -9,14 +9,23 @@ interface MainLayoutProps {
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
+	const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
 
+	const toggleSubMenu = (name: string) => {
+		setExpandedMenu(expandedMenu === name ? null : name);
+	};
 	return (
 		<div>
 			<SidebarMobile
 				sidebarOpen={sidebarOpen}
 				setSidebarOpen={setSidebarOpen}
+				expandedMenu={expandedMenu}
+				toggleSubMenu={toggleSubMenu}
 			/>
-			<SidebarDesktop />
+			<SidebarDesktop
+				expandedMenu={expandedMenu}
+				toggleSubMenu={toggleSubMenu}
+			/>
 			<div className='lg:pl-72 '>
 				<Header setSidebarOpen={setSidebarOpen} />
 				<main className='py-2'>

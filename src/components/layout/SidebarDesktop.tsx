@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
-import {
-	ChevronDownIcon,
-	ChevronUpIcon,
-} from '@heroicons/react/24/outline';
+import React from 'react';
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import { navigation } from '@/data/data';
+import { useRouter } from 'next/router';
+interface SidebarDesktopProps {
+	expandedMenu: string | null;
+	toggleSubMenu: (name: string) => void;
+}
 
+const SidebarDesktop: React.FC<SidebarDesktopProps> = ({
+	expandedMenu,
+	toggleSubMenu,
+}) => {
+	const router = useRouter();
 
-const SidebarDesktop = () => {
-	const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
-
-	const toggleSubMenu = (name: string) => {
-		setExpandedMenu(expandedMenu === name ? null : name);
-	};
 	return (
 		<div className='hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col'>
 			<div className='flex grow flex-col gap-y-5 overflow-y-auto bg-myPrimary px-6 pb-4'>
@@ -38,7 +39,7 @@ const SidebarDesktop = () => {
 												}
 											}}
 											className={`${
-												item.current
+												router.pathname === item.href
 													? 'bg-myViolet text-white font-medium '
 													: 'text-gray-400 hover:text-white hover:bg-myViolet'
 											}

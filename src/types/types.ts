@@ -14,3 +14,10 @@ export interface Person {
 	content: string;
 }
 
+export interface SellsBoxesTypes {
+	id: number;
+	title: string;
+	price: number;
+	percent: number;
+	bgColor: string;
+}

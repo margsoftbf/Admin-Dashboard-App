@@ -3,20 +3,24 @@ import MainLayout from '@/components/layout/MainLayout';
 import React from 'react';
 
 const CustomerReview = () => {
-    const pathSegments = [
+	const pathSegments = [
 		{ name: 'Home', href: '/', current: false },
 		{ name: 'Dashboard', href: '/ecommerce', current: false },
-		{ name: 'Customer Review', href: '/ecommerce/customer-review', current: true },
+		{
+			name: 'Customer Review',
+			href: '/ecommerce/customer-review',
+			current: true,
+		},
 	];
-  return (
-    <MainLayout>
-    <h1 className='my-2 font-poppins text-2xl ml-1 text-white font-bold'>
-        Customer Review
-    </h1>
-    <BreadCrumb pathSegments={pathSegments} />
-    <div className='text-white'>product-list</div>;
-</MainLayout>
-  )
-}
+	return (
+		<MainLayout>
+			<h1 className='my-2 font-poppins text-2xl ml-1 text-white font-bold'>
+				Customer Review
+			</h1>
+			<BreadCrumb pathSegments={pathSegments} />
+			<div className='text-white'>product-list</div>;
+		</MainLayout>
+	);
+};
 
-export default CustomerReview
+export default CustomerReview;

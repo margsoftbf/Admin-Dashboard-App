@@ -1,9 +1,9 @@
 import MainLayout from '@/components/layout/MainLayout';
 import React from 'react';
-import { useRouter } from 'next/router';
 import BreadCrumb from '@/components/common/Breadcrumb';
+import SellsBoxes from '@/components/Ecommerce/Dashboard/SellsBoxes';
+import Charts from '@/components/Ecommerce/Dashboard/Charts';
 const EcommerceHomePage = () => {
-	const router = useRouter();
 	const pathSegments = [
 		{ name: 'Home', href: '/', current: false },
 		{ name: 'Dashboard', href: '/ecommerce', current: true },
@@ -15,7 +15,8 @@ const EcommerceHomePage = () => {
 				Ecommerce
 			</h1>
 			<BreadCrumb pathSegments={pathSegments} />
-			<div className='text-white'>ssssssssssss</div>;
+			<SellsBoxes />
+			<Charts />
 		</MainLayout>
 	);
 };

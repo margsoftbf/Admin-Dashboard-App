@@ -1,4 +1,4 @@
-import { Person } from '@/types/types';
+import { Person, SellsBoxesTypes } from '@/types/types';
 import {
 	ChartPieIcon,
 	DocumentDuplicateIcon,
@@ -200,5 +200,220 @@ export const personsData: Person[] = [
 		lastSeenDateTime: null,
 		content:
 			'Unde dolore exercitationem nobis reprehenderit rerum corporis accusamus. Nemo suscipit temporibus quidem dolorum. Nobis optio quae atque blanditiis aspernatur doloribus sit accusamus. Sunt reiciendis ut corrupti ab debitis dolorem dolorem nam sit. Ducimus nisi qui earum aliquam. Est nam doloribus culpa illum.',
+	},
+];
+
+export const sellsBoxesData: SellsBoxesTypes[] = [
+	{
+		id: 1,
+		title: 'Total sells',
+		price: 1540,
+		percent: 34.7,
+		bgColor: 'bg-green-700',
+	},
+	{
+		id: 2,
+		title: 'Orders value',
+		price: 1380,
+		percent: 22.7,
+		bgColor: 'bg-violet-700',
+	},
+	{
+		id: 3,
+		title: 'Daily orders',
+		price: 250,
+		percent: 17.9,
+		bgColor: 'bg-yellow-500',
+	},
+	{
+		id: 4,
+		title: 'Daily revenue',
+		price: 120,
+		percent: 23.9,
+		bgColor: 'bg-blue-700',
+	},
+];
+
+export const dailyData = [
+	{
+		name: '0:00',
+		Completed: 106,
+		Pending: 31,
+		Unpaid: 5,
+		Delivered: 63,
+	},
+	{
+		name: '4:00',
+		Completed: 89,
+		Pending: 25,
+		Unpaid: 12,
+		Delivered: 55,
+	},
+	{
+		name: '8:00',
+		Completed: 120,
+		Pending: 45,
+		Unpaid: 10,
+		Delivered: 90,
+	},
+	{
+		name: '12:00',
+		Completed: 150,
+		Pending: 55,
+		Unpaid: 15,
+		Delivered: 105,
+	},
+	{
+		name: '16:00',
+		Completed: 170,
+		Pending: 60,
+		Unpaid: 18,
+		Delivered: 120,
+	},
+	{
+		name: '20:00',
+		Completed: 190,
+		Pending: 65,
+		Unpaid: 20,
+		Delivered: 140,
+	},
+];
+
+export const weeklyData = [
+	{
+		name: 'Monday',
+		Completed: 300,
+		Pending: 100,
+		Unpaid: 20,
+		Delivered: 220,
+	},
+	{
+		name: 'Tuesday',
+		Completed: 320,
+		Pending: 110,
+		Unpaid: 25,
+		Delivered: 250,
+	},
+	{
+		name: 'Wednesday',
+		Completed: 310,
+		Pending: 120,
+		Unpaid: 22,
+		Delivered: 240,
+	},
+	{
+		name: 'Thursday',
+		Completed: 330,
+		Pending: 130,
+		Unpaid: 30,
+		Delivered: 260,
+	},
+	{
+		name: 'Friday',
+		Completed: 340,
+		Pending: 140,
+		Unpaid: 18,
+		Delivered: 240,
+	},
+	{
+		name: 'Saturday',
+		Completed: 280,
+		Pending: 90,
+		Unpaid: 15,
+		Delivered: 220,
+	},
+	{
+		name: 'Sunday',
+		Completed: 350,
+		Pending: 150,
+		Unpaid: 32,
+		Delivered: 300,
+	},
+];
+
+export const monthlyData = [
+	{
+		name: 'January',
+		Completed: 1906,
+		Pending: 431,
+		Unpaid: 65,
+		Delivered: 1583,
+	},
+	{
+		name: 'February',
+		Completed: 2103,
+		Pending: 505,
+		Unpaid: 141,
+		Delivered: 1120,
+	},
+	{
+		name: 'March',
+		Completed: 2055,
+		Pending: 726,
+		Unpaid: 295,
+		Delivered: 815,
+	},
+	{
+		name: 'April',
+		Completed: 1519,
+		Pending: 646,
+		Unpaid: 243,
+		Delivered: 929,
+	},
+	{
+		name: 'May',
+		Completed: 2488,
+		Pending: 607,
+		Unpaid: 215,
+		Delivered: 1144,
+	},
+	{
+		name: 'June',
+		Completed: 2168,
+		Pending: 505,
+		Unpaid: 200,
+		Delivered: 1361,
+	},
+	{
+		name: 'July',
+		Completed: 1744,
+		Pending: 808,
+		Unpaid: 280,
+		Delivered: 1105,
+	},
+	{
+		name: 'August',
+		Completed: 2485,
+		Pending: 799,
+		Unpaid: 297,
+		Delivered: 2020,
+	},
+	{
+		name: 'September',
+		Completed: 1582,
+		Pending: 692,
+		Unpaid: 231,
+		Delivered: 1103,
+	},
+	{
+		name: 'October',
+		Completed: 2254,
+		Pending: 919,
+		Unpaid: 147,
+		Delivered: 1810,
+	},
+	{
+		name: 'November',
+		Completed: 2252,
+		Pending: 777,
+		Unpaid: 84,
+		Delivered: 2041,
+	},
+	{
+		name: 'December',
+		Completed: 2427,
+		Pending: 674,
+		Unpaid: 192,
+		Delivered: 958,
 	},
 ];

@@ -3,6 +3,7 @@ import React from 'react';
 import BreadCrumb from '@/components/common/Breadcrumb';
 import SellsBoxes from '@/components/Ecommerce/Dashboard/SellsBoxes';
 import Charts from '@/components/Ecommerce/Dashboard/Charts';
+import RecentPurchases from '@/components/Ecommerce/Dashboard/RecentPurchases';
 const EcommerceHomePage = () => {
 	const pathSegments = [
 		{ name: 'Home', href: '/', current: false },
@@ -17,6 +18,7 @@ const EcommerceHomePage = () => {
 			<BreadCrumb pathSegments={pathSegments} />
 			<SellsBoxes />
 			<Charts />
+			<RecentPurchases />
 		</MainLayout>
 	);
 };

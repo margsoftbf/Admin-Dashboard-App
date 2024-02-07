@@ -13,6 +13,17 @@ export interface Person {
 	lastSeenDateTime: string | null | undefined;
 	content: string;
 }
+export interface OrdersType {
+	id: number;
+	avatar: string;
+	avatarAlt: string;
+	name: string;
+	orderId: string;
+	product: string;
+	status: string;
+	date: string;
+	amount: number;
+}
 
 export interface SellsBoxesTypes {
 	id: number;

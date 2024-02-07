@@ -39,7 +39,8 @@ const SidebarDesktop: React.FC<SidebarDesktopProps> = ({
 												}
 											}}
 											className={`${
-												router.pathname === item.href
+												router.pathname === item.href ||
+												router.pathname.startsWith(item.href + '/')
 													? 'bg-myViolet text-white font-medium '
 													: 'text-gray-400 hover:text-white hover:bg-myViolet'
 											}

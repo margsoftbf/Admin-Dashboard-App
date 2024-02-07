@@ -1,4 +1,4 @@
-import { Person, SellsBoxesTypes } from '@/types/types';
+import { OrdersType, Person, SellsBoxesTypes } from '@/types/types';
 import {
 	ChartPieIcon,
 	DocumentDuplicateIcon,
@@ -200,6 +200,75 @@ export const personsData: Person[] = [
 		lastSeenDateTime: null,
 		content:
 			'Unde dolore exercitationem nobis reprehenderit rerum corporis accusamus. Nemo suscipit temporibus quidem dolorum. Nobis optio quae atque blanditiis aspernatur doloribus sit accusamus. Sunt reiciendis ut corrupti ab debitis dolorem dolorem nam sit. Ducimus nisi qui earum aliquam. Est nam doloribus culpa illum.',
+	},
+];
+
+export const ordersData: OrdersType[] = [
+	{
+		id: 1,
+		avatar: '/assets/people/avatar-mark-webber.webp',
+		avatarAlt: 'Mark Webber Photo',
+		name: 'Mark Webber',
+		orderId: '#23709',
+		product: 'MacBook Pro',
+		status: 'Delivered',
+		date: 'Aug 5th, 2023',
+		amount: 400,
+	},
+	{
+		id: 2,
+		avatar: '/assets/people/avatar-angela-gray.webp',
+		avatarAlt: 'Angela Gray Photo',
+		name: 'Angela Gray',
+		orderId: '#23621',
+		product: 'Iphone 11 Pro',
+		status: 'Pending',
+		date: 'Apr 25th, 2023',
+		amount: 200,
+	},
+	{
+		id: 3,
+		avatar: '/assets/people/avatar-jacob-thompson.webp',
+		avatarAlt: 'Jacob Thompson Photo',
+		name: 'Jacob Thompson',
+		orderId: '#24208',
+		product: 'Iphone 15 Pro',
+		status: 'Delivered',
+		date: 'Jun 14th, 2023',
+		amount: 500,
+	},
+	{
+		id: 4,
+		avatar: '/assets/people/avatar-kimberly-smith.webp',
+		avatarAlt: 'Kimberly Smith Photo',
+		name: 'Kimberly Smith',
+		orderId: '#27719',
+		product: 'Lenovo Laptop',
+		status: 'Canceled',
+		date: 'Jan 5th, 2024',
+		amount: 250,
+	},
+	{
+		id: 5,
+		avatar: '/assets/people/avatar-rizky-hasanuddin.webp',
+		avatarAlt: 'Rizky Hasanuddin Photo',
+		name: 'Rizky Hasanuddin',
+		orderId: '#23189',
+		product: 'Samsung Galaxy S21',
+		status: 'Pending',
+		date: 'Nov 5th, 2023',
+		amount: 499,
+	},
+	{
+		id: 6,
+		avatar: '/assets/people/avatar-nathan-peterson.webp',
+		avatarAlt: 'Nathan Peterson Photo',
+		name: 'Nathan Peterson',
+		orderId: '#23799',
+		product: 'MacBook Pro',
+		status: 'Canceled',
+		date: 'Dec 12th, 2023',
+		amount: 400,
 	},
 ];
 

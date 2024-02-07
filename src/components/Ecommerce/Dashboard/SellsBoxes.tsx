@@ -5,6 +5,7 @@ import {
 	IconBag,
 	IconExportGreen,
 } from '../../../../public/assets/svg';
+import ToggleMenu from '@/components/ui/ToggleMenu';
 const SellsBoxes = () => {
 	const [activeMenuId, setActiveMenuId] = useState<number | null>(null);
 
@@ -23,45 +24,14 @@ const SellsBoxes = () => {
 						<h2 className='text-myGray font-poppins text-[14px] font-medium'>
 							{box.title}
 						</h2>
-						<div className='ml-auto translate-x-4 z-10'>
+						<div className='ml-auto translate-x-4 z-50'>
 							<button
 								onClick={() => toggleMenu(box.id)}
 								className='flex items-center justify-between py-2 px-4 cursor-pointer'
 							>
 								<IconToggle />
 							</button>
-							{activeMenuId === box.id && (
-								<div className='absolute mt-2 w-32 right-0 border border-[#313442] bg-myPrimary shadow-lg rounded-lg text-white text-xs '>
-									<ul>
-										<li className='hover:text-myGray'>
-											<a href='#' className='block px-4 py-2'>
-												Sales report
-											</a>
-										</li>
-										<li className='hover:text-myGray'>
-											<a href='#' className='block px-4 py-2'>
-												Export report
-											</a>
-										</li>
-										<li className='hover:text-myGray'>
-											<a href='#' className='block px-4 py-2'>
-												Profit manage
-											</a>
-										</li>
-										<li className='hover:text-myGray'>
-											<a href='#' className='block px-4 py-2'>
-												Revenue report
-											</a>
-										</li>
-										<div className='w-[80%] h-[1px] mx-auto bg-gray-200 my-1'></div>
-										<li className='hover:text-myGray'>
-											<a href='#' className='block px-4 pb-2 text-red-600'>
-												Remove widget
-											</a>
-										</li>
-									</ul>
-								</div>
-							)}
+							{activeMenuId === box.id && <ToggleMenu />}
 						</div>
 					</div>
 					<div className='flex items-center justify-between mb-1'>

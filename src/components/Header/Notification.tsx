@@ -62,7 +62,7 @@ const Notification: React.FC<NotificationProps> = ({
 	}, [onClose]);
 	return (
 		<div
-			className='absolute top-12 right-0 w-[280px] md:w-[330px] bg-myPrimary text-white font-inter rounded-md px-4 py-2'
+			className='absolute top-12 right-0 w-[280px] md:w-[330px] bg-zinc-900 text-white font-inter rounded-md px-4 py-2'
 			ref={notificationRef}
 		>
 			<div className='flex justify-between text-[14px] font-medium mt-2 mb-4'>
@@ -81,7 +81,7 @@ const Notification: React.FC<NotificationProps> = ({
 				<div
 					key={person.id}
 					className={`text-xs flex w-full max-w-md rounded-lg my-2 relative cursor-pointer p-1 hover:bg-myBlack ${
-						person.checked ? '' : 'bg-zinc-900'
+						person.checked ? 'bg-zinc-800' : 'bg-myPrimary'
 					}`}
 				>
 					{person.checked ? null : (
@@ -102,9 +102,7 @@ const Notification: React.FC<NotificationProps> = ({
 								/>
 							</div>
 							<div className='ml-3 w-0 flex-1 font-inter'>
-								<p className='text-sm text-white font-medium'>
-									{person.name}
-								</p>
+								<p className='text-sm text-white font-medium'>{person.name}</p>
 								<p className='mt-1 text-xs text-myGray '>{person.react}</p>
 							</div>
 						</div>

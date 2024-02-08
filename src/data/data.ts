@@ -486,3 +486,106 @@ export const monthlyData = [
 		Delivered: 958,
 	},
 ];
+
+export const dataBars = [
+	{
+		name: 'Mon',
+		score: 2400,
+	},
+	{
+		name: 'Tue',
+		score: 1398,
+	},
+	{
+		name: 'Wed',
+		score: 7800,
+	},
+	{
+		name: 'Thu',
+		score: 3908,
+	},
+	{
+		name: 'Fri',
+		score: 4800,
+	},
+	{
+		name: 'Sat',
+		score: 3800,
+	},
+	{
+		name: 'Sun',
+		score: 4300,
+	},
+];
+
+export const circleData = [
+	{
+		id: 'Direct',
+		label: 'Direct',
+		value: 222,
+		color: 'hsl(211, 70%, 50%)',
+	},
+	{
+		id: 'Social',
+		label: 'Social',
+		value: 276,
+		color: 'hsl(11, 70%, 50%)',
+	},
+	{
+		id: 'Email',
+		label: 'Email',
+		value: 323,
+		color: 'hsl(111, 70%, 50%)',
+	},
+	{
+		id: 'Other',
+		label: 'Other',
+		value: 325,
+		color: 'hsl(307, 70%, 50%)',
+	},
+];
+
+export const weeklyDataBottomCharts = [
+	{
+		name: 'Monday',
+		Completed: 300,
+		Pending: 200,
+		Unpaid: 70,
+	},
+	{
+		name: 'Tuesday',
+		Completed: 320,
+		Pending: 180,
+		Unpaid: 75,
+	},
+	{
+		name: 'Wednesday',
+		Completed: 310,
+		Pending: 220,
+		Unpaid: 62,
+	},
+	{
+		name: 'Thursday',
+		Completed: 330,
+		Pending: 190,
+		Unpaid: 60,
+	},
+	{
+		name: 'Friday',
+		Completed: 340,
+		Pending: 240,
+		Unpaid: 18,
+	},
+	{
+		name: 'Saturday',
+		Completed: 280,
+		Pending: 90,
+		Unpaid: 75,
+	},
+	{
+		name: 'Sunday',
+		Completed: 350,
+		Pending: 150,
+		Unpaid: 32,
+	},
+];

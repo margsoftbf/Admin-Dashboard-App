@@ -5,7 +5,6 @@ import { ordersData } from '@/data/data';
 
 const RecentPurchases = () => {
 	const [isMenuVisible, setIsMenuVisible] = useState(false);
-	const [isActionVisible, setIsActionVisible] = useState(false);
 	const [activeMenuId, setActiveMenuId] = useState<number | null>(null);
 
 	const toggleAction = (id: number) => {
@@ -21,7 +20,7 @@ const RecentPurchases = () => {
 			case 'Delivered':
 				return 'bg-myGreen';
 			case 'Pending':
-				return 'bg-myYellow';
+				return 'bg-myOrange';
 			case 'Canceled':
 				return 'bg-myRed';
 			default:
@@ -29,7 +28,7 @@ const RecentPurchases = () => {
 		}
 	};
 	return (
-		<div className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5'>
+		<div className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5  mb-6'>
 			<div className='flex items-center justify-between py-2'>
 				<h2 className='text-myGray font-poppins text-[14px] font-medium'>
 					Recent Purchases

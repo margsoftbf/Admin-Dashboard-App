@@ -29,13 +29,13 @@ const Message: React.FC<MessageProps> = ({ onClose }) => {
 
 	return (
 		<div
-			className='absolute top-12 -right-16 md:right-0 w-[300px] md:w-[330px] bg-myPrimary text-white font-inter rounded-md  px-4'
+			className='absolute top-12 -right-16 md:right-0 w-[300px] md:w-[330px] bg-zinc-900 text-white font-inter rounded-md py-2 px-4'
 			ref={messageRef}
 		>
 			{personsData.map((person) => (
 				<div
 					key={person.id}
-					className='group pointer-events-auto text-xs flex w-full max-w-md rounded-lg bg-zinc-900  shadow-lg ring-1 p-1 ring-black ring-opacity-5 my-2 py-2 relative cursor-pointer hover:bg-myBlack duration-100'
+					className='group pointer-events-auto text-xs flex w-full max-w-md rounded-lg bg-myPrimary  shadow-lg ring-1 p-1 ring-black ring-opacity-5 my-2 py-2 relative cursor-pointer hover:bg-myBlack duration-100'
 				>
 					<div className='w-0 flex-1 p-0'>
 						<div className='flex h-full items-center mx-1'>

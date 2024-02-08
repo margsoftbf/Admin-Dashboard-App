@@ -52,11 +52,11 @@ const SellsBoxes = () => {
 									{box.percent}%
 								</span>
 							</div>
+						</div>
+					</div>
 							<p className='text-right text-[10px] text-myGray font-poppins leading-5'>
 								Compared to Jan 2023
 							</p>
-						</div>
-					</div>
 				</div>
 			))}
 		</div>

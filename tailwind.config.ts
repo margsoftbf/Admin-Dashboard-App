@@ -7,14 +7,8 @@ const config: Config = {
 		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
 	],
 	purge: {
-		// ...
-		safelist: [
-		  'bg-green-700',
-		  'bg-violet-700',
-		  'bg-yellow-500',
-		  'bg-blue-700',
-		]
-	  },
+		safelist: ['bg-green-700', 'bg-violet-700', 'bg-yellow-500', 'bg-blue-700'],
+	},
 	theme: {
 		extend: {
 			fontFamily: {

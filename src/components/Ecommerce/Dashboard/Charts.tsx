@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { IconToggle } from '../../../../public/assets/svg';
-import { dailyData, weeklyData, monthlyData } from '@/data/data';
+import {
+	containerAnimation,
+	itemAnimation,
+	dailyData,
+	weeklyData,
+	monthlyData,
+} from '@/data/data';
 import ToggleMenu from '@/components/ui/ToggleMenu';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
 
 const Charts = () => {
 	const [timeRange, setTimeRange] = useState('Monthly');
@@ -33,8 +40,16 @@ const Charts = () => {
 	}
 
 	return (
-		<div className='grid grid-cols-1 items-center mb-6 gap-4 2xl:grid-cols-[5fr,2fr]'>
-			<div className='rounded-2xl border border-[#313442] w-full bg-myPrimary py-2 flex-1 px-5'>
+		<motion.div
+			className='grid grid-cols-1 items-center mb-6 gap-4 2xl:grid-cols-[5fr,2fr]'
+			variants={containerAnimation}
+			initial='hidden'
+			animate='visible'
+		>
+			<motion.div
+				className='rounded-2xl border border-[#313442] w-full bg-myPrimary py-2 flex-1 px-5'
+				variants={itemAnimation}
+			>
 				<div className='flex items-center justify-between py-2'>
 					<h2 className='text-myGray font-poppins text-[14px] font-medium'>
 						Sales Performance
@@ -128,8 +143,11 @@ const Charts = () => {
 						/>
 					</AreaChart>
 				</ResponsiveContainer>
-			</div>
-			<div className='h-96 rounded-2xl border border-[#313442] bg-myPrimary py-2 flex-1 px-5'>
+			</motion.div>
+			<motion.div
+				className='h-96 rounded-2xl border border-[#313442] bg-myPrimary py-2 flex-1 px-5'
+				variants={itemAnimation}
+			>
 				<div className='flex items-center justify-between py-2'>
 					<h2 className='text-myGray font-poppins text-[14px] font-medium'>
 						Total Revenue
@@ -185,8 +203,8 @@ const Charts = () => {
 						</div>
 					</div>
 				</div>
-			</div>
-		</div>
+			</motion.div>
+		</motion.div>
 	);
 };
 

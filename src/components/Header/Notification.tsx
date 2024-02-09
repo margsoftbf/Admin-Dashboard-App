@@ -89,9 +89,7 @@ const Notification: React.FC<NotificationProps> = ({
 					)}
 
 					<div
-						className={`w-0 flex-1 p-1 mx-2 ${
-							person.checked ? 'border-b-[1px] border-b-myGray/20' : ''
-						}`}
+						className={`w-0 flex-1 p-1 mx-2`}
 					>
 						<div className='flex items-start'>
 							<div className='flex-shrink-0 pt-0.5'>

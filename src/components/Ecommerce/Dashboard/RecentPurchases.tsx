@@ -1,8 +1,8 @@
 import ToggleMenu from '@/components/ui/ToggleMenu';
 import React, { useState } from 'react';
 import { IconMore, IconToggle } from '../../../../public/assets/svg';
-import { ordersData } from '@/data/data';
-
+import { ordersData, containerAnimation, itemAnimation } from '@/data/data';
+import { motion } from 'framer-motion';
 const RecentPurchases = () => {
 	const [isMenuVisible, setIsMenuVisible] = useState(false);
 	const [activeMenuId, setActiveMenuId] = useState<number | null>(null);
@@ -27,8 +27,15 @@ const RecentPurchases = () => {
 				return 'bg-gray-400';
 		}
 	};
+
+	
 	return (
-		<div className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5  mb-6'>
+		<motion.div
+			className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5  mb-6'
+			variants={containerAnimation}
+			initial='hidden'
+			animate='visible'
+		>
 			<div className='flex items-center justify-between py-2'>
 				<h2 className='text-myGray font-poppins text-[14px] font-medium'>
 					Recent Purchases
@@ -74,9 +81,10 @@ const RecentPurchases = () => {
 				</thead>
 				<tbody>
 					{ordersData.map((order) => (
-						<tr
+						<motion.tr
 							key={order.id}
 							className='border-b border-myGray/30 text-white font-poppins text-[14px]'
+							variants={itemAnimation}
 						>
 							<td className='text-left'>
 								<input className='rounded border-2 w-4 h-4' type='checkbox' />
@@ -149,11 +157,11 @@ const RecentPurchases = () => {
 									</div>
 								</div>
 							</td>
-						</tr>
+						</motion.tr>
 					))}
 				</tbody>
 			</table>
-		</div>
+		</motion.div>
 	);
 };
 

@@ -7,11 +7,18 @@ import {
 	XAxis,
 	Tooltip,
 	ResponsiveContainer,
-	Area,
-	AreaChart,
+	Line,
+	LineChart,
 } from 'recharts';
 import dynamic from 'next/dynamic';
-import { dataBars, circleData, weeklyDataBottomCharts } from '@/data/data';
+import {
+	dataBars,
+	circleData,
+	weeklyDataBottomCharts,
+	containerAnimation,
+	itemAnimation,
+} from '@/data/data';
+import { motion } from 'framer-motion';
 
 const ResponsivePieChart = dynamic(
 	() => import('@nivo/pie').then((mod) => mod.ResponsivePie),
@@ -19,7 +26,6 @@ const ResponsivePieChart = dynamic(
 		ssr: false,
 	}
 );
-
 
 const BottomCharts = () => {
 	const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
@@ -32,8 +38,16 @@ const BottomCharts = () => {
 	};
 
 	return (
-		<div className='grid grid-cols-1 gap-6 2xl:grid-cols-3 mb-6'>
-			<div className='rounded-2xl border relative border-[#313442] bg-myPrimary py-2 flex-1 px-5 w-full'>
+		<motion.div
+			className='grid grid-cols-1 gap-6 2xl:grid-cols-3 mb-6'
+			variants={containerAnimation}
+			initial='hidden'
+			animate='visible'
+		>
+			<motion.div
+				className='rounded-2xl border relative border-[#313442] bg-myPrimary py-2 flex-1 px-5 w-full'
+				variants={itemAnimation}
+			>
 				<div className='flex items-center justify-between py-2'>
 					<h2 className='text-myGray font-poppins text-[14px] font-medium'>
 						Market Overview
@@ -76,9 +90,12 @@ const BottomCharts = () => {
 						/>
 					</BarChart>
 				</ResponsiveContainer>
-			</div>
+			</motion.div>
 
-			<div className='rounded-2xl w-full h-96 border relative border-[#313442] bg-myPrimary py-2 flex-1 px-5 '>
+			<motion.div
+				className='rounded-2xl w-full h-96 border relative border-[#313442] bg-myPrimary py-2 flex-1 px-5 '
+				variants={itemAnimation}
+			>
 				<div className='flex items-center justify-between py-2'>
 					<h2 className='text-myGray font-poppins text-[14px] font-medium'>
 						Visits by Source
@@ -167,8 +184,11 @@ const BottomCharts = () => {
 						/>
 					)}
 				</div>
-			</div>
-			<div className='rounded-2xl border relative border-[#313442] bg-myPrimary py-2 flex-1 px-5'>
+			</motion.div>
+			<motion.div
+				className='rounded-2xl border relative border-[#313442] bg-myPrimary py-2 flex-1 px-5'
+				variants={itemAnimation}
+			>
 				<div className='flex items-center justify-between py-2'>
 					<h2 className='text-myGray font-poppins text-[14px] font-medium'>
 						Total revenue
@@ -185,37 +205,37 @@ const BottomCharts = () => {
 				</div>
 				<div className='w-full bg-myGray/50 h-[1px] mb-5'> </div>
 				<ResponsiveContainer width='100%' height={300}>
-					<AreaChart
+					<LineChart
 						data={weeklyDataBottomCharts}
 						margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
 					>
 						<XAxis dataKey='name' stroke='gray' tick={{ fontSize: 12 }} />
 						<Tooltip />
-						<Area
+						<Line
 							type='monotone'
 							dataKey='Completed'
 							stroke='#EC8C56'
 							fillOpacity={1}
 							fill='#EC8C56'
 						/>
-						<Area
+						<Line
 							type='monotone'
 							dataKey='Pending'
 							stroke='#5415F1'
 							fillOpacity={1}
 							fill='#5415F1'
 						/>
-						<Area
+						<Line
 							type='monotone'
 							dataKey='Unpaid'
 							stroke='#08D6F4'
 							fillOpacity={1}
 							fill='#08D6F4'
 						/>
-					</AreaChart>
+					</LineChart>
 				</ResponsiveContainer>
-			</div>
-		</div>
+			</motion.div>
+		</motion.div>
 	);
 };
 

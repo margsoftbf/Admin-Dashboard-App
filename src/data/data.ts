@@ -35,7 +35,7 @@ export const navigation = [
 			{ name: 'Product List', href: '/ecommerce/product-list', current: false },
 			{
 				name: 'Product Details',
-				href: '/ecommerce/product-details',
+				href: '/ecommerce/product-details/B0CN13WZC6',
 				current: false,
 			},
 			{ name: 'Order List', href: '/ecommerce/order-list', current: false },
@@ -271,6 +271,26 @@ export const ordersData: OrdersType[] = [
 		amount: 400,
 	},
 ];
+
+export const containerAnimation = {
+	hidden: { opacity: 1, scale: 0 },
+	visible: {
+		opacity: 1,
+		scale: 1,
+		transition: {
+			delayChildren: 0.2,
+			staggerChildren: 0.1,
+		},
+	},
+};
+
+export const itemAnimation = {
+	hidden: { y: 20, opacity: 0 },
+	visible: {
+		y: 0,
+		opacity: 1,
+	},
+};
 
 export const sellsBoxesData: SellsBoxesTypes[] = [
 	{

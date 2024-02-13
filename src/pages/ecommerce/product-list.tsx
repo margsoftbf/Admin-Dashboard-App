@@ -46,7 +46,7 @@ const ProductList = () => {
 			stars.push(
 				<span
 					key={i}
-					className={i < numRating ? 'text-myYellow' : 'text-myGray'}
+					className={i < numRating ? 'text-[#FEA73E]' : 'text-myGray'}
 				>
 					<StarIcon className='w-3 h-3' />
 				</span>
@@ -68,14 +68,14 @@ const ProductList = () => {
 					</h2>
 				</div>
 				<motion.table
-					className='w-full min-w-[900px] mt-4 font-poppins'
+					className='w-full mt-4 font-poppins'
 					variants={containerAnimation}
 					initial='hidden'
 					animate='visible'
 				>
 					<thead>
 						<tr className='border-b border-b-myGray/60 text-myGray'>
-							<th className='pb-4'>
+							<th className='pb-4 hidden xs:table-cell'>
 								<div className='flex items-center gap-x-2'>
 									<span className='text-xs font-medium'>Image</span>
 								</div>
@@ -85,7 +85,7 @@ const ProductList = () => {
 									<span className='text-xs font-medium'>Name</span>
 								</div>
 							</th>
-							<th className='pb-4'>
+							<th className='pb-4 hidden xl:table-cell'>
 								<div className='flex items-center gap-x-2'>
 									<span className='text-xs font-medium'>Brand</span>
 								</div>
@@ -95,22 +95,22 @@ const ProductList = () => {
 									<span className='text-xs font-medium'>Price</span>
 								</div>
 							</th>
-							<th className='pb-4'>
+							<th className='pb-4 hidden md:table-cell'>
 								<div className='flex items-center gap-x-2'>
 									<span className='text-xs font-medium'>Status</span>
 								</div>
 							</th>
-							<th className='pb-4'>
+							<th className='pb-4 hidden 2xl:table-cell'>
 								<div className='flex items-center gap-x-2'>
 									<span className='text-xs font-medium'>Review count</span>
 								</div>
 							</th>
-							<th className='pb-4'>
+							<th className='pb-4 hidden xl:table-cell'>
 								<div className='flex items-center gap-x-2'>
 									<span className='text-xs font-medium'>Rating</span>
 								</div>
 							</th>
-							<th className='pb-4'>
+							<th className='pb-4 hidden 2xl:table-cell'>
 								<div className='flex items-center gap-x-2'>
 									<span className='text-xs font-medium'>SKU</span>
 								</div>
@@ -135,8 +135,8 @@ const ProductList = () => {
 									variants={itemAnimation}
 									className='border-b border-b-myGray/60 text-myGray'
 								>
-									<td className='py-7'>
-										<div className='w-20 h-20 flex items-center justify-center border border-myGray/60 rounded-lg'>
+									<td className='py-7 hidden xs:table-cell'>
+										<div className='w-20 h-20 flex items-center justify-center border bg-zinc-900 border-myGray/60 rounded-lg'>
 											<img
 												className=' w-16 h-16 rounded-lg object-contain'
 												src={product.thumbnailImage}
@@ -150,12 +150,12 @@ const ProductList = () => {
 											<p className='text-sm leading-4 text-white font-semibold'>
 												{modelName}
 											</p>
-											<p className='text-xs text-myGray'>
+											<p className='text-xs text-myGray hidden lg:flex'>
 												{product.title.slice(0, 70)}
 											</p>
 										</div>
 									</td>
-									<td className='py-7'>
+									<td className='py-7 hidden xl:table-cell'>
 										<p className='text-sm leading-4 text-myGray'>
 											{product.brand}
 										</p>
@@ -165,7 +165,7 @@ const ProductList = () => {
 											${product.price?.value.toFixed(2)}
 										</p>
 									</td>
-									<td className='py-7'>
+									<td className='py-7 hidden md:table-cell'>
 										<div className='flex items-center gap-x-2'>
 											<div
 												className={`w-2 h-2 rounded-full ${
@@ -177,24 +177,29 @@ const ProductList = () => {
 											</p>
 										</div>
 									</td>
-									<td className='py-7'>
+									<td className='py-7 hidden 2xl:table-cell'>
 										<p className='text-sm leading-4 text-myGray'>
 											{product.reviewsCount}
 										</p>
 									</td>
-									<td className='py-7'>
+									<td className='py-7 hidden xl:table-cell'>
 										<div className='flex items-center relative overflow-hidden gap-[3px]'>
 											<div className='flex items-center absolute overflow-hidden gap-[3px] w-[100%]'></div>
 											{renderStars(product.stars || 0)}
 										</div>
 									</td>
-									<td className='py-7'>
+									<td className='py-7 hidden 2xl:table-cell'>
 										<p className='text-sm leading-4 font-medium text-white'>
 											{product.asin}
 										</p>
 									</td>
-									<td className='py-7 '>
-										<button onClick={() => toggleAction(index)}>
+									<td className='py-7 hidden md:table-cell'>
+										<button
+											onClick={(e) => {
+												e.stopPropagation();
+												toggleAction(index);
+											}}
+										>
 											<IconMore className='cursor-pointer' />
 										</button>
 										{activeMenuId === index && (
@@ -233,7 +238,7 @@ const ProductList = () => {
 			<div className='pagination text-white'>
 				{currentPage > 1 && (
 					<button
-						className='border border-[#313442] rounded-lg w-20 h-10 font-poppins font-semibold mr-4 text-xs text-myGray'
+						className='border border-[#313442] rounded-lg w-20 h-10 font-poppins font-semibold mr-4 text-xs text-myGray hover:bg-myIndigo hover:text-white duration-300 transition'
 						onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
 					>
 						Back
@@ -244,7 +249,7 @@ const ProductList = () => {
 					<button
 						key={number}
 						onClick={() => paginate(number)}
-						className={`w-9 h-9 rounded-md font-poppins text-xs font-medium ${
+						className={`w-9 h-9 mx-1 rounded-md font-poppins text-xs font-medium hover:bg-myIndigo hover:text-white duration-300 transition ${
 							number === currentPage ? 'bg-myViolet font-semibold' : ''
 						}`}
 					>
@@ -254,7 +259,7 @@ const ProductList = () => {
 
 				{currentPage < pageNumbers.length && (
 					<button
-						className='border border-[#313442] rounded-lg w-20 h-10 font-poppins font-semibold ml-4 text-xs text-myGray'
+						className='border border-[#313442] rounded-lg w-20 h-10 font-poppins font-semibold ml-4 text-xs text-myGray hover:bg-myIndigo hover:text-white duration-300 transition'
 						onClick={() =>
 							setCurrentPage((prev) => Math.min(prev + 1, pageNumbers.length))
 						}

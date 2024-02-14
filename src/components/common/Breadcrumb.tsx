@@ -22,7 +22,7 @@ const BreadCrumb: React.FC<BreadCrumbProps> = ({ pathSegments }) => {
 				>
 					{item.current ? (
 						<span
-							className={`text-myViolet font-semibold ${
+							className={`text-myVioletLight font-semibold ${
 								index < pathSegments.length - 1 ? 'mr-2' : ''
 							}`}
 						>

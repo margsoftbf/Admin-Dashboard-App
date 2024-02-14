@@ -7,6 +7,7 @@ import { StarIcon } from '@heroicons/react/24/solid';
 import { containerAnimation, itemAnimation } from '@/data/data';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
+
 const ProductList = () => {
 	const [activeMenuId, setActiveMenuId] = useState<number | null>(null);
 	const [currentPage, setCurrentPage] = useState(1);

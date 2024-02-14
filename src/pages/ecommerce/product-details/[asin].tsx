@@ -7,11 +7,12 @@ import { XMarkIcon } from '@heroicons/react/24/outline';
 import { IconCheck, IconImage } from '../../../../public/assets/svg';
 import { containerAnimation, itemAnimation } from '@/data/data';
 import { motion } from 'framer-motion';
-
+import { ProductTypes } from '@/types/types';
+import InputField from '@/components/Ecommerce/ProductDetails/InputField';
 const ProductDetails = () => {
 	const router = useRouter();
 	const { asin } = router.query;
-	const [product, setProduct] = useState<any | null>(null);
+	const [product, setProduct] = useState<ProductTypes | null>(null);
 	const [tags, setTags] = useState(['tv', 'phone', 'electronic', 'smartwatch']);
 	const [inputTag, setInputTag] = useState('');
 
@@ -26,8 +27,14 @@ const ProductDetails = () => {
 	];
 
 	useEffect(() => {
-		const foundProduct = productData.find((p) => p.asin === asin);
-		setProduct(foundProduct);
+		if (asin) {
+			const foundProduct = productData.find((p) => p.asin === asin);
+			if (foundProduct) {
+				setProduct(foundProduct);
+			} else {
+				setProduct(null);
+			}
+		}
 	}, [asin]);
 
 	const handleChangeInStock = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -41,9 +48,9 @@ const ProductDetails = () => {
 	const handleChange = (
 		e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
 	) => {
-		const { name, value } = e.target;
+		const { name, value, type } = e.target;
 
-		if (name === 'price') {
+		if (type === 'price') {
 			setProduct((prevProduct: any) => ({
 				...prevProduct,
 				price: {
@@ -94,23 +101,16 @@ const ProductDetails = () => {
 					className='w-full 2xl:w-1/2 flex flex-col gap-8 lg:gap-12'
 					variants={itemAnimation}
 				>
-					<div className='flex flex-col w-full 2xl:w-2/3'>
-						<label
-							htmlFor='product-title'
-							className='text-white text-base leading-4 font-poppins  mb-3'
-						>
-							Product Title
-						</label>
-						<input
-							id='product-title'
+					<div className='flex flex-col w-full 3xl:w-2/3'>
+						<InputField
+							label='Product Title'
 							name='title'
 							type='text'
-							className='block font-inter py-2 w-full rounded-md border-0 bg-transparent text-myGray shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
 							value={product?.title || 'Please fill title'}
 							onChange={handleChange}
 						/>
 					</div>
-					<div className='flex flex-col w-full 2xl:w-2/3'>
+					<div className='flex flex-col w-full 3xl:w-2/3'>
 						<label
 							htmlFor='description'
 							className='text-white text-base leading-4 font-poppins  mb-3'
@@ -125,7 +125,7 @@ const ProductDetails = () => {
 							onChange={handleChange}
 						/>
 					</div>
-					<div className='flex flex-col w-full 2xl:w-2/3'>
+					<div className='flex flex-col w-full 3xl:w-2/3'>
 						<label
 							htmlFor='category'
 							className='text-white text-base leading-4 font-poppins  mb-3'
@@ -143,36 +143,22 @@ const ProductDetails = () => {
 							<option>Smartwatches</option>
 						</select>
 					</div>
-					<div className='flex flex-col w-full 2xl:w-2/3'>
-						<label
-							htmlFor='brand'
-							className='text-white text-base leading-4 font-poppins  mb-3'
-						>
-							Brand
-						</label>
-						<input
-							id='brand'
+					<div className='flex flex-col w-full 3xl:w-2/3'>
+						<InputField
+							label='Brand'
 							name='brand'
 							type='text'
-							className='block font-inter py-2 w-full rounded-md border-0 bg-transparent text-myGray shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
-							value={product?.brand || 'Please fill brand'}
+							value={product?.brand || 'Please fill title'}
 							onChange={handleChange}
 						/>
 					</div>
-					<div className='flex flex-col xl:flex-row 2xl:w-2/3 gap-6'>
+					<div className='flex flex-col xl:flex-row 3xl:w-2/3 gap-6'>
 						<div className='flex flex-col w-full 2xl:w-1/2'>
-							<label
-								htmlFor='sku'
-								className='text-white text-base leading-4 font-poppins  mb-3'
-							>
-								SKU
-							</label>
-							<input
-								id='sku'
+							<InputField
+								label='SKU'
 								name='asin'
 								type='text'
-								className='block font-inter py-2 w-full rounded-md border-0 bg-transparent text-myGrayshadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
-								value={product?.asin || 'Please fill brand'}
+								value={product?.asin || 'Please fill title'}
 								onChange={handleChange}
 							/>
 						</div>
@@ -195,41 +181,27 @@ const ProductDetails = () => {
 							</select>
 						</div>
 					</div>
-					<div className='flex flex-col xl:flex-row w-full 2xl:w-2/3 gap-6'>
+					<div className='flex flex-col xl:flex-row w-full 3xl:w-2/3 gap-6'>
 						<div className='flex flex-col w-full 2xl:w-1/2'>
-							<label
-								htmlFor='price'
-								className='text-white text-base leading-4 font-poppins  mb-3'
-							>
-								Regular Price
-							</label>
-							<input
-								id='price'
+							<InputField
+								label='Regular Price'
 								name='price'
 								type='number'
-								className='block font-inter py-2 w-full rounded-md border-0 bg-transparent text-myGray shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
 								value={product?.price?.value || ''}
 								onChange={handleChange}
 							/>
 						</div>
 						<div className='flex flex-col w-full 2xl:w-1/2'>
-							<label
-								htmlFor='sale-price'
-								className='text-white text-base leading-4 font-poppins  mb-3'
-							>
-								Sale Price
-							</label>
-							<input
-								id='sale-price'
-								name='salePrice'
+							<InputField
+								label='Sale Price'
+								name='sale'
 								type='number'
-								className='block font-inter py-2 w-full rounded-md border-0 bg-transparent text-myGray shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
 								value={0}
 								onChange={handleChange}
 							/>
 						</div>
 					</div>
-					<div className='flex flex-col w-full 2xl:w-2/3 '>
+					<div className='flex flex-col w-full 3xl:w-2/3 '>
 						<p className='text-white text-base leading-4 font-poppins  mb-3'>
 							Tags
 						</p>
@@ -255,7 +227,7 @@ const ProductDetails = () => {
 						</div>
 						<input
 							type='text'
-							className='block font-inter py-2 my-2 w-48 rounded-md border-0 bg-myGray text-white placeholder:text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
+							className='block font-inter py-2 my-2 w-48 rounded-md border-0 bg-white text-black placeholder:text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
 							value={inputTag}
 							onChange={handleInputChange}
 							onKeyDown={addTag}
@@ -267,7 +239,7 @@ const ProductDetails = () => {
 					className='w-full 2xl:w-1/2 flex flex-col gap-8 lg:gap-12'
 					variants={itemAnimation}
 				>
-					<div className='flex flex-col w-full 2xl:w-2/3'>
+					<div className='flex flex-col w-full 3xl:w-2/3'>
 						<p className='text-white text-base leading-4 font-poppins  mb-3'>
 							Product Main Image
 						</p>
@@ -279,7 +251,7 @@ const ProductDetails = () => {
 							/>
 						</div>
 					</div>
-					<div className='flex flex-col w-full 2xl:w-2/3'>
+					<div className='flex flex-col w-full 3xl:w-2/3'>
 						<p className='text-white text-base leading-4 font-poppins  mb-3'>
 							Upload image
 						</p>
@@ -293,7 +265,7 @@ const ProductDetails = () => {
 							</p>
 						</div>
 					</div>
-					<div className='flex flex-col w-full 2xl:w-2/3'>
+					<div className='flex flex-col w-full 3xl:w-2/3'>
 						<p className='text-white text-base leading-4 font-poppins  mb-3'>
 							Images
 						</p>
@@ -317,12 +289,12 @@ const ProductDetails = () => {
 												</span>
 											</div>
 										</div>
-										<IconCheck className='w-5 h-5' />
+										<IconCheck className='w-5 h-5 2xl:w-8 2xl:h-8' />
 									</div>
 								))}
 						</div>
 					</div>
-					<div className='flex items-center justify-end gap-x-4 flex-wrap gap-y-4 w-full 2xl:w-2/3'>
+					<div className='flex items-center justify-end gap-x-4 flex-wrap gap-y-4 w-full 3xl:w-2/3'>
 						<button className='transition-all duration-300 bg-myViolet hover:bg-myIndigo px-6 py-3 rounded-md'>
 							Update
 						</button>

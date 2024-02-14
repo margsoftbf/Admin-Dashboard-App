@@ -19,6 +19,7 @@ const config: Config = {
 				myBlue: '#2775FF',
 				myGreen: '#50D1B2',
 				myViolet: '#7364DB',
+				myVioletLight: '#AA9FF0',
 				myOrange: '#EC8C56',
 				myFuchsia: '#DD50D6',
 				myEmerald: '#5EEA8D',

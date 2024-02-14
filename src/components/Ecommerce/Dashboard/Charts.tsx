@@ -58,19 +58,19 @@ const Charts = () => {
 						<div className='-z-10 flex gap-3 font-poppins text-xs text-myGray'>
 							<button
 								onClick={() => setTimeRange('Daily')}
-								className={timeRange === 'Daily' ? 'text-myViolet' : ''}
+								className={timeRange === 'Daily' ? 'text-myVioletLight' : ''}
 							>
 								Daily
 							</button>
 							<button
 								onClick={() => setTimeRange('Weekly')}
-								className={timeRange === 'Weekly' ? 'text-myViolet' : ''}
+								className={timeRange === 'Weekly' ? 'text-myVioletLight' : ''}
 							>
 								Weekly
 							</button>
 							<button
 								onClick={() => setTimeRange('Monthly')}
-								className={timeRange === 'Monthly' ? 'text-myViolet' : ''}
+								className={timeRange === 'Monthly' ? 'text-myVioletLight' : ''}
 							>
 								Monthly
 							</button>

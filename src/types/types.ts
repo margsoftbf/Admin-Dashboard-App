@@ -32,3 +32,57 @@ export interface SellsBoxesTypes {
 	percent: number;
 	bgColor: string;
 }
+
+interface Price {
+	value: number;
+	currency: string;
+}
+
+interface ProductAttribute {
+	key: string;
+	value: string;
+}
+
+interface Product {
+	asin: string;
+	quantity: number;
+}
+
+export interface ProductTypes {
+	title: string;
+	url: string;
+	asin: string;
+	inStock: boolean;
+	brand: string;
+	price: Price;
+	stars: number | null;
+	reviewsCount: number | null;
+	thumbnailImage: string;
+	galleryThumbnails: string[];
+	highResolutionImages: string[];
+	description: string | null;
+	features: string[];
+	productOverview: ProductAttribute[];
+}
+
+export interface OrderListTypes {
+	id: number;
+	avatar: string;
+	avatarAlt: string;
+	name: string;
+	phone: string;
+	street: string;
+	zipCode: string;
+	city: string;
+	orderId: string;
+	online: boolean;
+	review: string;
+	rating: number;
+	joined: string;
+	date: string;
+	shippingType: string;
+	payment: string;
+	status: string;
+	cardNumber: string;
+	products: Product[];
+}

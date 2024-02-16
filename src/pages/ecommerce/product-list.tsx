@@ -148,7 +148,7 @@ const ProductList = () => {
 
 									<td className='py-7'>
 										<div className='flex flex-col gap-y-1 max-w-[250px]'>
-											<p className='text-sm leading-4 text-white font-semibold'>
+											<p className='text-sm leading-4 text-white line-clamp-1 font-semibold'>
 												{modelName}
 											</p>
 											<p className='text-xs text-myGray hidden lg:flex'>
@@ -204,7 +204,7 @@ const ProductList = () => {
 											<IconMore className='cursor-pointer' />
 										</button>
 										{activeMenuId === index && (
-											<div className='z-50 absolute mt-2 w-32 right-0 border border-[#313442] bg-myPrimary shadow-lg rounded-lg text-white text-xs '>
+											<div className='z-50 absolute mt-2 w-28 text-right right-12 border border-[#313442] bg-myPrimary shadow-lg rounded-lg text-white text-xs '>
 												<ul>
 													<li className='hover:text-myGray'>
 														<a href='#' className='block px-4 py-2'>
@@ -214,11 +214,6 @@ const ProductList = () => {
 													<li className='hover:text-myGray'>
 														<a href='#' className='block px-4 py-2'>
 															Edit
-														</a>
-													</li>
-													<li className='hover:text-myGray'>
-														<a href='#' className='block px-4 py-2'>
-															Completed
 														</a>
 													</li>
 													<li className='hover:text-myGray'>
@@ -236,10 +231,10 @@ const ProductList = () => {
 					})}
 				</motion.table>
 			</div>
-			<div className='pagination text-white'>
+			<div className='flex pagination text-white'>
 				{currentPage > 1 && (
 					<button
-						className='border border-[#313442] rounded-lg w-20 h-10 font-poppins font-semibold mr-4 text-xs text-myGray hover:bg-myIndigo hover:text-white duration-300 transition'
+						className='hidden xs:block border border-[#313442] rounded-lg w-20 h-10 font-poppins font-semibold mr-4 text-xs text-myGray hover:bg-myIndigo hover:text-white duration-300 transition'
 						onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
 					>
 						Back
@@ -260,7 +255,7 @@ const ProductList = () => {
 
 				{currentPage < pageNumbers.length && (
 					<button
-						className='border border-[#313442] rounded-lg w-20 h-10 font-poppins font-semibold ml-4 text-xs text-myGray hover:bg-myIndigo hover:text-white duration-300 transition'
+						className='hidden xs:block border border-[#313442] rounded-lg w-20 h-10 font-poppins font-semibold ml-4 text-xs text-myGray hover:bg-myIndigo hover:text-white duration-300 transition'
 						onClick={() =>
 							setCurrentPage((prev) => Math.min(prev + 1, pageNumbers.length))
 						}

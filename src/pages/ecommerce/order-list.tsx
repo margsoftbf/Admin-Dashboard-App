@@ -1,11 +1,14 @@
-import BreadCrumb from '@/components/common/Breadcrumb';
-import MainLayout from '@/components/layout/MainLayout';
 import React, { useState } from 'react';
-import { ordersList, containerAnimation, itemAnimation } from '@/data/data';
-import { motion } from 'framer-motion';
-import { CalendarDaysIcon, MapPinIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/router';
+import { CalendarDaysIcon, MapPinIcon } from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
+import MainLayout from '@/components/layout/MainLayout';
+import BreadCrumb from '@/components/common/Breadcrumb';
+import { ordersList, containerAnimation, itemAnimation } from '@/data/data';
 import { IconMore } from '../../../public/assets/svg';
+import productData from '../../data/products.json';
+import { ProductTypes, OrderListTypes } from '@/types/types';
+
 const OrderList = () => {
 	const pathSegments = [
 		{ name: 'Home', href: '/', current: false },
@@ -49,6 +52,24 @@ const OrderList = () => {
 				return '';
 		}
 	};
+
+	const calculateTotalAmount = (
+		order: OrderListTypes,
+		productsData: ProductTypes[]
+	): string => {
+		const totalAmount = order.products.reduce((acc, productOrder) => {
+			const productDetails = productsData.find(
+				(product) => product.asin === productOrder.asin
+			);
+			if (productDetails) {
+				return acc + productDetails.price.value * productOrder.quantity;
+			}
+			return acc;
+		}, 0);
+
+		return totalAmount.toFixed(2);
+	};
+
 	return (
 		<MainLayout>
 			<h1 className='my-2 font-poppins text-2xl ml-1 text-white font-bold'>
@@ -69,48 +90,43 @@ const OrderList = () => {
 				>
 					<thead>
 						<tr className='border-b border-b-myGray/60 text-myGray'>
-							<th className='text-left'>
+							<th className='text-left px-2'>
 								<input
 									className='rounded border-2 w-4 h-4 mb-2'
 									type='checkbox'
 								/>
 							</th>
-							<th className='pb-2 hidden xs:table-cell'>
+							<th className='pb-2 hidden xs:table-cell px-2'>
 								<div className='flex items-center gap-x-2'>
 									<span className='text-xs font-medium'>Order ID</span>
 								</div>
 							</th>
 							<th className='pb-2'>
-								<div className='flex items-center gap-x-2'>
+								<div className='flex items-center gap-x-2 px-2'>
 									<span className='text-xs font-medium'>Customer Name</span>
 								</div>
 							</th>
-							<th className='pb-2 hidden xl:table-cell'>
+							<th className='pb-2 hidden xl:table-cell px-2'>
 								<div className='flex items-center gap-x-2'>
 									<span className='text-xs font-medium'>Address</span>
 								</div>
 							</th>
-							<th className='pb-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>City</span>
-								</div>
-							</th>
-							<th className='pb-2 hidden md:table-cell'>
+							<th className='pb-2 hidden xl:table-cell px-2'>
 								<div className='flex items-center gap-x-2'>
 									<span className='text-xs font-medium'>Date</span>
 								</div>
 							</th>
-							<th className='pb-2 hidden 2xl:table-cell'>
+							<th className='pb-2 hidden 2xl:table-cell px-2'>
 								<div className='flex items-center gap-x-2'>
 									<span className='text-xs font-medium'>Payment Method</span>
 								</div>
 							</th>
-							<th className='pb-2 hidden 2xl:table-cell'>
+							<th className='pb-2 hidden 2xl:table-cell px-2'>
 								<div className='flex items-center gap-x-2'>
 									<span className='text-xs font-medium'>Total</span>
 								</div>
 							</th>
-							<th className='pb-2 hidden xl:table-cell'>
+							<th className='pb-2 hidden md:table-cell px-2'>
 								<div className='flex items-center gap-x-2'>
 									<span className='text-xs font-medium'>Status</span>
 								</div>
@@ -124,15 +140,15 @@ const OrderList = () => {
 								key={order.id}
 								variants={itemAnimation}
 								onClick={() => handleRowClick(order.orderId)}
-								className='hover:bg-zinc-800 cursor-pointer border-b border-b-myGray/60 text-white text-[14px] '
+								className='hover:bg-zinc-800 cursor-pointer border-b border-b-myGray/60 text-white text-[14px]'
 							>
-								<td className='text-left py-6'>
+								<td className='text-left py-6 lg:py-8 px-2'>
 									<input className='rounded border-2 w-4 h-4' type='checkbox' />
 								</td>
 								<td className='hidden xs:table-cell px-2 py-2'>
 									#{order.orderId}
 								</td>
-								<td className='py-2'>
+								<td className='py-2 px-2'>
 									<div className='flex items-center gap-2'>
 										<div className='w-6 h-6 rounded-full overflow-hidden'>
 											<img src={order.avatar} alt={order.avatarAlt} />
@@ -141,26 +157,23 @@ const OrderList = () => {
 									</div>
 								</td>
 								<td className='hidden xl:table-cell px-2 py-2'>
-									<div className='flex gap-1'>
+									<div className='flex gap-1 items-center'>
 										<MapPinIcon className='w-5 h-5' />
-										<span>
-											{order.street}, {order.zipCode}
-										</span>
+										<div className='flex flex-col text-xs'>
+											<span>{order.street}</span>
+											<span>
+												{order.zipCode}, {order.city}
+											</span>
+										</div>
 									</div>
 								</td>
-								<td className='py-2'>
-									<div className='flex gap-1'>
-										<MapPinIcon className='w-5 h-5' />
-										{order.city}
-									</div>
-								</td>
-								<td className='hidden md:table-cell py-2'>
+								<td className='hidden xl:table-cell py-2 px-2'>
 									<div className='flex items-center gap-1'>
 										<CalendarDaysIcon className='w-5 h-5' />
 										{order.date}
 									</div>
 								</td>
-								<td className='hidden 2xl:table-cell py-2'>
+								<td className='hidden 2xl:table-cell py-2 px-2'>
 									<div className='flex items-center gap-1'>
 										<img
 											src={getPaymentMethodImage(order.payment)}
@@ -171,8 +184,10 @@ const OrderList = () => {
 									</div>
 								</td>
 
-								<td className='hidden 2xl:table-cell py-2 px-2'>Total</td>
-								<td className='hidden xl:table-cell py-2'>
+								<td className='hidden 2xl:table-cell py-2 px-2'>
+									${calculateTotalAmount(order, productData)}
+								</td>
+								<td className='hidden md:table-cell py-2 px-2'>
 									<div className='flex items-center gap-x-2'>
 										<div
 											className={`w-2 h-2 rounded-full ${getStatusColorClass(
@@ -192,7 +207,7 @@ const OrderList = () => {
 										<IconMore className='cursor-pointer' />
 									</button>
 									{activeMenuId === order.id && (
-										<div className='z-50 absolute mt-2 w-32 right-0 border border-[#313442] bg-myPrimary shadow-lg rounded-lg text-white text-xs '>
+										<div className='z-50 absolute mt-2 w-28 right-12 border border-[#313442] bg-myPrimary shadow-lg rounded-lg text-white text-xs text-right'>
 											<ul>
 												<li className='hover:text-myGray'>
 													<a href='#' className='block px-4 py-2'>
@@ -202,11 +217,6 @@ const OrderList = () => {
 												<li className='hover:text-myGray'>
 													<a href='#' className='block px-4 py-2'>
 														Edit
-													</a>
-												</li>
-												<li className='hover:text-myGray'>
-													<a href='#' className='block px-4 py-2'>
-														Completed
 													</a>
 												</li>
 												<li className='hover:text-myGray'>

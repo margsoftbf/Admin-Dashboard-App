@@ -4,18 +4,24 @@ import MainLayout from '@/components/layout/MainLayout';
 import BreadCrumb from '@/components/common/Breadcrumb';
 import productData from '../../../data/products.json';
 import { XMarkIcon } from '@heroicons/react/24/outline';
-import { IconCheck, IconImage } from '../../../../public/assets/svg';
+import {
+	IconCheck,
+	IconDelete,
+	IconImage,
+} from '../../../../public/assets/svg';
 import { containerAnimation, itemAnimation } from '@/data/data';
 import { motion } from 'framer-motion';
 import { ProductTypes } from '@/types/types';
 import InputField from '@/components/Ecommerce/ProductDetails/InputField';
+import Modal from 'react-modal';
 const ProductDetails = () => {
 	const router = useRouter();
 	const { asin } = router.query;
 	const [product, setProduct] = useState<ProductTypes | null>(null);
 	const [tags, setTags] = useState(['tv', 'phone', 'electronic', 'smartwatch']);
 	const [inputTag, setInputTag] = useState('');
-
+	const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false);
+	const [confirmAction, setConfirmAction] = useState('');
 	const pathSegments = [
 		{ name: 'Home', href: '/', current: false },
 		{ name: 'Dashboard', href: '/ecommerce', current: false },
@@ -83,6 +89,20 @@ const ProductDetails = () => {
 
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setInputTag(e.target.value);
+	};
+
+	const handleOpenConfirmModal = (action: string) => {
+		setConfirmAction(action);
+		setIsConfirmModalOpen(true);
+	};
+
+	const handleCloseConfirmModal = () => {
+		setIsConfirmModalOpen(false);
+	};
+
+	const handleConfirmAction = () => {
+		console.log(`${confirmAction} confirmed`);
+		setIsConfirmModalOpen(false);
 	};
 
 	return (
@@ -275,36 +295,73 @@ const ProductDetails = () => {
 								.map((thumbnail: string, index: number) => (
 									<div
 										key={index}
-										className='flex items-center flex-col xs:flex-row gap-2 justify-between border pl-3 pr-3 transition-all duration-300 border-[#313442] rounded-md hover:shadow-xl overflow-hidden py-3'
+										className='flex items-center flex-row gap-2 justify-between border pl-3 pr-3 transition-all duration-300 border-[#313442] rounded-md hover:shadow-xl overflow-hidden py-3'
 									>
 										<img
 											className='w-16 h-16 rounded-md'
 											src={thumbnail}
 											alt={`Gallery thumbnail ${index + 1}`}
 										/>
-										<div className='flex flex-col flex-1 gap-y-3 pl-2'>
+										<div className='flex flex-col flex-1 gap-y-3 pl-2 overflow-hidden'>
 											<div className='flex items-center justify-between'>
 												<span className='text-myGray text-xs leading-4'>
-													Product_thumbnail_1.png
+													{`Product_thumbnail_${index + 1}.png`}
 												</span>
 											</div>
 										</div>
-										<IconCheck className='w-5 h-5 2xl:w-8 2xl:h-8' />
+										<IconCheck className='w-5 h-5 md:w-8 md:h-8 cursor-pointer' />
+										<IconDelete className='w-5 h-5 md:w-8 md:h-8 cursor-pointer' />
 									</div>
 								))}
 						</div>
 					</div>
-					<div className='flex items-center justify-end gap-x-4 flex-wrap gap-y-4 w-full 3xl:w-2/3'>
-						<button className='transition-all duration-300 bg-myViolet hover:bg-myIndigo px-6 py-3 rounded-md'>
+					<div className='flex items-center justify-between xs:justify-end gap-x-4 flex-wrap gap-y-4 w-full 3xl:w-2/3'>
+						<button
+							onClick={() => handleOpenConfirmModal('update')}
+							className='transition-all duration-300 bg-myViolet hover:bg-myIndigo px-2 py-2 rounded-md'
+						>
 							Update
 						</button>
-						<button className='transition-all duration-300 bg-myRed hover:bg-red-800 px-6 py-3 rounded-md'>
+						<button
+							onClick={() => handleOpenConfirmModal('delete')}
+							className='transition-all duration-300 bg-myRed hover:bg-red-800 px-2 py-2 rounded-md'
+						>
 							Delete
 						</button>
-						<button className=' bg-[#E8EDF2] text-myViolet transition-all duration-300 hover:bg-gray-400 hover:text-white  px-6 py-3 rounded-md'>
+						<button
+							onClick={() => handleOpenConfirmModal('cancel')}
+							className='bg-[#E8EDF2] text-myViolet transition-all duration-300 hover:bg-gray-400 hover:text-white  px-2 py-2 rounded-md'
+						>
 							Cancel
 						</button>
 					</div>
+					<Modal
+						isOpen={isConfirmModalOpen}
+						onRequestClose={handleCloseConfirmModal}
+						contentLabel='Confirm Action'
+						className='inset-0 flex relative max-h-[80%] justify-center items-center z-50 overflow-y-auto mx-4 my-12 top-12 outline-none'
+						overlayClassName='fixed top-0 left-0 right-0 bottom-0 bg-black/95 flex justify-center items-center z-50'
+					>
+						<div className='bg-white rounded-md p-4 mx-auto max-w-8xl px-6 lg:px-8 text-black relative overflow-y-auto max-h-[80vh]'>
+							<h2 className='font-poppins p-2'>
+								Are you sure you want to {confirmAction}?
+							</h2>
+							<div className='flex w-full gap-4 justify-center'>
+								<button
+									className='px-4 py-2 bg-green-600 rounded-md text-white'
+									onClick={handleConfirmAction}
+								>
+									Yes
+								</button>
+								<button
+									className='px-4 py-2 bg-red-600 rounded-md text-white'
+									onClick={handleCloseConfirmModal}
+								>
+									No
+								</button>
+							</div>
+						</div>
+					</Modal>
 				</motion.div>
 			</motion.div>
 		</MainLayout>

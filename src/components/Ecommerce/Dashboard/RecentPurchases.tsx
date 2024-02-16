@@ -28,7 +28,6 @@ const RecentPurchases = () => {
 		}
 	};
 
-	
 	return (
 		<motion.div
 			className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5  mb-6'
@@ -53,7 +52,7 @@ const RecentPurchases = () => {
 			<div className='w-full bg-myGray/50 h-[1px] mb-5'> </div>
 			<table className='w-full table-auto'>
 				<thead>
-					<tr className='border-b border-myGray/30 pb-4 font-poppins text-[14px] text-myGray'>
+					<tr className='border-b border-myGray/30 pb-4 font-poppins text-[14px] text-myGray '>
 						<th className='text-left'>
 							<input
 								className='rounded border-2 w-4 h-4 mb-2'
@@ -83,7 +82,7 @@ const RecentPurchases = () => {
 					{ordersData.map((order) => (
 						<motion.tr
 							key={order.id}
-							className='border-b border-myGray/30 text-white font-poppins text-[14px]'
+							className='border-b border-myGray/30 text-white font-poppins text-[14px] hover:bg-zinc-900 cursor-pointer'
 							variants={itemAnimation}
 						>
 							<td className='text-left'>

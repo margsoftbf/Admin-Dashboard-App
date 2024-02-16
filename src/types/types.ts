@@ -71,6 +71,7 @@ export interface OrderListTypes {
 	avatarAlt: string;
 	name: string;
 	phone: string;
+	email: string;
 	street: string;
 	zipCode: string;
 	city: string;

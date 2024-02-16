@@ -5,6 +5,7 @@ import SellsBoxes from '@/components/Ecommerce/Dashboard/SellsBoxes';
 import Charts from '@/components/Ecommerce/Dashboard/Charts';
 import RecentPurchases from '@/components/Ecommerce/Dashboard/RecentPurchases';
 import BottomCharts from '@/components/Ecommerce/Dashboard/BottomCharts';
+import OrderList from './order-list';
 const EcommerceHomePage = () => {
 	const pathSegments = [
 		{ name: 'Home', href: '/', current: false },

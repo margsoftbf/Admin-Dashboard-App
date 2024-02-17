@@ -41,6 +41,7 @@ const RecentPurchases = () => {
 				</h2>
 				<div>
 					<button
+						aria-label='More'
 						className='flex items-center justify-between py-2 px-0 cursor-pointer'
 						onClick={toggleMenu}
 					>
@@ -86,7 +87,14 @@ const RecentPurchases = () => {
 							variants={itemAnimation}
 						>
 							<td className='text-left'>
-								<input className='rounded border-2 w-4 h-4' type='checkbox' />
+								<label htmlFor={`checkbox-${order.id}`} className='sr-only'>
+									Select order {order.id}
+								</label>
+								<input
+									id={`checkbox-${order.id}`}
+									className='rounded border-2 w-4 h-4'
+									type='checkbox'
+								/>
 							</td>
 							<td className=''>
 								<span className=''>{order.product}</span>
@@ -122,6 +130,7 @@ const RecentPurchases = () => {
 								<div className='relative w-full flex justify-end'>
 									<div className='relative'>
 										<button
+											aria-label='More'
 											className='cursor-pointer dropdown-label flex items-center justify-end p-3'
 											onClick={() => toggleAction(order.id)}
 										>

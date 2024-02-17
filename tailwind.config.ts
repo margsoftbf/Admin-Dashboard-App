@@ -25,7 +25,7 @@ const config: Config = {
 				myEmerald: '#5EEA8D',
 				myIndigo: '#5415F1',
 				myYellow: '#ECE663',
-				myRed: '#E23738',
+				myRed: '#BF2323',
 				mySky: '#08D6F4',
 				myPink: '#FB7BB8',
 				myPrimary: '#1F2128',

@@ -91,7 +91,11 @@ const OrderList = () => {
 					<thead>
 						<tr className='border-b border-b-myGray/60 text-myGray'>
 							<th className='text-left px-2'>
+								<label htmlFor='selectAllCheckbox' className='sr-only'>
+									Select all orders
+								</label>
 								<input
+									id='selectAllCheckbox'
 									className='rounded border-2 w-4 h-4 mb-2'
 									type='checkbox'
 								/>
@@ -143,7 +147,17 @@ const OrderList = () => {
 								className='hover:bg-zinc-800 cursor-pointer border-b border-b-myGray/60 text-white text-[14px]'
 							>
 								<td className='text-left py-6 lg:py-8 px-2'>
-									<input className='rounded border-2 w-4 h-4' type='checkbox' />
+									<label
+										htmlFor={`selectOrder-${order.id}`}
+										className='sr-only'
+									>
+										Select order {order.orderId}
+									</label>
+									<input
+										id={`selectOrder-${order.id}`}
+										className='rounded border-2 w-4 h-4'
+										type='checkbox'
+									/>
 								</td>
 								<td className='hidden xs:table-cell px-2 py-2'>
 									#{order.orderId}
@@ -151,7 +165,10 @@ const OrderList = () => {
 								<td className='py-2 px-2'>
 									<div className='flex items-center gap-2'>
 										<div className='w-6 h-6 rounded-full overflow-hidden'>
-											<img src={order.avatar} alt={order.avatarAlt} />
+											<img
+												src={order.avatar}
+												alt={`Avatar of ${order.avatarAlt}`}
+											/>
 										</div>
 										<p className='text-normal text-gray-1100 '>{order.name}</p>
 									</div>
@@ -177,7 +194,7 @@ const OrderList = () => {
 									<div className='flex items-center gap-1'>
 										<img
 											src={getPaymentMethodImage(order.payment)}
-											alt={order.payment}
+											alt=''
 											className='w-auto h-6'
 										/>
 										{order.payment}
@@ -199,6 +216,7 @@ const OrderList = () => {
 								</td>
 								<td className='px-2 py-2'>
 									<button
+										aria-label='More'
 										onClick={(e) => {
 											e.stopPropagation();
 											toggleAction(order.id);

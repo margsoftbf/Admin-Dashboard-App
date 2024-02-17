@@ -54,6 +54,7 @@ const BottomCharts = () => {
 					</h2>
 					<div>
 						<button
+							aria-label='More'
 							className='flex items-center justify-between py-2 px-0 cursor-pointer'
 							onClick={() => toggleMenu('market')}
 						>
@@ -102,6 +103,7 @@ const BottomCharts = () => {
 					</h2>
 					<div>
 						<button
+							aria-label='More'
 							className='flex items-center justify-between py-2 px-0 cursor-pointer'
 							onClick={() => toggleMenu('visits')}
 						>
@@ -195,6 +197,7 @@ const BottomCharts = () => {
 					</h2>
 					<div>
 						<button
+							aria-label='More'
 							className='flex items-center justify-between py-2 px-0 cursor-pointer'
 							onClick={() => toggleMenu('revenue')}
 						>

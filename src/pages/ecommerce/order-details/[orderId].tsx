@@ -90,11 +90,11 @@ const OrderDetails = () => {
 	};
 
 	const calculateTax = (subtotal: number) => {
-		const taxRate = 0.2; 
+		const taxRate = 0.2;
 		return subtotal * taxRate;
 	};
 
-	const calculateTotal = (subtotal: number, tax:number) => {
+	const calculateTotal = (subtotal: number, tax: number) => {
 		return subtotal + tax;
 	};
 
@@ -119,9 +119,9 @@ const OrderDetails = () => {
 				initial='hidden'
 				animate='visible'
 			>
-				<h3 className='font-poppins text-gray-1100 text-base leading-4 mb-8 mt-2'>
+				<p className='font-poppins text-gray-1100 text-base leading-4 mb-8 mt-2'>
 					Orders ID: #{orderId}
-				</h3>
+				</p>
 				<div className='flex justify-between items-center flex-col gap-y-4 mb-3 lg:mb-1 xs:flex-row pb-3 border-b border-b-myGray/60'>
 					<div className='flex gap-3 text-[14px]'>
 						<CalendarDaysIcon className='w-5 h-5' />
@@ -142,7 +142,7 @@ const OrderDetails = () => {
 						<button className='rounded-md w-full xs:w-20 h-12 bg-myBlack transition duration-300 cursor-pointer hover:bg-myViolet'>
 							Save
 						</button>
-						<button className='rounded-md w-full xs:w-20 h-12 bg-myBlack flex items-center justify-center transition duration-300 cursor-pointer hover:bg-myViolet'>
+						<button aria-label='Printer icon' className='rounded-md w-full xs:w-20 h-12 bg-myBlack flex items-center justify-center transition duration-300 cursor-pointer hover:bg-myViolet'>
 							<PrinterIcon className='w-6 h-6' />
 						</button>
 					</div>
@@ -280,7 +280,7 @@ const OrderDetails = () => {
 											type='checkbox'
 										/>
 									</td>
-									<td className='text-left py-6 lg:py-8 px-2 flex gap-4 items-center'>
+									<td className='text-left py-6 lg:py-8 px-2 flex gap-4 items-center '>
 										<img
 											src={product.thumbnailImage}
 											alt='Prodcut image'
@@ -308,7 +308,7 @@ const OrderDetails = () => {
 						<p>Total:</p>
 						<p>Status:</p>
 					</div>
-					<div className='flex flex-col text-right gap-y-4 text-[14px] text-gray-500'>
+					<div className='flex flex-col text-right gap-y-4 text-[14px] text-white'>
 						<p>${subtotal.toFixed(2)}</p>
 						<p>${tax.toFixed(2)}</p>
 

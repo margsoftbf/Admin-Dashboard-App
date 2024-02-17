@@ -34,6 +34,7 @@ const SellsBoxes = () => {
 						</h2>
 						<div className='ml-auto translate-x-4 relative'>
 							<button
+								aria-label='More'
 								onClick={() => toggleMenu(box.id)}
 								className='flex items-center justify-between py-2 px-4 cursor-pointer'
 							>

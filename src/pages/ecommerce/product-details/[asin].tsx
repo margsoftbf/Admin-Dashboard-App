@@ -231,12 +231,15 @@ const ProductDetails = () => {
 									{tags.map((tag, index) => (
 										<p
 											key={index}
-											className='font-poppins bg-[#313442] p-2 h-6 rounded-lg flex items-center justify-center gap-1 text-myGray'
+											className='font-poppins bg-[#313442] p-2 h-6 rounded-lg flex items-center justify-center gap-1 text-gray-300'
 										>
 											{tag}
 
 											<button type='button' onClick={() => removeTag(index)}>
-												<XMarkIcon className='w-3 h-3' />
+												<XMarkIcon
+													className='w-3 h-3'
+													aria-label='Delete tag'
+												/>
 											</button>
 										</p>
 									))}
@@ -330,7 +333,7 @@ const ProductDetails = () => {
 						</button>
 						<button
 							onClick={() => handleOpenConfirmModal('cancel')}
-							className='bg-[#E8EDF2] text-myViolet transition-all duration-300 hover:bg-gray-400 hover:text-white  px-2 py-2 rounded-md'
+							className='bg-[#E8EDF2] text-myIndigo transition-all duration-300 hover:bg-gray-400 hover:text-white  px-2 py-2 rounded-md'
 						>
 							Cancel
 						</button>

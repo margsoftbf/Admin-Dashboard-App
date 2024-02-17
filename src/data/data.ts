@@ -51,7 +51,7 @@ export const navigation = [
 			},
 			{
 				name: 'Customer Review',
-				href: '/ecommerce/customer-review',
+				href: '/ecommerce/customer-review/23709',
 				current: false,
 			},
 		],
@@ -756,7 +756,7 @@ export const ordersList = [
 		avatarAlt: 'Daniel Jones Photo',
 		name: 'Jennifer Baker',
 		email: 'Jenniferbaker@email.com',
-		phone: '001-806-995-5509x24776',
+		phone: '001-806-995-5509',
 		street: '19318 Anderson Tunnel Apt. 585',
 		zipCode: '78216',
 		city: 'Port Natashaland',

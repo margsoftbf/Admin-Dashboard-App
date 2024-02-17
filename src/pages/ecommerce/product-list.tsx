@@ -196,6 +196,7 @@ const ProductList = () => {
 									</td>
 									<td className='py-7 hidden md:table-cell'>
 										<button
+											aria-label='More'
 											onClick={(e) => {
 												e.stopPropagation();
 												toggleAction(index);

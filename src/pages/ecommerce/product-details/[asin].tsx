@@ -235,11 +235,12 @@ const ProductDetails = () => {
 										>
 											{tag}
 
-											<button type='button' onClick={() => removeTag(index)}>
-												<XMarkIcon
-													className='w-3 h-3'
-													aria-label='Delete tag'
-												/>
+											<button
+												aria-label='Delete tag'
+												type='button'
+												onClick={() => removeTag(index)}
+											>
+												<XMarkIcon className='w-3 h-3' />
 											</button>
 										</p>
 									))}
@@ -280,7 +281,7 @@ const ProductDetails = () => {
 						</p>
 						<div className='flex flex-col justify-center items-center w-full shadow-sm border-dashed border-2 border-[#313442] rounded-md p-8'>
 							<IconImage className='w-8 h-8 mb-6 cursor-pointer' />
-							<p className='text-sm leading-6 text-gray-500 font-normal mb-1 text-center'>
+							<p className='text-sm leading-6 text-gray-400 font-normal mb-1 text-center'>
 								Drop your image here, or browse
 							</p>
 							<p className='leading-6 text-gray-400 text-[14px] text-center'>

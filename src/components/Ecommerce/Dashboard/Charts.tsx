@@ -81,6 +81,7 @@ const Charts = () => {
 						<div>
 							{' '}
 							<button
+								aria-label='More'
 								className='flex items-center justify-between py-2 px-4 cursor-pointer'
 								onClick={() => toggleMenu('sales')}
 							>

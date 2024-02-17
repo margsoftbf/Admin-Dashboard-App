@@ -55,7 +55,11 @@ const RecentPurchases = () => {
 				<thead>
 					<tr className='border-b border-myGray/30 pb-4 font-poppins text-[14px] text-myGray '>
 						<th className='text-left'>
+							<label htmlFor='selectAll' className='sr-only'>
+								Select All
+							</label>
 							<input
+								id='selectAll'
 								className='rounded border-2 w-4 h-4 mb-2'
 								type='checkbox'
 							/>

@@ -129,7 +129,9 @@ const OrderDetails = () => {
 					</div>
 					<div className='flex gap-4 flex-col xs:flex-row'>
 						<div>
+							<label htmlFor='orderStatus' className='sr-only'></label>
 							<select
+								id='orderStatus'
 								className='w-full border h-12 font-normal text-sm leading-4 text-black mb-0 focus:outline-none max-w-76 rounded-md'
 								value={orderDetails ? orderDetails.status : ''}
 								onChange={handleStatusChange}
@@ -142,7 +144,10 @@ const OrderDetails = () => {
 						<button className='rounded-md w-full xs:w-20 h-12 bg-myBlack transition duration-300 cursor-pointer hover:bg-myViolet'>
 							Save
 						</button>
-						<button aria-label='Printer icon' className='rounded-md w-full xs:w-20 h-12 bg-myBlack flex items-center justify-center transition duration-300 cursor-pointer hover:bg-myViolet'>
+						<button
+							aria-label='Printer icon'
+							className='rounded-md w-full xs:w-20 h-12 bg-myBlack flex items-center justify-center transition duration-300 cursor-pointer hover:bg-myViolet'
+						>
 							<PrinterIcon className='w-6 h-6' />
 						</button>
 					</div>
@@ -161,7 +166,7 @@ const OrderDetails = () => {
 							<p className='text-myGray'>Full name: {orderDetails?.name}</p>
 							<p className='text-myGray'>Email: {orderDetails?.email}</p>
 							<p className='text-myGray'>Phone: {orderDetails?.phone}</p>
-							<button className='mt-1 text-xs text-myViolet py-2 rounded-lg px-4 bg-[#313442] max-w-28 hover:text-white duration-300 transition'>
+							<button className='mt-1 text-xs text-myEmerald py-2 rounded-lg px-4 bg-[#313442] max-w-28 hover:text-white duration-300 transition'>
 								View Profile
 							</button>
 						</div>
@@ -179,7 +184,7 @@ const OrderDetails = () => {
 								Payment method: {orderDetails?.payment}
 							</p>
 							<p className='text-myGray'>Status: {orderDetails?.status}</p>
-							<button className='mt-1 text-xs text-myViolet py-2 rounded-lg px-4 bg-[#313442] max-w-36 hover:text-white duration-300 transition'>
+							<button className='mt-1 text-xs text-myEmerald py-2 rounded-lg px-4 bg-[#313442] max-w-36 hover:text-white duration-300 transition'>
 								Download Info
 							</button>
 						</div>
@@ -193,7 +198,7 @@ const OrderDetails = () => {
 							<p className='text-myGray'>Address: {orderDetails?.street}</p>
 							<p className='text-myGray'>Zip Code: {orderDetails?.zipCode}</p>
 							<p className='text-myGray'>City: {orderDetails?.city}</p>
-							<button className=' mt-1 text-xs text-myViolet py-2 rounded-lg px-4 bg-[#313442] max-w-36 hover:text-white duration-300 transition'>
+							<button className=' mt-1 text-xs text-myEmerald py-2 rounded-lg px-4 bg-[#313442] max-w-36 hover:text-white duration-300 transition'>
 								Download Info
 							</button>
 						</div>
@@ -239,7 +244,11 @@ const OrderDetails = () => {
 						<thead>
 							<tr className='border-b border-b-myGray/60 text-myGray'>
 								<th className='text-left px-2'>
+									<label htmlFor='selectAll' className='sr-only'>
+										Select All
+									</label>
 									<input
+										id='selectAll'
 										className='rounded border-2 w-4 h-4 mb-2'
 										type='checkbox'
 									/>
@@ -275,7 +284,14 @@ const OrderDetails = () => {
 									onClick={() => navigateToProductDetails(product.asin)}
 								>
 									<td className='text-left py-6 lg:py-8 px-2'>
+										<label
+											htmlFor={`checkbox-${product.asin}`}
+											className='sr-only'
+										>
+											Select order {product.asin}
+										</label>
 										<input
+											id={`checkbox-${product.asin}`}
 											className='rounded border-2 w-4 h-4'
 											type='checkbox'
 										/>

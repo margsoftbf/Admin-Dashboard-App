@@ -9,7 +9,7 @@ import { IconMore } from '../../../public/assets/svg';
 const CustomerList = () => {
 	const pathSegments = [
 		{ name: 'Home', href: '/', current: false },
-		{ name: 'Dashboard', href: '/ecommerce', current: false },
+		{ name: 'Ecommerce', href: '/ecommerce', current: false },
 		{ name: 'Customer List', href: '/ecommerce/customer-list', current: true },
 	];
 

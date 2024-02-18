@@ -12,7 +12,7 @@ import { ProductTypes, OrderListTypes } from '@/types/types';
 const OrderList = () => {
 	const pathSegments = [
 		{ name: 'Home', href: '/', current: false },
-		{ name: 'Dashboard', href: '/ecommerce', current: false },
+		{ name: 'Ecommerce', href: '/ecommerce', current: false },
 		{ name: 'Order List', href: '/ecommerce/order-list', current: true },
 	];
 

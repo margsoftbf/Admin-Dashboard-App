@@ -31,6 +31,7 @@ const config: Config = {
 				myPrimary: '#1F2128',
 				myBlack: '#0F0F12',
 				myGray: '#8B8B93',
+				myGrayDarker: '#313442',
 			},
 			maxWidth: {
 				'8xl': '1440px',

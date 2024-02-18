@@ -15,7 +15,7 @@ const CustomerReviews = () => {
 	const [activeMenuId, setActiveMenuId] = useState<number | null>(null);
 	const pathSegments = [
 		{ name: 'Home', href: '/', current: false },
-		{ name: 'Dashboard', href: '/ecommerce', current: false },
+		{ name: 'Ecommerce', href: '/ecommerce', current: false },
 		{
 			name: 'Customer Reviews',
 			href: `/ecommerce/customer-review/${orderId}`,

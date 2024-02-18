@@ -8,6 +8,7 @@ import BottomCharts from '@/components/Ecommerce/Dashboard/BottomCharts';
 const EcommerceHomePage = () => {
 	const pathSegments = [
 		{ name: 'Home', href: '/', current: false },
+		{ name: 'Ecommerce', href: '/ecommerce', current: false },
 		{ name: 'Dashboard', href: '/ecommerce', current: true },
 	];
 

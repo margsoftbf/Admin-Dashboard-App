@@ -1,8 +1,15 @@
 import ToggleMenu from '@/components/ui/ToggleMenu';
 import React, { useState } from 'react';
 import { IconMore, IconToggle } from '../../../../public/assets/svg';
-import { ordersData, containerAnimation, itemAnimation } from '@/data/data';
+import {
+	ordersData,
+	containerAnimation,
+	itemAnimation,
+	ordersList,
+} from '@/data/data';
 import { motion } from 'framer-motion';
+import { OrderListTypes, ProductTypes } from '@/types/types';
+import productData from '../../../data/products.json';
 const RecentPurchases = () => {
 	const [isMenuVisible, setIsMenuVisible] = useState(false);
 	const [activeMenuId, setActiveMenuId] = useState<number | null>(null);
@@ -26,6 +33,36 @@ const RecentPurchases = () => {
 			default:
 				return 'bg-gray-400';
 		}
+	};
+
+	const getPaymentMethodImage = (paymentMethod: string) => {
+		switch (paymentMethod) {
+			case 'Visa':
+				return '/assets/other/Visa.png';
+			case 'Paypal':
+				return '/assets/other/Paypal.png';
+			case 'Mastercard':
+				return '/assets/other/Mastercard.png';
+			default:
+				return '';
+		}
+	};
+
+	const calculateTotalAmount = (
+		order: OrderListTypes,
+		productsData: ProductTypes[]
+	): string => {
+		const totalAmount = order.products.reduce((acc, productOrder) => {
+			const productDetails = productsData.find(
+				(product) => product.asin === productOrder.asin
+			);
+			if (productDetails) {
+				return acc + productDetails.price.value * productOrder.quantity;
+			}
+			return acc;
+		}, 0);
+
+		return totalAmount.toFixed(2);
 	};
 
 	return (
@@ -64,18 +101,19 @@ const RecentPurchases = () => {
 								type='checkbox'
 							/>
 						</th>
-						<th className='font-normal text-left pb-2'>Products</th>
-						<th className='font-normal text-left pb-2 hidden xs:table-cell'>
-							Order ID
-						</th>
-						<th className='font-normal text-left pb-2 hidden lg:table-cell'>
-							Date
-						</th>
+						<th className='font-normal text-left pb-2'>Order ID</th>
 						<th className='font-normal text-left pb-2 hidden sm:table-cell'>
 							Customer name
 						</th>
+
+						<th className='font-normal text-left pb-2 hidden lg:table-cell'>
+							Date
+						</th>
 						<th className='font-normal text-left pb-2 hidden xl:table-cell'>
 							Status
+						</th>
+						<th className='font-normal text-left pb-2 hidden xs:table-cell'>
+							Payment Method
 						</th>
 						<th className='font-normal text-left pb-2 hidden xl:table-cell'>
 							Amount
@@ -84,7 +122,7 @@ const RecentPurchases = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{ordersData.map((order) => (
+					{ordersList.slice(0,5).map((order) => (
 						<motion.tr
 							key={order.id}
 							className='border-b border-myGray/30 text-white font-poppins text-[14px] hover:bg-zinc-900 cursor-pointer'
@@ -101,13 +139,7 @@ const RecentPurchases = () => {
 								/>
 							</td>
 							<td className=''>
-								<span className=''>{order.product}</span>
-							</td>
-							<td className='hidden xs:table-cell'>
-								<span>{order.orderId}</span>
-							</td>
-							<td className='hidden lg:table-cell'>
-								<span>{order.date}</span>
+								<span>#{order.orderId}</span>
 							</td>
 							<td className='hidden sm:table-cell'>
 								<div className='flex items-center gap-2'>
@@ -117,6 +149,10 @@ const RecentPurchases = () => {
 									<p className='text-normal text-gray-1100 '>{order.name}</p>
 								</div>
 							</td>
+							<td className='hidden lg:table-cell'>
+								<span>{order.date}</span>
+							</td>
+
 							<td className='hidden xl:table-cell'>
 								<div className='flex items-center gap-x-2'>
 									<div
@@ -128,7 +164,17 @@ const RecentPurchases = () => {
 								</div>
 							</td>
 							<td className='hidden xl:table-cell'>
-								<span>${order.amount.toFixed(2)}</span>
+								<div className='flex items-center gap-2'>
+									<img
+										src={getPaymentMethodImage(order.payment)}
+										alt=''
+										className='w-auto h-6'
+									/>
+									{order.payment}
+								</div>
+							</td>
+							<td className='hidden xs:table-cell'>
+								${calculateTotalAmount(order, productData)}
 							</td>
 							<td className='text-right'>
 								<div className='relative w-full flex justify-end'>

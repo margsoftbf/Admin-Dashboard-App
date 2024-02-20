@@ -30,7 +30,10 @@ const FinancialDashboardTiles = () => {
 								<p className='text-2xl font-bold text-white  mb-2'>
 									{box.value}
 								</p>
-								<p className={` ${box.textColor} font-semibold text-right  `}>
+								<p
+									style={{ color: box.color }}
+									className={`font-semibold text-right`}
+								>
 									{box.percentage}
 								</p>
 							</div>

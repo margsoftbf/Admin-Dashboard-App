@@ -1089,3 +1089,48 @@ export const latestTransfersData = [
 		date: '30 Jun 2022 - 11:00 PM',
 	},
 ];
+
+export const expensesByCategory = [
+	{
+		id: 1,
+		name: 'Health',
+		money: 589.99,
+		bgColor: '#50D1B2',
+	},
+	{
+		id: 2,
+		name: 'Groceries',
+		money: 320.47,
+		bgColor: '#7364DB',
+	},
+	{
+		id: 3,
+		name: 'Utilities',
+		money: 176.34,
+		bgColor: '#EC8C56',
+	},
+	{
+		id: 4,
+		name: 'Transport',
+		money: 255.89,
+		bgColor: '#ECE663',
+	},
+	{
+		id: 5,
+		name: 'Entertainment',
+		money: 410.15,
+		bgColor: '#BF2323',
+	},
+	{
+		id: 6,
+		name: 'Dining Out',
+		money: 299.99,
+		bgColor: '#08D6F4',
+	},
+	{
+		id: 7,
+		name: 'Savings',
+		money: 800.0,
+		bgColor: '#FB7BB8',
+	},
+];

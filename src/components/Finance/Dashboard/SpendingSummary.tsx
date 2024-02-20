@@ -4,6 +4,7 @@ import {
 	latestTransfersData,
 	containerAnimation,
 	itemAnimation,
+	expensesByCategory,
 } from '@/data/data';
 import ToggleMenu from '@/components/ui/ToggleMenu';
 import { motion } from 'framer-motion';
@@ -49,7 +50,7 @@ const SpendingSummary = () => {
 							variants={itemAnimation}
 						>
 							<div className='flex items-center flex-1 gap-4'>
-								<div className='w-10 h-10 bg-white p-1 rounded-full overflow-hidden'>
+								<div className='w-10 h-10 bg-white flex-shrink-0 p-1.5 rounded-full overflow-hidden'>
 									<img src={data.img} alt='brand logo' />
 								</div>
 								<div>
@@ -65,7 +66,9 @@ const SpendingSummary = () => {
 								<p className='font-semibold text-white mb-3 text-right text-[14px]'>
 									${data.price}
 								</p>
-								<p className='text-myGray text-xs'>{data.date}</p>
+								<p className='hidden md:block text-myGray text-xs'>
+									{data.date}
+								</p>
 							</div>
 						</motion.div>
 					))}
@@ -90,7 +93,36 @@ const SpendingSummary = () => {
 						{expensesSubMenu && <ToggleMenu />}
 					</div>
 				</div>
-				B
+				<motion.div
+					className='flex items-center gap-5 flex-col mt-6'
+					variants={containerAnimation}
+					initial='hidden'
+					animate='visible'
+				>
+					{expensesByCategory.map((data) => (
+						<motion.div
+							key={data.id}
+							className='w-full flex flex-col gap-1.5'
+							variants={itemAnimation}
+						>
+							<div className='flex items-center justify-between mb-[10px]'>
+								<p className='text-sm leading-4'>{data.name}</p>
+								<p className='text-sm leading-4 text-myGray'>${data.money}</p>
+							</div>
+							<div className='flex items-center w-full gap-x-[14px]'>
+								<div className='w-full rounded-full h-2.5 bg-black'>
+									<div
+										className={`h-2.5 rounded-full w-full`}
+										style={{
+											width: `${Math.floor((data.money / 1000) * 100)}%`,
+											backgroundColor: `${data.bgColor}`,
+										}}
+									></div>
+								</div>
+							</div>
+						</motion.div>
+					))}
+				</motion.div>
 			</motion.div>
 		</motion.div>
 	);

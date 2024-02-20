@@ -993,3 +993,99 @@ export const financialData = [
 		],
 	},
 ];
+
+export const financialWalletData = [
+	{
+		id: 1,
+		cardNumber: '4539 1488 0343 6467',
+		money: 25600,
+		img: '/assets/other/Visa.png',
+	},
+	{
+		id: 2,
+		cardNumber: '5391 0375 9387 5309',
+		money: 32200,
+		img: '/assets/other/Paypal.png',
+	},
+	{
+		id: 3,
+		cardNumber: '6011 6011 6011 6611',
+		money: 45122,
+		img: '/assets/other/Mastercard.png',
+	},
+];
+
+export const financialWalletStocks = [
+	{
+		id: 1,
+		img: '/assets/other/Google.png',
+		stockName: 'Google',
+		price: 141.76,
+		priceChange: 2.43,
+	},
+	{
+		id: 2,
+		img: '/assets/other/facebook.png',
+		stockName: 'Facebook',
+		price: 473.32,
+		priceChange: -11.12,
+	},
+	{
+		id: 3,
+		img: '/assets/other/apple.png',
+		stockName: 'Apple',
+		price: 182.76,
+		priceChange: 7.02,
+	},
+];
+
+export const latestTransfersData = [
+	{
+		id: 1,
+		img: '/assets/other/facebook-circle.png',
+		name: 'Facebook',
+		invoiceId: 'GSV567489239UI',
+		price: 450.54,
+		date: '15 Jan 2022 - 2:00 AM',
+	},
+	{
+		id: 2,
+		img: '/assets/other/amazon.png',
+		name: 'Amazon',
+		invoiceId: 'AMZ837489239UI',
+		price: 1020.99,
+		date: '20 Feb 2022 - 4:30 PM',
+	},
+	{
+		id: 3,
+		img: '/assets/other/dribble.png',
+		name: 'Dribble',
+		invoiceId: 'DRB123456789UI',
+		price: 320.47,
+		date: '05 Mar 2022 - 1:15 PM',
+	},
+	{
+		id: 4,
+		img: '/assets/other/google.png',
+		name: 'Google',
+		invoiceId: 'GGL987654321UI',
+		price: 899.99,
+		date: '18 Apr 2022 - 9:00 AM',
+	},
+	{
+		id: 5,
+		img: '/assets/other/linkedin.png',
+		name: 'Linkedin',
+		invoiceId: 'LNKD234567890UI',
+		price: 760.32,
+		date: '22 May 2022 - 3:45 PM',
+	},
+	{
+		id: 6,
+		img: '/assets/other/pinterest.png',
+		name: 'Pinterest',
+		invoiceId: 'PNT345678901UI',
+		price: 500.0,
+		date: '30 Jun 2022 - 11:00 PM',
+	},
+];

@@ -170,6 +170,7 @@ const Charts = () => {
 				<div className='w-full flex flex-col items-center gap-3 bg-myGray/50 h-[1px] mb-5 font-poppins'>
 					<div className='w-24 h-24 mt-6'>
 						<CircularProgressbar value={70} text={'70%'} strokeWidth={5} />
+					
 					</div>
 					<h2 className='font-poppins text-gray-300 mt-2'>
 						Total sales made today

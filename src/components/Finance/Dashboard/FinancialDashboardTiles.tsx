@@ -1,14 +1,20 @@
 import React from 'react';
 import { Tooltip, ResponsiveContainer, Line, LineChart, XAxis } from 'recharts';
-import { financialData } from '@/data/data';
-
-const Financial = () => {
+import { financialData, containerAnimation, itemAnimation } from '@/data/data';
+import { motion } from 'framer-motion';
+const FinancialDashboardTiles = () => {
 	return (
-		<div className='grid grid-cols-1 gap-6 mb-7 lg:grid-cols-2 2xl:grid-cols-4 text-white'>
+		<motion.div
+			className='grid grid-cols-1 gap-6 mb-6 md:grid-cols-2 2xl:grid-cols-4 text-white'
+			variants={containerAnimation}
+			initial='hidden'
+			animate='visible'
+		>
 			{financialData.map((box) => (
-				<div
+				<motion.div
 					key={box.id}
 					className='font-poppins rounded-2xl border border-[#313442] bg-myPrimary py-2 flex-1 px-5'
+					variants={itemAnimation}
 				>
 					<div className='flex items-center my-2'>
 						<div className='flex items-center flex-col'>
@@ -21,9 +27,9 @@ const Financial = () => {
 						</div>
 						<div className='ml-auto'>
 							<div>
-								<h5 className='text-2xl font-bold text-white  mb-2'>
+								<p className='text-2xl font-bold text-white  mb-2'>
 									{box.value}
-								</h5>
+								</p>
 								<p className={` ${box.textColor} font-semibold text-right  `}>
 									{box.percentage}
 								</p>
@@ -49,10 +55,10 @@ const Financial = () => {
 							</LineChart>
 						</ResponsiveContainer>
 					</div>
-				</div>
+				</motion.div>
 			))}
-		</div>
+		</motion.div>
 	);
 };
 
-export default Financial;
+export default FinancialDashboardTiles;

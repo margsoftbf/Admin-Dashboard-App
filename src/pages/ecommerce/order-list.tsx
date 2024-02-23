@@ -8,7 +8,8 @@ import { ordersList, containerAnimation, itemAnimation } from '@/data/data';
 import { IconMore } from '../../../public/assets/svg';
 import productData from '../../data/products.json';
 import { ProductTypes, OrderListTypes } from '@/types/types';
-
+import { FiTrash2, FiEye, FiEdit } from 'react-icons/fi';
+import ButtonAction from '@/components/ui/ButtonAction';
 const OrderList = () => {
 	const pathSegments = [
 		{ name: 'Home', href: '/', current: false },
@@ -76,66 +77,33 @@ const OrderList = () => {
 				Order List
 			</h1>
 			<BreadCrumb pathSegments={pathSegments} />
-			<div className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5  mb-6 text-white font-poppins'>
-				<div className='flex items-center justify-between py-2'>
-					<h2 className='text-white font-poppins text-base font-medium'>
-						Recent Orders
-					</h2>
-				</div>
+			<div className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5  mb-6 text-white font-poppins overflow-x-auto'>
 				<motion.table
-					className='w-full mt-4 font-poppins'
+					className='w-full mt-4 font-poppins table-auto'
 					variants={containerAnimation}
 					initial='hidden'
 					animate='visible'
 				>
-					<thead>
-						<tr className='border-b border-b-myGray/60 text-myGray'>
+					<thead className='w-full h-12'>
+						<tr className='border-b bg-zinc-900 border-myGray/30 font-poppins text-white text-[14px] whitespace-nowrap'>
 							<th className='text-left px-2'>
 								<label htmlFor='selectAllCheckbox' className='sr-only'>
 									Select all orders
 								</label>
 								<input
 									id='selectAllCheckbox'
-									className='rounded border-2 w-4 h-4 mb-2'
+									className='rounded border-2 w-4 h-4'
 									type='checkbox'
 								/>
 							</th>
-							<th className='pb-2 hidden xs:table-cell px-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Order ID</span>
-								</div>
-							</th>
-							<th className='pb-2'>
-								<div className='flex items-center gap-x-2 px-2'>
-									<span className='text-xs font-medium'>Customer Name</span>
-								</div>
-							</th>
-							<th className='pb-2 hidden xl:table-cell px-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Address</span>
-								</div>
-							</th>
-							<th className='pb-2 hidden xl:table-cell px-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Date</span>
-								</div>
-							</th>
-							<th className='pb-2 hidden 2xl:table-cell px-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Payment Method</span>
-								</div>
-							</th>
-							<th className='pb-2 hidden 2xl:table-cell px-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Total</span>
-								</div>
-							</th>
-							<th className='pb-2 hidden md:table-cell px-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Status</span>
-								</div>
-							</th>
-							<th></th>
+							<th className='text-left px-4'>Order ID</th>
+							<th className='text-left px-4'>Customer Name</th>
+							<th className='text-left px-4'>Address</th>
+							<th className='text-left px-4'>Date</th>
+							<th className='text-left px-4'>Payment Method</th>
+							<th className='text-left px-4'>Total</th>
+							<th className='text-left px-4'>Status</th>
+							<th className='text-right px-4'>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -146,7 +114,7 @@ const OrderList = () => {
 								onClick={() => handleRowClick(order.orderId)}
 								className='hover:bg-zinc-800 cursor-pointer border-b border-b-myGray/60 text-white text-[14px]'
 							>
-								<td className='text-left py-6 lg:py-8 px-2'>
+								<td className='text-left py-6 px-2'>
 									<label
 										htmlFor={`selectOrder-${order.id}`}
 										className='sr-only'
@@ -159,12 +127,10 @@ const OrderList = () => {
 										type='checkbox'
 									/>
 								</td>
-								<td className='hidden xs:table-cell px-2 py-2'>
-									#{order.orderId}
-								</td>
-								<td className='py-2 px-2'>
+								<td className='px-4 whitespace-nowrap'>#{order.orderId}</td>
+								<td className='px-4 whitespace-nowrap'>
 									<div className='flex items-center gap-2'>
-										<div className='w-6 h-6 rounded-full overflow-hidden'>
+										<div className='w-7 h-7 rounded-full overflow-hidden'>
 											<img
 												src={order.avatar}
 												alt={`Avatar of ${order.avatarAlt}`}
@@ -173,7 +139,7 @@ const OrderList = () => {
 										<p className='text-normal text-gray-1100 '>{order.name}</p>
 									</div>
 								</td>
-								<td className='hidden xl:table-cell px-2 py-2'>
+								<td className='px-4 whitespace-nowrap'>
 									<div className='flex gap-1 items-center'>
 										<MapPinIcon className='w-5 h-5' />
 										<div className='flex flex-col text-xs'>
@@ -184,13 +150,13 @@ const OrderList = () => {
 										</div>
 									</div>
 								</td>
-								<td className='hidden xl:table-cell py-2 px-2'>
+								<td className='px-4 whitespace-nowrap'>
 									<div className='flex items-center gap-1'>
 										<CalendarDaysIcon className='w-5 h-5' />
 										{order.date}
 									</div>
 								</td>
-								<td className='hidden 2xl:table-cell py-2 px-2'>
+								<td className='px-4 whitespace-nowrap'>
 									<div className='flex items-center gap-1'>
 										<img
 											src={getPaymentMethodImage(order.payment)}
@@ -201,10 +167,10 @@ const OrderList = () => {
 									</div>
 								</td>
 
-								<td className='hidden 2xl:table-cell py-2 px-2'>
+								<td className='px-4 whitespace-nowrap'>
 									${calculateTotalAmount(order, productData)}
 								</td>
-								<td className='hidden md:table-cell py-2 px-2'>
+								<td className='px-4 whitespace-nowrap'>
 									<div className='flex items-center gap-x-2'>
 										<div
 											className={`w-2 h-2 rounded-full ${getStatusColorClass(
@@ -214,37 +180,36 @@ const OrderList = () => {
 										<p className='text-normal'>{order.status}</p>
 									</div>
 								</td>
-								<td className='px-2 py-2'>
-									<button
-										aria-label='More'
-										onClick={(e) => {
-											e.stopPropagation();
-											toggleAction(order.id);
-										}}
-									>
-										<IconMore className='cursor-pointer' />
-									</button>
-									{activeMenuId === order.id && (
-										<div className='z-50 absolute mt-2 w-28 right-12 border border-[#313442] bg-myPrimary shadow-lg rounded-lg text-white text-xs text-right'>
-											<ul>
-												<li className='hover:text-myGray'>
-													<a href='#' className='block px-4 py-2'>
-														View details
-													</a>
-												</li>
-												<li className='hover:text-myGray'>
-													<a href='#' className='block px-4 py-2'>
-														Edit
-													</a>
-												</li>
-												<li className='hover:text-myGray'>
-													<a href='#' className='block px-4 py-2'>
-														Cancel
-													</a>
-												</li>
-											</ul>
-										</div>
-									)}
+								<td className='px-4'>
+									<div className='relative w-full flex justify-end gap-4'>
+										<ButtonAction
+											className='hover:bg-white hover:text-black'
+											onClick={(e) => {
+												e.stopPropagation();
+												handleRowClick(order.orderId);
+											}}
+										>
+											<FiEye className='w-5 h-5' />
+										</ButtonAction>
+										<ButtonAction
+											className='hover:bg-myBlue text-myBlue hover:text-white'
+											onClick={(e) => {
+												e.stopPropagation();
+												handleRowClick(order.orderId);
+											}}
+										>
+											<FiEdit className='w-5 h-5' />
+										</ButtonAction>
+										<ButtonAction
+											className='text-myRed hover:bg-myRed hover:text-white'
+											onClick={(e) => {
+												e.stopPropagation();
+												handleRowClick(order.orderId);
+											}}
+										>
+											<FiTrash2 className='w-5 h-5' />
+										</ButtonAction>
+									</div>
 								</td>
 							</motion.tr>
 						))}

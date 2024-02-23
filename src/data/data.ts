@@ -1,4 +1,9 @@
-import { OrdersType, Person, SellsBoxesTypes } from '@/types/types';
+import {
+	OrdersType,
+	Person,
+	SellsBoxesTypes,
+	VisistBySourceDataTypes,
+} from '@/types/types';
 import {
 	ChartPieIcon,
 	DocumentDuplicateIcon,
@@ -70,9 +75,13 @@ export const navigation = [
 		current: false,
 		subMenu: [
 			{ name: 'Dashboard', href: '/finance', current: false },
-			{ name: 'Cards', href: '#', current: false },
-			{ name: 'Transactions', href: '#', current: false },
-			{ name: 'Transactions Details', href: '#', current: false },
+			{ name: 'Cards', href: '/finance/cards', current: false },
+			{ name: 'Transactions', href: '/finance/transactions', current: false },
+			{
+				name: 'Transactions Details',
+				href: '/finance/transactions-details',
+				current: false,
+			},
 		],
 	},
 	{
@@ -113,7 +122,7 @@ export const navigation = [
 export const personsData: Person[] = [
 	{
 		id: 1,
-		avatar: '/assets/people/avatar-4.webp',
+		avatar: '/assets/people/avatar-4.png',
 		avatarAlt: 'Mark Webber Photo',
 		name: 'Mark Webber',
 		workProfile: 'Sale manager Asia',
@@ -129,7 +138,7 @@ export const personsData: Person[] = [
 	},
 	{
 		id: 2,
-		avatar: '/assets/people/avatar-1.webp',
+		avatar: '/assets/people/avatar-1.png',
 		avatarAlt: 'Angela Gray Photo',
 		name: 'Angela Gray',
 		workProfile: 'Sale manager USA',
@@ -145,7 +154,7 @@ export const personsData: Person[] = [
 	},
 	{
 		id: 3,
-		avatar: '/assets/people/avatar-2.webp',
+		avatar: '/assets/people/avatar-2.png',
 		avatarAlt: 'Jacob Thompson Photo',
 		name: 'Jacob Thompson',
 		workProfile: 'Sale manager Europe',
@@ -161,7 +170,7 @@ export const personsData: Person[] = [
 	},
 	{
 		id: 4,
-		avatar: '/assets/people/avatar-3.webp',
+		avatar: '/assets/people/avatar-3.png',
 		avatarAlt: 'Kimberly Smith Photo',
 		name: 'Kimberly Smith',
 		workProfile: 'Sale manager Australia',
@@ -177,7 +186,7 @@ export const personsData: Person[] = [
 	},
 	{
 		id: 5,
-		avatar: '/assets/people/avatar-6.webp',
+		avatar: '/assets/people/avatar-6.png',
 		avatarAlt: 'Rizky Hasanuddin Photo',
 		name: 'Rizky Hasanuddin',
 		workProfile: 'Sale manager Asia',
@@ -193,7 +202,7 @@ export const personsData: Person[] = [
 	},
 	{
 		id: 6,
-		avatar: '/assets/people/avatar-5.webp',
+		avatar: '/assets/people/avatar-5.png',
 		avatarAlt: 'Nathan Peterson Photo',
 		name: 'Nathan Peterson',
 		workProfile: 'Sale manager USA',
@@ -212,7 +221,7 @@ export const personsData: Person[] = [
 export const ordersData: OrdersType[] = [
 	{
 		id: 1,
-		avatar: '/assets/people/avatar-4.webp',
+		avatar: '/assets/people/avatar-4.png',
 		avatarAlt: 'Mark Webber Photo',
 		name: 'Mark Webber',
 		orderId: '#23709',
@@ -223,7 +232,7 @@ export const ordersData: OrdersType[] = [
 	},
 	{
 		id: 2,
-		avatar: '/assets/people/avatar-1.webp',
+		avatar: '/assets/people/avatar-1.png',
 		avatarAlt: 'Angela Gray Photo',
 		name: 'Angela Gray',
 		orderId: '#23621',
@@ -234,7 +243,7 @@ export const ordersData: OrdersType[] = [
 	},
 	{
 		id: 3,
-		avatar: '/assets/people/avatar-2.webp',
+		avatar: '/assets/people/avatar-2.png',
 		avatarAlt: 'Jacob Thompson Photo',
 		name: 'Jacob Thompson',
 		orderId: '#24208',
@@ -245,7 +254,7 @@ export const ordersData: OrdersType[] = [
 	},
 	{
 		id: 4,
-		avatar: '/assets/people/avatar-3.webp',
+		avatar: '/assets/people/avatar-3.png',
 		avatarAlt: 'Kimberly Smith Photo',
 		name: 'Kimberly Smith',
 		orderId: '#27719',
@@ -256,7 +265,7 @@ export const ordersData: OrdersType[] = [
 	},
 	{
 		id: 5,
-		avatar: '/assets/people/avatar-6.webp',
+		avatar: '/assets/people/avatar-6.png',
 		avatarAlt: 'Rizky Hasanuddin Photo',
 		name: 'Rizky Hasanuddin',
 		orderId: '#23189',
@@ -267,7 +276,7 @@ export const ordersData: OrdersType[] = [
 	},
 	{
 		id: 6,
-		avatar: '/assets/people/avatar-5.webp',
+		avatar: '/assets/people/avatar-5.png',
 		avatarAlt: 'Nathan Peterson Photo',
 		name: 'Nathan Peterson',
 		orderId: '#23799',
@@ -619,7 +628,7 @@ export const weeklyDataBottomCharts = [
 export const ordersList = [
 	{
 		id: 1,
-		avatar: '/assets/people/avatar-4.webp',
+		avatar: '/assets/people/avatar-4.png',
 		avatarAlt: 'Mark Webber Photo',
 		email: 'markwebber@email.com',
 		name: 'Mark Webber',
@@ -647,7 +656,7 @@ export const ordersList = [
 	},
 	{
 		id: 2,
-		avatar: '/assets/people/avatar-1.webp',
+		avatar: '/assets/people/avatar-1.png',
 		avatarAlt: 'Frank Gordon Photo',
 		name: 'Jacob Arias',
 		phone: '(495)081-4473',
@@ -675,7 +684,7 @@ export const ordersList = [
 	},
 	{
 		id: 3,
-		avatar: '/assets/people/avatar-10.webp',
+		avatar: '/assets/people/avatar-10.png',
 		avatarAlt: 'Tammy Payne Photo',
 		name: 'Jack Green',
 		email: 'jackgreen@email.com',
@@ -703,7 +712,7 @@ export const ordersList = [
 	},
 	{
 		id: 4,
-		avatar: '/assets/people/avatar-2.webp',
+		avatar: '/assets/people/avatar-2.png',
 		avatarAlt: 'Susan Wilson Photo',
 		name: 'Suzanne Johnson',
 		phone: '001-177-336-4244',
@@ -731,7 +740,7 @@ export const ordersList = [
 	},
 	{
 		id: 5,
-		avatar: '/assets/people/avatar-3.webp',
+		avatar: '/assets/people/avatar-3.png',
 		avatarAlt: 'Justin Wiley Photo',
 		name: 'Gary Flores',
 		email: 'garyflores@email.com',
@@ -759,7 +768,7 @@ export const ordersList = [
 	},
 	{
 		id: 6,
-		avatar: '/assets/people/avatar-6.webp',
+		avatar: '/assets/people/avatar-6.png',
 		avatarAlt: 'Daniel Jones Photo',
 		name: 'Jennifer Baker',
 		email: 'Jenniferbaker@email.com',
@@ -787,7 +796,7 @@ export const ordersList = [
 	},
 	{
 		id: 7,
-		avatar: '/assets/people/avatar-5.webp',
+		avatar: '/assets/people/avatar-5.png',
 		avatarAlt: 'Zachary Oconnell Photo',
 		name: 'Tiffany Higgins',
 		email: 'tiffanyhiggins@email.com',
@@ -815,7 +824,7 @@ export const ordersList = [
 	},
 	{
 		id: 8,
-		avatar: '/assets/people/avatar-8.webp',
+		avatar: '/assets/people/avatar-8.png',
 		avatarAlt: 'Andrew Rodriguez Photo',
 		name: 'Ashley Kennedy',
 		email: 'ashleykennedy@email.com',
@@ -843,7 +852,7 @@ export const ordersList = [
 	},
 	{
 		id: 9,
-		avatar: '/assets/people/avatar-9.webp',
+		avatar: '/assets/people/avatar-9.png',
 		avatarAlt: 'Matthew Smith Photo',
 		name: 'Adam Richards',
 		email: 'adamrichards@email.com',
@@ -871,7 +880,7 @@ export const ordersList = [
 	},
 	{
 		id: 10,
-		avatar: '/assets/people/avatar-10.webp',
+		avatar: '/assets/people/avatar-10.png',
 		avatarAlt: 'Michelle Hoffman Photo',
 		name: 'Karen Hernandez',
 		email: 'karenhernandez@email.com',
@@ -1018,7 +1027,7 @@ export const financialWalletData = [
 export const financialWalletStocks = [
 	{
 		id: 1,
-		img: '/assets/other/Google.png',
+		img: '/assets/other/google.png',
 		stockName: 'Google',
 		price: 141.76,
 		priceChange: 2.43,
@@ -1134,3 +1143,76 @@ export const expensesByCategory = [
 		bgColor: '#FB7BB8',
 	},
 ];
+
+export const VisistBySourceData: VisistBySourceDataTypes = {
+	series: [30, 55, 35],
+	options: {
+		labels: ['Direct', 'Social', 'Other'],
+		chart: {
+			type: 'donut',
+			height: 380,
+		},
+		dataLabels: {
+			enabled: false,
+		},
+		legend: {
+			position: 'bottom',
+			fontSize: '14px',
+			fontWeight: 500,
+			labels: {
+				colors: ['#FFFFFF', '#FFFFFF', '#FFFFFF'],
+			},
+			itemMargin: {
+				horizontal: 15,
+				vertical: 0,
+			},
+		},
+		stroke: {
+			width: 10,
+			colors: ['#191919'],
+		},
+		plotOptions: {
+			pie: {
+				expandOnClick: false,
+				donut: {
+					size: '73%',
+					labels: {
+						show: true,
+						name: {
+							offsetY: 0,
+							color: '#FFF',
+						},
+						total: {
+							show: true,
+							fontFamily: 'Poppins, sans-serif',
+							fontSize: '20px',
+							fontWeight: 500,
+							label: '54,098',
+							formatter: () => 'Total Visits',
+							color: '#FFFFFF',
+						},
+					},
+				},
+			},
+		},
+		states: {
+			normal: {
+				filter: {
+					type: 'none',
+				},
+			},
+			hover: {
+				filter: {
+					type: 'none',
+				},
+			},
+			active: {
+				allowMultipleDataPointsSelection: false,
+				filter: {
+					type: 'none',
+				},
+			},
+		},
+		colors: ['#5EEA8D', '#2775FF', '#EC8C56'],
+	},
+};

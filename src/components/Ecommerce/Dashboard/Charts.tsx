@@ -9,10 +9,11 @@ import {
 	monthlyData,
 } from '@/data/data';
 import ToggleMenu from '@/components/ui/ToggleMenu';
-import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
+import { Progress } from 'antd';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 
 const Charts = () => {
 	const [timeRange, setTimeRange] = useState('Monthly');
@@ -47,33 +48,42 @@ const Charts = () => {
 			animate='visible'
 		>
 			<motion.div
-				className='rounded-2xl border border-[#313442] w-full bg-myPrimary py-2 flex-1 px-5'
+				className='rounded-2xl border border-[#313442] w-full bg-myPrimary py-2 flex-1 px-5 h-96'
 				variants={itemAnimation}
 			>
-				<div className='flex items-center justify-between py-2'>
+				<div className='flex flex-col gap-2 xs:flex-row items-center justify-between py-2'>
 					<h2 className='text-myGray font-poppins text-[14px] font-medium'>
 						Sales Performance
 					</h2>
-					<div className='ml-auto flex gap-1 items-center translate-x-4 z-10 relative'>
+					<div className='xs:ml-auto flex gap-1 items-center translate-x-4 z-10 relative'>
 						<div className='-z-10 flex gap-3 font-poppins text-xs text-myGray'>
 							<button
 								aria-label='Daily'
 								onClick={() => setTimeRange('Daily')}
-								className={timeRange === 'Daily' ? 'text-myVioletLight' : ''}
+								className={` hover:bg-white/10 p-2 rounded-md transition duration-300 hover:text-white
+									${timeRange === 'Daily' ? 'text-white bg-white/10 p-2 font-semibold' : ''}
+										
+								`}
 							>
 								Daily
 							</button>
 							<button
 								aria-label='Weekly'
 								onClick={() => setTimeRange('Weekly')}
-								className={timeRange === 'Weekly' ? 'text-myVioletLight' : ''}
+								className={` hover:bg-white/10 p-2 rounded-md transition duration-300 hover:text-white
+									${timeRange === 'Weekly' ? 'text-white bg-white/10 p-2 font-semibold' : ''}
+										
+								`}
 							>
 								Weekly
 							</button>
 							<button
 								aria-label='Monthly'
 								onClick={() => setTimeRange('Monthly')}
-								className={timeRange === 'Monthly' ? 'text-myVioletLight' : ''}
+								className={` hover:bg-white/10 p-2 rounded-md transition duration-300 hover:text-white
+									${timeRange === 'Monthly' ? 'text-white bg-white/10 p-2 font-semibold' : ''}
+										
+								`}
 							>
 								Monthly
 							</button>
@@ -100,15 +110,15 @@ const Charts = () => {
 						<defs>
 							<linearGradient id='colorCompleted' x1='0' y1='0' x2='0' y2='1'>
 								<stop offset='5%' stopColor='#5EEA8D' stopOpacity={1} />
-								<stop offset='95%' stopColor='#5EEA8D' stopOpacity={1} />
+								<stop offset='95%' stopColor='#5EEA8D' stopOpacity={0.2} />
 							</linearGradient>
 							<linearGradient id='colorPending' x1='0' y1='0' x2='0' y2='1'>
 								<stop offset='5%' stopColor='#7364DB' stopOpacity={1} />
-								<stop offset='95%' stopColor='#7364DB' stopOpacity={1} />
+								<stop offset='95%' stopColor='#7364DB' stopOpacity={0.2} />
 							</linearGradient>
 							<linearGradient id='colorDelivered' x1='0' y1='0' x2='0' y2='1'>
 								<stop offset='5%' stopColor='#2775FF' stopOpacity={1} />
-								<stop offset='95%' stopColor='#2775FF' stopOpacity={1} />
+								<stop offset='95%' stopColor='#2775FF' stopOpacity={0.2} />
 							</linearGradient>
 							<linearGradient id='colorUnpaid' x1='0' y1='0' x2='0' y2='1'>
 								<stop offset='5%' stopColor='#e3402d' stopOpacity={1} />
@@ -169,8 +179,16 @@ const Charts = () => {
 				</div>
 				<div className='w-full flex flex-col items-center gap-3 bg-myGray/50 h-[1px] mb-5 font-poppins'>
 					<div className='w-24 h-24 mt-6'>
-						<CircularProgressbar value={70} text={'70%'} strokeWidth={5} />
-					
+						<CircularProgressbar
+							value={70}
+							text={'70%'}
+							strokeWidth={10}
+							styles={buildStyles({
+								textColor: '#FFF',
+								pathColor: '#2775FF',
+								trailColor: '#071733',
+							})}
+						/>
 					</div>
 					<h2 className='font-poppins text-gray-300 mt-2'>
 						Total sales made today

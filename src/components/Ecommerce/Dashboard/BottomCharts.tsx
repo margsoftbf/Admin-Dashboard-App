@@ -17,15 +17,14 @@ import {
 	weeklyDataBottomCharts,
 	containerAnimation,
 	itemAnimation,
+	VisistBySourceData,
 } from '@/data/data';
 import { motion } from 'framer-motion';
+import CheckKolo from './CheckKolo';
 
-const ResponsivePieChart = dynamic(
-	() => import('@nivo/pie').then((mod) => mod.ResponsivePie),
-	{
-		ssr: false,
-	}
-);
+const ReactApexChart = dynamic(() => import('react-apexcharts'), {
+	ssr: false,
+});
 
 const BottomCharts = () => {
 	const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
@@ -39,13 +38,13 @@ const BottomCharts = () => {
 
 	return (
 		<motion.div
-			className='grid grid-cols-1 gap-6 2xl:grid-cols-3 mb-6'
+			className='grid grid-cols-1 gap-6 2xl:grid-cols-3'
 			variants={containerAnimation}
 			initial='hidden'
 			animate='visible'
 		>
 			<motion.div
-				className='rounded-2xl border relative border-[#313442] bg-myPrimary py-2 flex-1 px-5 w-full'
+				className='rounded-2xl border relative border-[#313442] bg-myPrimary py-2 flex-1 px-5 w-full h-96'
 				variants={itemAnimation}
 			>
 				<div className='flex items-center justify-between py-2'>
@@ -113,82 +112,17 @@ const BottomCharts = () => {
 					</div>
 				</div>
 				<div className='w-full bg-myGray/50 h-[1px] mb-5'> </div>
-				<div className='w-full h-80'>
-					{ResponsivePieChart && (
-						<ResponsivePieChart
-							data={circleData}
-							margin={{ top: 20, right: 20, bottom: 50, left: 20 }}
-							innerRadius={0.5}
-							colors={['#7364DB', '#EC8C56', '#5EEA8D', '#ECE663']}
-							theme={{
-								axis: {
-									domain: {
-										line: {
-											stroke: '#fff',
-										},
-									},
-									legend: {
-										text: {
-											fill: '#fff',
-										},
-									},
-									ticks: {
-										line: {
-											stroke: '#fff',
-											strokeWidth: 1,
-										},
-										text: {
-											fill: '#fff',
-										},
-									},
-								},
-								legends: {
-									text: {
-										fill: '#fff',
-									},
-								},
-								tooltip: {
-									container: {
-										color: '#000',
-									},
-								},
-							}}
-							padAngle={0.7}
-							cornerRadius={3}
-							activeOuterRadiusOffset={8}
-							borderWidth={1}
-							borderColor={{
-								from: 'color',
-								modifiers: [['darker', 0.2]],
-							}}
-							defs={[
-								{
-									id: 'dots',
-									type: 'patternDots',
-									background: 'inherit',
-									color: 'rgba(255, 255, 255, 0.3)',
-									size: 4,
-									padding: 1,
-									stagger: true,
-								},
-								{
-									id: 'lines',
-									type: 'patternLines',
-									background: 'inherit',
-									color: 'rgba(255, 255, 255, 0.3)',
-									rotation: -45,
-									lineWidth: 6,
-									spacing: 10,
-								},
-							]}
-							enableArcLinkLabels={false}
-							legends={[]}
-						/>
-					)}
+				<div className='w-full h-80 text-white'>
+					<ReactApexChart
+						type='donut'
+						height={340}
+						series={VisistBySourceData.series}
+						options={VisistBySourceData.options}
+					/>
 				</div>
 			</motion.div>
 			<motion.div
-				className='rounded-2xl border relative border-[#313442] bg-myPrimary py-2 flex-1 px-5'
+				className='rounded-2xl border relative border-[#313442] bg-myPrimary py-2 flex-1 px-5 h-96'
 				variants={itemAnimation}
 			>
 				<div className='flex items-center justify-between py-2'>

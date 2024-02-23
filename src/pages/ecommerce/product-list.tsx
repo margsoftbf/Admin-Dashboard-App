@@ -7,15 +7,13 @@ import { StarIcon } from '@heroicons/react/24/solid';
 import { containerAnimation, itemAnimation } from '@/data/data';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-
+import ButtonAction from '@/components/ui/ButtonAction';
+import { FiTrash2, FiEye, FiEdit } from 'react-icons/fi';
 const ProductList = () => {
-	const [activeMenuId, setActiveMenuId] = useState<number | null>(null);
 	const [currentPage, setCurrentPage] = useState(1);
 	const productsPerPage = 10;
 	const router = useRouter();
-	const toggleAction = (id: number) => {
-		setActiveMenuId(activeMenuId === id ? null : id);
-	};
+
 
 	const handleRowClick = (asin: string) => {
 		router.push(`/ecommerce/product-details/${asin}`);
@@ -62,61 +60,24 @@ const ProductList = () => {
 				Product List
 			</h1>
 			<BreadCrumb pathSegments={pathSegments} />
-			<div className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5  mb-6 text-white font-poppins'>
-				<div className='flex items-center justify-between py-2'>
-					<h2 className='text-white font-poppins text-base font-medium'>
-						Products
-					</h2>
-				</div>
+			<div className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5  mb-6 overflow-x-auto'>
 				<motion.table
-					className='w-full mt-4 font-poppins'
+					className='w-full table-auto mt-4 font-poppins'
 					variants={containerAnimation}
 					initial='hidden'
 					animate='visible'
 				>
-					<thead>
-						<tr className='border-b border-b-myGray/60 text-myGray'>
-							<th className='pb-4 hidden xs:table-cell'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Image</span>
-								</div>
-							</th>
-							<th className='pb-4'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Name</span>
-								</div>
-							</th>
-							<th className='pb-4 hidden xl:table-cell'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Brand</span>
-								</div>
-							</th>
-							<th className='pb-4'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Price</span>
-								</div>
-							</th>
-							<th className='pb-4 hidden md:table-cell'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Status</span>
-								</div>
-							</th>
-							<th className='pb-4 hidden 2xl:table-cell'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Review count</span>
-								</div>
-							</th>
-							<th className='pb-4 hidden xl:table-cell'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Rating</span>
-								</div>
-							</th>
-							<th className='pb-4 hidden 2xl:table-cell'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>SKU</span>
-								</div>
-							</th>
-							<th></th>
+					<thead className='w-full h-12'>
+						<tr className='border-b bg-zinc-900 border-myGray/30 font-poppins text-white text-[14px] whitespace-nowrap'>
+							<th className='text-left pl-2 hidden xl:table-cell'>Image</th>
+							<th className='text-left px-4'>Name</th>
+							<th className='text-left px-4'>Brand</th>
+							<th className='text-left px-4'>Price</th>
+							<th className='text-left px-4'>Status</th>
+							<th className='text-left px-4'>Review count</th>
+							<th className='text-left px-4'>Rating</th>
+							<th className='text-left px-4'>SKU</th>
+							<th className='text-right px-4'>Actions</th>
 						</tr>
 					</thead>
 					{currentProducts.map((product, index) => {
@@ -127,16 +88,14 @@ const ProductList = () => {
 							? modelOverviewItem.value
 							: 'No found';
 						return (
-							<tbody
-								onClick={() => handleRowClick(product.asin)}
-								key={product.asin}
-								className='hover:bg-zinc-800 cursor-pointer'
-							>
+							<tbody>
 								<motion.tr
+									onClick={() => handleRowClick(product.asin)}
+									key={product.asin}
 									variants={itemAnimation}
-									className='border-b border-b-myGray/60 text-myGray'
+									className={`border-b border-myGray/30 text-gray-300 font-poppins text-[14px] hover:bg-zinc-900 cursor-pointer `}
 								>
-									<td className='py-7 hidden xs:table-cell'>
+									<td className='text-left pl-2 py-3 hidden xl:table-cell whitespace-nowrap'>
 										<div className='w-20 h-20 flex items-center justify-center border bg-zinc-900 border-myGray/60 rounded-lg'>
 											<img
 												className=' w-16 h-16 rounded-lg object-contain'
@@ -146,27 +105,27 @@ const ProductList = () => {
 										</div>
 									</td>
 
-									<td className='py-7'>
+									<td className='px-4 py-2'>
 										<div className='flex flex-col gap-y-1 max-w-[250px]'>
 											<p className='text-sm leading-4 text-white line-clamp-1 font-semibold'>
 												{modelName}
 											</p>
-											<p className='text-xs text-myGray hidden lg:flex'>
+											<p className='text-xs text-myGray hidden xl:flex'>
 												{product.title.slice(0, 70)}
 											</p>
 										</div>
 									</td>
-									<td className='py-7 hidden xl:table-cell'>
+									<td className='px-4 whitespace-nowrap'>
 										<p className='text-sm leading-4 text-myGray'>
 											{product.brand}
 										</p>
 									</td>
-									<td className='py-7'>
+									<td className='px-4 whitespace-nowrap'>
 										<p className='text-sm leading-4 text-white font-semibold'>
 											${product.price?.value.toFixed(2)}
 										</p>
 									</td>
-									<td className='py-7 hidden md:table-cell'>
+									<td className='px-4 whitespace-nowrap'>
 										<div className='flex items-center gap-x-2'>
 											<div
 												className={`w-2 h-2 rounded-full ${
@@ -178,53 +137,52 @@ const ProductList = () => {
 											</p>
 										</div>
 									</td>
-									<td className='py-7 hidden 2xl:table-cell'>
+									<td className='px-4 whitespace-nowrap'>
 										<p className='text-sm leading-4 text-myGray'>
 											{product.reviewsCount}
 										</p>
 									</td>
-									<td className='py-7 hidden xl:table-cell'>
+									<td className='px-4 whitespace-nowrap'>
 										<div className='flex items-center relative overflow-hidden gap-[3px]'>
 											<div className='flex items-center absolute overflow-hidden gap-[3px] w-[100%]'></div>
 											{renderStars(product.stars || 0)}
 										</div>
 									</td>
-									<td className='py-7 hidden 2xl:table-cell'>
+									<td className='px-4 whitespace-nowrap'>
 										<p className='text-sm leading-4 font-medium text-white'>
 											{product.asin}
 										</p>
 									</td>
-									<td className='py-7 hidden md:table-cell'>
-										<button
-											aria-label='More'
-											onClick={(e) => {
-												e.stopPropagation();
-												toggleAction(index);
-											}}
-										>
-											<IconMore className='cursor-pointer' />
-										</button>
-										{activeMenuId === index && (
-											<div className='z-50 absolute mt-2 w-28 text-right right-12 border border-[#313442] bg-myPrimary shadow-lg rounded-lg text-white text-xs '>
-												<ul>
-													<li className='hover:text-myGray'>
-														<a href='#' className='block px-4 py-2'>
-															View details
-														</a>
-													</li>
-													<li className='hover:text-myGray'>
-														<a href='#' className='block px-4 py-2'>
-															Edit
-														</a>
-													</li>
-													<li className='hover:text-myGray'>
-														<a href='#' className='block px-4 py-2'>
-															Cancel
-														</a>
-													</li>
-												</ul>
-											</div>
-										)}
+									<td className='px-4'>
+										<div className='relative w-full flex justify-end gap-4'>
+											<ButtonAction
+												className='hover:bg-white hover:text-black'
+												onClick={(e) => {
+													e.stopPropagation();
+													handleRowClick(product.asin);
+												}}
+											>
+												<FiEye className='w-5 h-5' />
+											</ButtonAction>
+											<ButtonAction
+												className='hover:bg-myBlue text-myBlue hover:text-white'
+												onClick={(e) => {
+													e.stopPropagation();
+													handleRowClick(product.asin);
+												}}
+											>
+												<FiEdit className='w-5 h-5' />
+											</ButtonAction>
+											<ButtonAction
+												className='text-myRed hover:bg-myRed hover:text-white'
+												onClick={(e) => {
+													e.stopPropagation();
+													handleRowClick(product.asin);
+												}}
+											>
+												<FiTrash2 className='w-5 h-5' />
+											</ButtonAction>
+										</div>
 									</td>
 								</motion.tr>
 							</tbody>

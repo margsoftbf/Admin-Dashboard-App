@@ -6,6 +6,8 @@ import { ordersList, containerAnimation, itemAnimation } from '@/data/data';
 import { useRouter } from 'next/router';
 import { CalendarDaysIcon, MapPinIcon } from '@heroicons/react/24/outline';
 import { IconMore } from '../../../public/assets/svg';
+import ButtonAction from '@/components/ui/ButtonAction';
+import { FiTrash2, FiEye, FiEdit } from 'react-icons/fi';
 const CustomerList = () => {
 	const pathSegments = [
 		{ name: 'Home', href: '/', current: false },
@@ -37,21 +39,16 @@ const CustomerList = () => {
 				Customer List
 			</h1>
 			<BreadCrumb pathSegments={pathSegments} />
-			<div className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5  mb-6 text-white font-poppins'>
-				<div className='flex items-center justify-between py-2'>
-					<h2 className='text-white font-poppins text-base font-medium'>
-						Customer List
-					</h2>
-				</div>
+			<div className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5  mb-6 text-white font-poppins overflow-x-auto'>
 				<motion.table
-					className='w-full mt-4 font-poppins'
+					className='w-full table-auto mt-2 font-poppins'
 					variants={containerAnimation}
 					initial='hidden'
 					animate='visible'
 				>
-					<thead>
-						<tr className='border-b border-b-myGray/60 text-myGray'>
-							<th className='text-left px-2'>
+					<thead className='w-full h-12'>
+						<tr className='border-b bg-zinc-900 border-myGray/30 font-poppins text-white text-[14px] whitespace-nowrap'>
+							<th className='text-left pl-2'>
 								<label htmlFor='selectAllCheckbox' className='sr-only'>
 									Select all customers
 								</label>
@@ -61,37 +58,13 @@ const CustomerList = () => {
 									type='checkbox'
 								/>
 							</th>
-							<th className='pb-2 hidden xs:table-cell px-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Name</span>
-								</div>
-							</th>
-							<th className='pb-2'>
-								<div className='flex items-center gap-x-2 px-2'>
-									<span className='text-xs font-medium'>Email</span>
-								</div>
-							</th>
-							<th className='pb-2 hidden xl:table-cell px-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Phone</span>
-								</div>
-							</th>
-							<th className='pb-2 hidden xl:table-cell px-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Billing Address</span>
-								</div>
-							</th>
-							<th className='pb-2 hidden 2xl:table-cell px-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Status</span>
-								</div>
-							</th>
-							<th className='pb-2 hidden 2xl:table-cell px-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Joined</span>
-								</div>
-							</th>
-							<th></th>
+							<th className='text-left px-4'>Name</th>
+							<th className='text-left px-4'>Email</th>
+							<th className='text-left px-4'>Phone</th>
+							<th className='text-left px-4'>Billing Address</th>
+							<th className='text-left px-4'>Status</th>
+							<th className='text-left px-4'>Joined</th>
+							<th className='text-right px-4'>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -100,9 +73,9 @@ const CustomerList = () => {
 								key={order.id}
 								variants={itemAnimation}
 								onClick={() => handleRowClick(order.orderId)}
-								className='hover:bg-zinc-800 cursor-pointer border-b border-b-myGray/60 text-white text-[14px]'
+								className='border-b border-myGray/30 text-gray-300 font-poppins text-[14px] hover:bg-zinc-900 cursor-pointer'
 							>
-								<td className='text-left py-6 lg:py-8 px-2'>
+								<td className='text-left pl-2 py-6 whitespace-nowrap'>
 									<label
 										htmlFor={`selectOrder-${order.id}`}
 										className='sr-only'
@@ -115,9 +88,9 @@ const CustomerList = () => {
 										type='checkbox'
 									/>
 								</td>
-								<td className='py-2 px-2'>
+								<td className='px-4 whitespace-nowrap'>
 									<div className='flex items-center gap-2'>
-										<div className='w-6 h-6 rounded-full overflow-hidden'>
+										<div className='w-7 h-7 rounded-full overflow-hidden'>
 											<img
 												src={order.avatar}
 												alt={`Avatar of ${order.avatarAlt}`}
@@ -126,13 +99,11 @@ const CustomerList = () => {
 										<p className='text-normal text-gray-1100 '>{order.name}</p>
 									</div>
 								</td>
-								<td className='hidden xs:table-cell px-2 py-2'>
-									{order.email}
-								</td>
-								<td className='hidden xl:table-cell py-2 px-2'>
+								<td className='px-4 whitespace-nowrap'>{order.email}</td>
+								<td className='px-4 whitespace-nowrap'>
 									<div className='flex items-center gap-1'>{order.phone}</div>
 								</td>
-								<td className='hidden xl:table-cell px-2 py-2'>
+								<td className='px-4 whitespace-nowrap'>
 									<div className='flex gap-1 items-center'>
 										<MapPinIcon className='w-5 h-5' />
 										<div className='flex flex-col text-xs'>
@@ -143,7 +114,7 @@ const CustomerList = () => {
 										</div>
 									</div>
 								</td>
-								<td className='hidden 2xl:table-cell py-2 px-2'>
+								<td className='px-4 whitespace-nowrap'>
 									<div className='flex items-center gap-x-2'>
 										<div
 											className={`w-2 h-2 rounded-full ${getOnlineStatusColor(
@@ -156,43 +127,42 @@ const CustomerList = () => {
 									</div>
 								</td>
 
-								<td className='hidden 2xl:table-cell py-2 px-2'>
+								<td className='px-4 whitespace-nowrap'>
 									<div className='flex items-center gap-1'>
 										<CalendarDaysIcon className='w-5 h-5' />
 										{order.joined}
 									</div>
 								</td>
-								<td className='px-2 py-2'>
-									<button
-										aria-label='More'
-										onClick={(e) => {
-											e.stopPropagation();
-											toggleAction(order.id);
-										}}
-									>
-										<IconMore className='cursor-pointer' />
-									</button>
-									{activeMenuId === order.id && (
-										<div className='z-50 absolute mt-2 w-28 right-12 border border-[#313442] bg-myPrimary shadow-lg rounded-lg text-white text-xs text-right'>
-											<ul>
-												<li className='hover:text-myGray'>
-													<a href='#' className='block px-4 py-2'>
-														View details
-													</a>
-												</li>
-												<li className='hover:text-myGray'>
-													<a href='#' className='block px-4 py-2'>
-														Edit
-													</a>
-												</li>
-												<li className='hover:text-myGray'>
-													<a href='#' className='block px-4 py-2'>
-														Cancel
-													</a>
-												</li>
-											</ul>
-										</div>
-									)}
+								<td className='px-4'>
+									<div className='relative w-full flex justify-end gap-4'>
+										<ButtonAction
+											className='hover:bg-white hover:text-black'
+											onClick={(e) => {
+												e.stopPropagation();
+												handleRowClick(order.orderId);
+											}}
+										>
+											<FiEye className='w-5 h-5' />
+										</ButtonAction>
+										<ButtonAction
+											className='hover:bg-myBlue text-myBlue hover:text-white'
+											onClick={(e) => {
+												e.stopPropagation();
+												handleRowClick(order.orderId);
+											}}
+										>
+											<FiEdit className='w-5 h-5' />
+										</ButtonAction>
+										<ButtonAction
+											className='text-myRed hover:bg-myRed hover:text-white'
+											onClick={(e) => {
+												e.stopPropagation();
+												handleRowClick(order.orderId);
+											}}
+										>
+											<FiTrash2 className='w-5 h-5' />
+										</ButtonAction>
+									</div>
 								</td>
 							</motion.tr>
 						))}

@@ -233,7 +233,7 @@ const OrderDetails = () => {
 						></textarea>
 					</div>
 				</div>
-				<div className='flex flex-col mt-6'>
+				<div className='flex flex-col mt-6 overflow-x-auto'>
 					<p>Products</p>
 					<motion.table
 						className='w-full mt-8 font-poppins'
@@ -241,9 +241,9 @@ const OrderDetails = () => {
 						initial='hidden'
 						animate='visible'
 					>
-						<thead>
-							<tr className='border-b border-b-myGray/60 text-myGray'>
-								<th className='text-left px-2'>
+						<thead className='w-full h-12'>
+							<tr className='border-b bg-zinc-900 border-myGray/30 font-poppins text-[14px] text-white whitespace-nowrap'>
+								<th className='text-left pl-2'>
 									<label htmlFor='selectAll' className='sr-only'>
 										Select All
 									</label>
@@ -253,26 +253,10 @@ const OrderDetails = () => {
 										type='checkbox'
 									/>
 								</th>
-								<th className='pb-2'>
-									<div className='flex items-center gap-x-2 px-2'>
-										<span className='text-xs font-medium'>Product Name</span>
-									</div>
-								</th>
-								<th className='pb-2 hidden md:table-cell px-2'>
-									<div className='flex items-center gap-x-2'>
-										<span className='text-xs font-medium'>Price</span>
-									</div>
-								</th>
-								<th className='pb-2 hidden lg:table-cell px-2 '>
-									<div className='flex items-center gap-x-2'>
-										<span className='text-xs font-medium'>Quantity</span>
-									</div>
-								</th>
-								<th className='pb-2 hidden lg:table-cell px-2'>
-									<div className='flex items-center gap-x-2'>
-										<span className='text-xs font-medium'>Total</span>
-									</div>
-								</th>
+								<th className='text-left px-4'>Product Name</th>
+								<th className='text-left px-4'>Price</th>
+								<th className='text-left px-4'>Quantity</th>
+								<th className='text-left px-4'>Total</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -280,10 +264,10 @@ const OrderDetails = () => {
 								<motion.tr
 									key={index}
 									variants={itemAnimation}
-									className='hover:bg-zinc-800 cursor-pointer border-b border-b-myGray/40 text-white text-[14px]'
+									className='border-b border-myGray/30 text-gray-300 font-poppins text-[14px] hover:bg-zinc-900 cursor-pointer'
 									onClick={() => navigateToProductDetails(product.asin)}
 								>
-									<td className='text-left py-6 lg:py-8 px-2'>
+									<td className='text-left pl-2 py-4'>
 										<label
 											htmlFor={`checkbox-${product.asin}`}
 											className='sr-only'
@@ -296,28 +280,28 @@ const OrderDetails = () => {
 											type='checkbox'
 										/>
 									</td>
-									<td className='text-left py-6 lg:py-8 px-2 flex gap-4 items-center '>
+									<td className='text-left text-xs py-6 lg:py-8 px-2 flex gap-4 items-center'>
 										<img
 											src={product.thumbnailImage}
-											alt='Prodcut image'
-											className='w-12 h-12 rounded-md'
+											alt='Product image'
+											className='hidden md:flex w-12 h-12 rounded-md'
 										/>
 										{product.title.slice(0, 20)}
 									</td>
-									<td className='hidden md:table-cell'>
+									<td className='px-4 py-2'>
 										${product.price.value.toFixed(2)}
 									</td>
-									<td className='hidden lg:table-cell '>{product.quantity}</td>
-									<td className='hidden lg:table-cell'>
-										${product.total.toFixed(2)}
+									<td className='px-4 whitespace-nowrap '>
+										{product.quantity}
 									</td>
+									<td className='px-4 py-2'>${product.total.toFixed(2)}</td>
 								</motion.tr>
 							))}
 						</tbody>
 					</motion.table>
 				</div>
 				<div className='my-6 flex items-center gap-x-36 justify-start lg:gap-x-48 sm:justify-end'>
-					<div className='flex flex-col gap-y-4 text-[14px] text-gray-500'>
+					<div className='flex flex-col gap-y-4 text-[14px] text-gray-400'>
 						<p>Subtotal:</p>
 						<p>Tax(20%):</p>
 

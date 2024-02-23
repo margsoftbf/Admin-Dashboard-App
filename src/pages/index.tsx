@@ -1,5 +1,5 @@
 import SellsBoxes from '@/components/Ecommerce/Dashboard/SellsBoxes';
-import FinancialDashboardTiles from '@/components/Finance/Dashboard/FinancialDashboardTiles';
+import PersonalFinanceDashboard from '@/components/Finance/Dashboard/PersonalFinanceDashboard';
 import MainLayout from '@/components/layout/MainLayout';
 
 export default function Home() {
@@ -10,7 +10,7 @@ export default function Home() {
 					Dashboard
 				</h1>
 				<SellsBoxes />
-				<FinancialDashboardTiles />
+				<PersonalFinanceDashboard />
 			</div>
 		</MainLayout>
 	);

@@ -5,14 +5,20 @@ import { ordersList, containerAnimation, itemAnimation } from '@/data/data';
 import { motion } from 'framer-motion';
 import MainLayout from '@/components/layout/MainLayout';
 import BreadCrumb from '@/components/common/Breadcrumb';
-import { IconMore } from '../../../../public/assets/svg';
+
 import { CalendarDaysIcon } from '@heroicons/react/24/outline';
 import { StarIcon } from '@heroicons/react/24/solid';
+import ButtonAction from '@/components/ui/ButtonAction';
+import { FiTrash2, FiEye, FiEdit } from 'react-icons/fi';
+import ConfirmationModal from '@/components/ui/ConfirmationModal';
+
 const CustomerReviews = () => {
 	const router = useRouter();
 	const { orderId } = router.query;
 	const [reviews, setReviews] = useState<OrderListTypes[]>([]);
-	const [activeMenuId, setActiveMenuId] = useState<number | null>(null);
+	const [openModal, setOpenModal] = useState(false);
+	const [modalTitle, setModalTitle] = useState('');
+
 	const pathSegments = [
 		{ name: 'Home', href: '/', current: false },
 		{ name: 'Ecommerce', href: '/ecommerce', current: false },
@@ -22,10 +28,6 @@ const CustomerReviews = () => {
 			current: true,
 		},
 	];
-
-	const toggleAction = (id: number) => {
-		setActiveMenuId(activeMenuId === id ? null : id);
-	};
 
 	useEffect(() => {
 		if (orderId) {
@@ -50,27 +52,33 @@ const CustomerReviews = () => {
 		return stars;
 	};
 
+	const handleOpenModal = (action: string) => {
+		setModalTitle(`Are you sure you want to ${action}?`);
+		setOpenModal(true);
+	};
+
+	const handleCloseModal = () => setOpenModal(false);
+
+	const handleConfirmAction = () => {
+		setOpenModal(false);
+	};
+
 	return (
 		<MainLayout>
 			<h1 className='my-2 font-poppins text-2xl ml-1 text-white font-bold'>
 				Customer Reviews
 			</h1>
 			<BreadCrumb pathSegments={pathSegments} />
-			<div className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5  mb-6 text-white font-poppins'>
-				<div className='flex items-center justify-between py-2'>
-					<h2 className='text-white font-poppins text-base font-medium'>
-						Customer Reviews
-					</h2>
-				</div>
+			<div className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5  mb-6 text-white font-poppins overflow-x-auto'>
 				<motion.table
-					className='w-full mt-4 font-poppins'
+					className='w-full mt-2 font-poppins table-auto'
 					variants={containerAnimation}
 					initial='hidden'
 					animate='visible'
 				>
-					<thead>
-						<tr className='border-b border-b-myGray/60 text-myGray'>
-							<th className='text-left px-2'>
+					<thead className='w-full h-12'>
+						<tr className='border-b bg-zinc-900 border-myGray/30 font-poppins text-white text-[14px] whitespace-nowrap'>
+							<th className='text-left pl-2'>
 								<label htmlFor='selectAllCheckbox' className='sr-only'>
 									Select all customers
 								</label>
@@ -80,27 +88,11 @@ const CustomerReviews = () => {
 									type='checkbox'
 								/>
 							</th>
-							<th className='pb-2 hidden xs:table-cell px-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Name</span>
-								</div>
-							</th>
-							<th className='pb-2 xl:px-10'>
-								<div className='flex items-center gap-x-2 px-2'>
-									<span className='text-xs font-medium'>Comment</span>
-								</div>
-							</th>
-							<th className='pb-2 hidden xl:table-cell px-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Rating</span>
-								</div>
-							</th>
-							<th className='pb-2 hidden xl:table-cell px-2'>
-								<div className='flex items-center gap-x-2'>
-									<span className='text-xs font-medium'>Date</span>
-								</div>
-							</th>
-							<th></th>
+							<th className='text-left px-4'>Name</th>
+							<th className='text-left px-4'>Comment</th>
+							<th className='text-left px-4'>Rating</th>
+							<th className='text-left px-4'>Date</th>
+							<th className='text-right px-4'>Actions</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -108,7 +100,7 @@ const CustomerReviews = () => {
 							<motion.tr
 								key={order.id}
 								variants={itemAnimation}
-								className='hover:bg-zinc-800 border-b border-b-myGray/60 text-white text-[14px]'
+								className='border-b border-myGray/30 text-gray-300 font-poppins text-[14px] hover:bg-zinc-900 cursor-pointer'
 							>
 								<td className='text-left py-6 lg:py-8 px-2'>
 									<label
@@ -123,7 +115,7 @@ const CustomerReviews = () => {
 										type='checkbox'
 									/>
 								</td>
-								<td className='py-2 px-2'>
+								<td className='px-4 py-2'>
 									<div className='flex items-center gap-2'>
 										<div className='w-6 h-6 rounded-full overflow-hidden'>
 											<img
@@ -136,11 +128,11 @@ const CustomerReviews = () => {
 								</td>
 								<td
 									scope='row'
-									className='hidden xs:table-cell px-2 xl:px-12 py-2 max-w-56 line-clamp-3'
+									className='table-cell pl-4 xl:pr-12  py-2 max-w-56 line-clamp-3'
 								>
 									{order.review}
 								</td>
-								<td className='hidden xl:table-cell py-2 px-2'>
+								<td className='px-4 py-2'>
 									<div className='flex items-center gap-1'>
 										{' '}
 										<div className='flex items-center relative overflow-hidden gap-[3px]'>
@@ -149,49 +141,45 @@ const CustomerReviews = () => {
 										</div>
 									</div>
 								</td>
-								<td className='hidden 2xl:table-cell py-2 px-2'>
+								<td className='px-4 py-2'>
 									<div className='flex items-center gap-1'>
 										<CalendarDaysIcon className='w-5 h-5' />
 										{order.joined}
 									</div>
 								</td>
 
-								<td className='px-2 py-2'>
-									<button
-										aria-label='More'
-										onClick={(e) => {
-											e.stopPropagation();
-											toggleAction(order.id);
-										}}
-									>
-										<IconMore className='cursor-pointer' />
-									</button>
-									{activeMenuId === order.id && (
-										<div className='z-50 absolute mt-2 w-28 right-12 border border-[#313442] bg-myPrimary shadow-lg rounded-lg text-white text-xs text-right'>
-											<ul>
-												<li className='hover:text-myGray'>
-													<a href='#' className='block px-4 py-2'>
-														View details
-													</a>
-												</li>
-												<li className='hover:text-myGray'>
-													<a href='#' className='block px-4 py-2'>
-														Edit
-													</a>
-												</li>
-												<li className='hover:text-myGray'>
-													<a href='#' className='block px-4 py-2'>
-														Cancel
-													</a>
-												</li>
-											</ul>
-										</div>
-									)}
+								<td className='px-4'>
+									<div className='relative w-full flex justify-end gap-4'>
+										<ButtonAction
+											className='hover:bg-white hover:text-black'
+											onClick={() => handleOpenModal('view')}
+										>
+											<FiEye className='w-5 h-5' />
+										</ButtonAction>
+										<ButtonAction
+											className='hover:bg-myBlue text-myBlue hover:text-white'
+											onClick={() => handleOpenModal('edit')}
+										>
+											<FiEdit className='w-5 h-5' />
+										</ButtonAction>
+										<ButtonAction
+											className='text-myRed hover:bg-myRed hover:text-white'
+											onClick={() => handleOpenModal('delete')}
+										>
+											<FiTrash2 className='w-5 h-5' />
+										</ButtonAction>
+									</div>
 								</td>
 							</motion.tr>
 						))}
 					</tbody>
 				</motion.table>
+				<ConfirmationModal
+					open={openModal}
+					onClose={handleCloseModal}
+					onConfirm={handleConfirmAction}
+					title={modalTitle}
+				/>
 			</div>
 		</MainLayout>
 	);

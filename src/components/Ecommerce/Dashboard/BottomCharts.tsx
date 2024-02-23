@@ -20,7 +20,7 @@ import {
 	VisistBySourceData,
 } from '@/data/data';
 import { motion } from 'framer-motion';
-import CheckKolo from './CheckKolo';
+
 
 const ReactApexChart = dynamic(() => import('react-apexcharts'), {
 	ssr: false,

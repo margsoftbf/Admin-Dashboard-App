@@ -10,3 +10,7 @@ export { default as IconBarChart } from './icon-bar-chart.svg';
 export { default as IconEconomy } from './icon-economy.svg';
 export { default as IconMoney } from './icon-money.svg';
 export { default as IconUpdate } from './icon-update.svg';
+export { default as CreditCard } from './credit-card-icon.svg';
+export { default as Time } from './time.svg';
+export { default as Balance } from './balance.svg';
+export { default as Briefcase } from './briefcase.svg';

@@ -1,20 +1,9 @@
 import { containerAnimation, itemAnimation, sellsBoxesData } from '@/data/data';
-import { useState } from 'react';
-import {
-	IconToggle,
-	IconBag,
-	IconExportGreen,
-} from '../../../../public/assets/svg';
-import ToggleMenu from '@/components/ui/ToggleMenu';
 import { motion } from 'framer-motion';
+import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
+import CountUp from 'react-countup';
 
 const SellsBoxes = () => {
-	const [activeMenuId, setActiveMenuId] = useState<number | null>(null);
-
-	const toggleMenu = (id: number) => {
-		setActiveMenuId(activeMenuId === id ? null : id);
-	};
-
 	return (
 		<motion.div
 			className='grid grid-cols-1 gap-6 mb-7 lg:grid-cols-2 2xl:grid-cols-4 '
@@ -25,47 +14,44 @@ const SellsBoxes = () => {
 			{sellsBoxesData.map((box) => (
 				<motion.div
 					key={box.id}
-					className='rounded-2xl border border-[#313442] bg-myPrimary py-2 flex-1 px-5'
+					className='rounded-xl bg-myPrimary text-white py-6 px-5 flex flex-col gap-4'
 					variants={itemAnimation}
 				>
-					<div className='flex items-center justify-between mb-4'>
-						<h2 className='text-myGray font-poppins text-[14px] font-medium'>
-							{box.title}
-						</h2>
-						<div className='ml-auto translate-x-4 relative'>
-							<button
-								aria-label='More'
-								onClick={() => toggleMenu(box.id)}
-								className='flex items-center justify-between py-2 px-4 cursor-pointer'
-							>
-								<IconToggle />
-							</button>
-							{activeMenuId === box.id && <ToggleMenu />}
-						</div>
-					</div>
-					<div className='flex items-center justify-between mb-1'>
-						<div className='flex items-center gap-3'>
-							<div
-								className={`${box.bgColor}  w-8 h-8 rounded-lg grid items-center justify-center`}
-							>
-								<IconBag />
-							</div>
-							<p className='font-bold text-white font-poppins text-lg'>
-								${box.price.toFixed(2)}
+					<div className='flex justify-between items-center font-poppins'>
+						<div>
+							<p className='text-2xl font-semibold tracking-wide'>
+								<CountUp end={box.price} duration={1.75} />+
 							</p>
+							<p className='text-myGray text-[14px] font-medium'>{box.title}</p>
 						</div>
-						<div className='flex flex-col gap-1 items-end'>
-							<div className='flex items-center gap-2'>
-								<IconExportGreen />
-								<span className='font-medium text-myGreen items-center justify-center text-base'>
-									{box.percent}%
-								</span>
-							</div>
+						<div className='rounded-xl w-14 h-14 relative'>
+							<div
+								className='bg-myIndigo/20 w-full h-full rounded-md'
+								style={{ backgroundColor: box.bgColor, opacity: 0.15 }}
+							></div>
+							<box.icon
+								className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 text-white`}
+								style={{ color: box.bgColor }}
+							/>
 						</div>
 					</div>
-					<p className='text-right text-[10px] text-myGray font-poppins leading-5'>
-						Compared to Jan 2023
-					</p>
+					<div className='bg-myGrayDarker rounded-md p-2 flex gap-1 text-[14px] items-center'>
+						<div
+							className={`font-bold flex gap-1 items-center justify-center ${
+								box.percent >= 0 ? 'text-green-500' : 'text-red-500'
+							}`}
+						>
+							{box.percent >= 0 ? (
+								<FaArrowUp className='w-3.5 h-3.5' />
+							) : (
+								<FaArrowDown className='w-3.5 h-3.5' />
+							)}
+							<span>{Math.abs(box.percent)}%</span>
+						</div>
+						<span className='text-myGray ml-1 font-semibold'>
+							Since last month
+						</span>
+					</div>
 				</motion.div>
 			))}
 		</motion.div>

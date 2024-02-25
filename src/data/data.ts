@@ -1,5 +1,6 @@
 import {
 	OrdersType,
+	PaymentCard,
 	Person,
 	SellsBoxesTypes,
 	VisistBySourceDataTypes,
@@ -23,6 +24,7 @@ import {
 	UserCircleIcon,
 } from '@heroicons/react/24/outline';
 import {
+	Briefcase,
 	IconBarChart,
 	IconEconomy,
 	IconMoney,
@@ -306,35 +308,41 @@ export const itemAnimation = {
 		opacity: 1,
 	},
 };
-
+import { HiShoppingCart } from "react-icons/hi";
+import { AiOutlineDollar } from "react-icons/ai";
+import { IoPersonSharp } from "react-icons/io5";
 export const sellsBoxesData: SellsBoxesTypes[] = [
 	{
 		id: 1,
-		title: 'Total sells',
-		price: 1540,
-		percent: 34.7,
-		bgColor: 'bg-green-700',
+		title: 'Total products',
+		price: 150,
+		percent: 25.17,
+		bgColor: '#5415F1',
+		icon: Briefcase,
 	},
 	{
 		id: 2,
-		title: 'Orders value',
+		title: 'Total orders',
 		price: 1380,
 		percent: 22.7,
-		bgColor: 'bg-violet-700',
+		bgColor: '#50D1B2',
+		icon: HiShoppingCart,
 	},
 	{
 		id: 3,
-		title: 'Daily orders',
-		price: 250,
-		percent: 17.9,
-		bgColor: 'bg-yellow-500',
+		title: 'Total sales',
+		price: 1220,
+		percent: -17.9,
+		bgColor: '#ECE663',
+		icon: AiOutlineDollar,
 	},
 	{
 		id: 4,
-		title: 'Daily revenue',
-		price: 120,
+		title: 'New customers',
+		price: 4210,
 		percent: 23.9,
-		bgColor: 'bg-blue-700',
+		bgColor: '#2775FF',
+		icon: IoPersonSharp,
 	},
 ];
 
@@ -1216,3 +1224,54 @@ export const VisistBySourceData: VisistBySourceDataTypes = {
 		colors: ['#5EEA8D', '#2775FF', '#EC8C56'],
 	},
 };
+
+export const paymentCards: PaymentCard[] = [
+	{
+		id: '1',
+		type: 'Mastercard',
+		balance: '$5,342.55',
+		cardNumber: '5522 **** **** 7890',
+		expiryDate: '08/26',
+		gradientColors: {
+			from: '#ea580c',
+			to: '#eab308',
+		},
+		iconPath: '/assets/other/Mastercard.png',
+	},
+	{
+		id: '2',
+		type: 'Visa',
+		balance: '$3,210.12',
+		cardNumber: '4539 **** **** 1234',
+		expiryDate: '11/24',
+		gradientColors: {
+			from: '#3b82f6',
+			to: '#4338ca',
+		},
+		iconPath: '/assets/other/Visa.png',
+	},
+	{
+		id: '3',
+		type: 'Paypal',
+		balance: '$7,890.00',
+		cardNumber: 'PayPal Account',
+		expiryDate: '07/26',
+		gradientColors: {
+			from: '#4338ca',
+			to: '#3b82f6',
+		},
+		iconPath: '/assets/other/Paypal.png',
+	},
+	{
+		id: '4',
+		type: 'Bitcoin',
+		balance: '₿0.255',
+		cardNumber: 'Bitcoin Wallet',
+		expiryDate: 'N/A',
+		gradientColors: {
+			from: '#65a30d',
+			to: '#0d9488',
+		},
+		iconPath: '/assets/other/Bitcoin.png',
+	},
+];

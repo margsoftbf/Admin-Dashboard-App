@@ -25,12 +25,16 @@ export interface OrdersType {
 	amount: number;
 }
 
+import { IconType } from 'react-icons';
+
+
 export interface SellsBoxesTypes {
 	id: number;
 	title: string;
 	price: number;
 	percent: number;
 	bgColor: string;
+	icon: IconType;
 }
 
 interface Price {
@@ -116,3 +120,17 @@ export interface VisistBySourceDataTypes {
 	series: number[] | { name: string; data: number[] }[];
 	options: ApexOptions;
 }
+
+
+export type PaymentCard = {
+	id: string;
+	type: string;
+	balance: string;
+	cardNumber: string;
+	expiryDate: string;
+	gradientColors: {
+	  from: string;
+	  to: string;
+	};
+	iconPath: string;
+  };

@@ -54,7 +54,7 @@ const AddCardModal: React.FC<ModalProps> = ({ open, handleClose }) => {
 				}}
 			>
 				<Fade in={open}>
-					<Box className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white w-96 mx-auto p-4 text-center shadow-lg max-w-96 dark:bg-myPrimary flex flex-col items-center font-poppins'>
+					<Box className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white w-80 lg:w-96 mx-auto p-4 text-center shadow-lg max-w-96 dark:bg-myPrimary flex flex-col items-center font-poppins'>
 						<div className='flex flex-col items-center gap-2 my-3 '>
 							<img src='/assets/other/add-card.png' alt='card picture' />
 							<h2 className='text-white font-bold text-2xl'>Add new card</h2>
@@ -75,9 +75,7 @@ const AddCardModal: React.FC<ModalProps> = ({ open, handleClose }) => {
 									onChange={handleSelectChange}
 									className=' border  text-sm rounded-lg  block w-full p-2.5 bg-myGrayDarker border-zinc-700 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500'
 								>
-									<option value='Mastercard'>
-										Mastercard
-									</option>
+									<option value='Mastercard'>Mastercard</option>
 									<option value='Visa'>Visa</option>
 									<option value='Paypal'>Paypal</option>
 									<option value='Bitcoin'>Bitcoin Wallet</option>

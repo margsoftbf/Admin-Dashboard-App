@@ -45,11 +45,11 @@ const YourCards = () => {
 				</div>
 			</div>
 			<div className='w-full bg-myGray/50 h-[1px] mb-5'></div>
-			<div className='grid items-center gap-6 grid-cols-1 mb-10 lg:grid-cols-2 2xl:grid-cols-4 '>
+			<div className='grid items-center gap-6 grid-cols-1 mb-10 md:grid-cols-2 2xl:grid-cols-4 '>
 				{paymentCards.map((payment) => (
 					<motion.div
 						key={payment.id}
-						className={`rounded-lg pt-5 pb-6 flex-1 text-white px-3 md:px-5 xl:px-8 flex flex-col justify-between h-48`}
+						className={`rounded-lg pt-5 pb-6 flex-1 text-white px-3 flex flex-col justify-between h-44`}
 						style={{
 							background: `linear-gradient(to right, ${payment.gradientColors.from}, ${payment.gradientColors.to})`,
 						}}
@@ -67,10 +67,10 @@ const YourCards = () => {
 							</div>
 						</div>
 						<div className='flex justify-between '>
-							<p className='font-inter font-medium text-[14px] xl:text-base'>
+							<p className='font-inter font-medium text-[14px]'>
 								{payment.cardNumber}
 							</p>
-							<p className='font-inter font-medium text-[14px] xl:text-base'>
+							<p className='font-inter font-medium text-[14px] '>
 								Valid: {payment.expiryDate}
 							</p>
 						</div>

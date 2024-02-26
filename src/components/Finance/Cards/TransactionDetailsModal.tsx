@@ -117,13 +117,13 @@ const TransactionDetailsModal: React.FC<ModalProps> = ({
 								</div>
 								<div className='w-full bg-myGray/50 h-[1px] mb-2'></div>
 								<div className='flex items-center justify-between flex-wrap gap-3 text-xs font-poppins text-white font-medium'>
-									<button className='px-6 py-3 bg-myGrayDarker rounded-lg flex items-center  gap-2'>
+									<button className='px-6 py-3 bg-myGrayDarker rounded-lg flex items-center  gap-2 hover:bg-zinc-900 transition duration-300'>
 										Print <FiPrinter className='w-4 h-4' />
 									</button>
-									<button className='px-4 py-3 bg-myGrayDarker rounded-lg flex items-center  gap-2'>
+									<button className='px-4 py-3 bg-myGrayDarker rounded-lg flex items-center  gap-2 hover:bg-zinc-900 transition duration-300'>
 										Download <MdOutlineFileDownload className='w-4 h-4' />
 									</button>
-									<button className='px-6 py-3 bg-myGrayDarker rounded-lg flex items-center  gap-2'>
+									<button className='px-6 py-3 bg-myGrayDarker rounded-lg flex items-center  gap-2 hover:bg-zinc-900 transition duration-300'>
 										Refund <MdKeyboardReturn className='w-4 h-4' />
 									</button>
 								</div>

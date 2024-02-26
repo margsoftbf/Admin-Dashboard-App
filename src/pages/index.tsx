@@ -1,3 +1,4 @@
+import RecentPurchases from '@/components/Ecommerce/Dashboard/RecentPurchases';
 import SellsBoxes from '@/components/Ecommerce/Dashboard/SellsBoxes';
 import PersonalFinanceDashboard from '@/components/Finance/Dashboard/PersonalFinanceDashboard';
 import MainLayout from '@/components/layout/MainLayout';
@@ -11,6 +12,7 @@ export default function Home() {
 				</h1>
 				<SellsBoxes />
 				<PersonalFinanceDashboard />
+				<RecentPurchases />
 			</div>
 		</MainLayout>
 	);

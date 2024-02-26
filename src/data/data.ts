@@ -79,11 +79,6 @@ export const navigation = [
 			{ name: 'Dashboard', href: '/finance', current: false },
 			{ name: 'Cards', href: '/finance/cards', current: false },
 			{ name: 'Transactions', href: '/finance/transactions', current: false },
-			{
-				name: 'Transactions Details',
-				href: '/finance/transactions-details',
-				current: false,
-			},
 		],
 	},
 	{
@@ -308,9 +303,9 @@ export const itemAnimation = {
 		opacity: 1,
 	},
 };
-import { HiShoppingCart } from "react-icons/hi";
-import { AiOutlineDollar } from "react-icons/ai";
-import { IoPersonSharp } from "react-icons/io5";
+import { HiShoppingCart } from 'react-icons/hi';
+import { AiOutlineDollar } from 'react-icons/ai';
+import { IoPersonSharp } from 'react-icons/io5';
 export const sellsBoxesData: SellsBoxesTypes[] = [
 	{
 		id: 1,
@@ -1063,7 +1058,18 @@ export const latestTransfersData = [
 		name: 'Facebook',
 		invoiceId: 'GSV567489239UI',
 		price: 450.54,
+		status: 'Delivered',
 		date: '15 Jan 2022 - 2:00 AM',
+		recipientInfo: {
+			email: 'contact@facebook.com',
+			address: '1 Hacker Way, Menlo Park, CA 94025',
+			phone: '+1 650-543-4800',
+		},
+		bankDetails: {
+			bankName: 'Bank of America',
+			bankAddress: '1234 American Way, Freedom City, CA 94016',
+			accountNumber: '9876543210',
+		},
 	},
 	{
 		id: 2,
@@ -1071,7 +1077,18 @@ export const latestTransfersData = [
 		name: 'Amazon',
 		invoiceId: 'AMZ837489239UI',
 		price: 1020.99,
+		status: 'Cancelled',
 		date: '20 Feb 2022 - 4:30 PM',
+		recipientInfo: {
+			email: 'support@amazon.com',
+			address: '410 Terry Ave N, Seattle, WA 98109',
+			phone: '+1 888-280-4331',
+		},
+		bankDetails: {
+			bankName: 'Chase Bank',
+			bankAddress: '5678 Freedom Dr, Liberty City, WA 98101',
+			accountNumber: '1234567890',
+		},
 	},
 	{
 		id: 3,
@@ -1079,7 +1096,18 @@ export const latestTransfersData = [
 		name: 'Dribble',
 		invoiceId: 'DRB123456789UI',
 		price: 320.47,
+		status: 'Pending',
 		date: '05 Mar 2022 - 1:15 PM',
+		recipientInfo: {
+			email: 'help@dribble.com',
+			address: 'Design Street 12, Art City, NY 10001',
+			phone: '+1 800-123-4567',
+		},
+		bankDetails: {
+			bankName: 'Wells Fargo',
+			bankAddress: 'Artisan Row, Craftsmanship Town, NY 10002',
+			accountNumber: '2345678901',
+		},
 	},
 	{
 		id: 4,
@@ -1087,7 +1115,18 @@ export const latestTransfersData = [
 		name: 'Google',
 		invoiceId: 'GGL987654321UI',
 		price: 899.99,
+		status: 'Delivered',
 		date: '18 Apr 2022 - 9:00 AM',
+		recipientInfo: {
+			email: 'support@google.com',
+			address: '1600 Amphitheatre Parkway, Mountain View, CA 94043',
+			phone: '+1 650-253-0000',
+		},
+		bankDetails: {
+			bankName: 'Silicon Valley Bank',
+			bankAddress: '3003 Tasman Dr., Santa Clara, CA 95054',
+			accountNumber: '8765432109',
+		},
 	},
 	{
 		id: 5,
@@ -1095,15 +1134,113 @@ export const latestTransfersData = [
 		name: 'Linkedin',
 		invoiceId: 'LNKD234567890UI',
 		price: 760.32,
+		status: 'Delivered',
 		date: '22 May 2022 - 3:45 PM',
+		recipientInfo: {
+			email: 'info@linkedin.com',
+			address: 'Sunnyvale, California, United States',
+			phone: '+1 650-687-3600',
+		},
+		bankDetails: {
+			bankName: 'First Republic Bank',
+			bankAddress: '111 Pine Street, San Francisco, CA 94111',
+			accountNumber: '7654321098',
+		},
 	},
 	{
 		id: 6,
 		img: '/assets/other/pinterest.png',
 		name: 'Pinterest',
+		status: 'Cancelled',
 		invoiceId: 'PNT345678901UI',
 		price: 500.0,
 		date: '30 Jun 2022 - 11:00 PM',
+		recipientInfo: {
+			email: 'support@pinterest.com',
+			address: '505 Brannan St, San Francisco, CA 94107, United States',
+			phone: '+1 800-736-3001',
+		},
+		bankDetails: {
+			bankName: 'Bank of the West',
+			bankAddress: '180 Montgomery Street, San Francisco, CA 94104',
+			accountNumber: '6543210987',
+		},
+	},
+	{
+		id: 7,
+		img: '/assets/other/mcdonalds.png',
+		name: 'McDonalds',
+		invoiceId: 'MCD20220730UI',
+		price: 75.2,
+		status: 'Cancelled',
+		date: '30 Jul 2022 - 12:30 PM',
+		recipientInfo: {
+			email: 'contact@mcdonalds.com',
+			address: '1020 N San Fernando Blvd, Burbank, CA 91504, United States',
+			phone: '+1 818-555-1234',
+		},
+		bankDetails: {
+			bankName: 'Citi Bank',
+			bankAddress: '333 Farrell St, San Francisco, CA 94102',
+			accountNumber: '9988776655',
+		},
+	},
+	{
+		id: 8,
+		img: '/assets/other/starbucks.png',
+		name: 'Starbucks',
+		invoiceId: 'SBX20220815UI',
+		price: 142.55,
+		status: 'Pending',
+		date: '15 Aug 2022 - 3:45 PM',
+		recipientInfo: {
+			email: 'support@starbucks.com',
+			address: '1912 Pike Pl, Seattle, WA 98101, United States',
+			phone: '+1 206-555-6789',
+		},
+		bankDetails: {
+			bankName: 'Bank of America',
+			bankAddress: '150 Broadway, New York, NY 10038',
+			accountNumber: '1122334455',
+		},
+	},
+	{
+		id: 9,
+		img: '/assets/other/walmart.png',
+		name: 'Walmart',
+		invoiceId: 'WMT20220905UI',
+		price: 530.4,
+		status: 'Pending',
+		date: '05 Sep 2022 - 4:00 PM',
+		recipientInfo: {
+			email: 'help@walmart.com',
+			address: '702 SW 8th St, Bentonville, AR 72712, United States',
+			phone: '+1 800-555-9876',
+		},
+		bankDetails: {
+			bankName: 'Wells Fargo',
+			bankAddress: '420 Montgomery St, San Francisco, CA 94104',
+			accountNumber: '6677889900',
+		},
+	},
+	{
+		id: 10,
+		img: '/assets/other/youtube.png',
+		name: 'Youtube',
+		invoiceId: 'YT20221020UI',
+		price: 1200.0,
+		status: 'Delivered',
+		date: '20 Oct 2022 - 10:15 AM',
+		recipientInfo: {
+			email: 'support@youtube.com',
+			address: '901 Cherry Ave, San Bruno, CA 94066, United States',
+			phone: '+1 650-555-3434',
+		},
+		bankDetails: {
+			bankName: 'Chase Bank',
+			bankAddress: '270 Park Ave, New York, NY 10017',
+			accountNumber: '5566778899',
+		},
 	},
 ];
 

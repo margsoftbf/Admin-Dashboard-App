@@ -43,10 +43,10 @@ const SpendingSummary = () => {
 					initial='hidden'
 					animate='visible'
 				>
-					{latestTransfersData.map((data) => (
+					{latestTransfersData.slice(0, 6).map((data) => (
 						<motion.div
 							key={data.id}
-							className='rounded-lg border border-myGrayDarker flex items-center justify-between pt-2 pb-3 px-4 xl:pr-3 hover:bg-zinc-800 cursor-pointer'
+							className='rounded-lg border border-myGrayDarker flex items-center justify-between pt-2 pb-3 px-4 xl:pr-3 hover:bg-zinc-900 cursor-pointer'
 							variants={itemAnimation}
 						>
 							<div className='flex items-center flex-1 gap-4'>
@@ -64,7 +64,7 @@ const SpendingSummary = () => {
 							</div>
 							<div>
 								<p className='font-semibold text-white mb-3 text-right text-[14px]'>
-									${data.price}
+									${data.price.toFixed(2)}
 								</p>
 								<p className='hidden md:block text-myGray text-xs'>
 									{data.date}

@@ -6,6 +6,7 @@ import { IconToggle } from '../../../public/assets/svg';
 import { containerAnimation } from '@/data/data';
 import { motion } from 'framer-motion';
 import YourCards from '@/components/Finance/Cards/YourCards';
+import Transfers from '@/components/Finance/Cards/Transfers';
 
 const Cards = () => {
 	const pathSegments = [
@@ -30,9 +31,8 @@ const Cards = () => {
 			</h1>
 			<BreadCrumb pathSegments={pathSegments} />
 
-				<YourCards />
-
-
+			<YourCards />
+			<Transfers />
 		</MainLayout>
 	);
 };

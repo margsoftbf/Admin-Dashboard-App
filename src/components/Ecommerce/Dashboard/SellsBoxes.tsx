@@ -14,7 +14,7 @@ const SellsBoxes = () => {
 			{sellsBoxesData.map((box) => (
 				<motion.div
 					key={box.id}
-					className='rounded-xl bg-myPrimary text-white py-6 px-5 flex flex-col gap-4'
+					className='group rounded-xl bg-myPrimary text-white py-6 px-5 flex flex-col gap-4'
 					variants={itemAnimation}
 				>
 					<div className='flex justify-between items-center font-poppins'>
@@ -24,13 +24,13 @@ const SellsBoxes = () => {
 							</p>
 							<p className='text-myGray text-[14px] font-medium'>{box.title}</p>
 						</div>
-						<div className='rounded-xl w-14 h-14 relative'>
+						<div className='rounded-xl w-14 h-14 relative group group-hover:animate-wiggle'>
 							<div
 								className='bg-myIndigo/20 w-full h-full rounded-md'
 								style={{ backgroundColor: box.bgColor, opacity: 0.15 }}
 							></div>
 							<box.icon
-								className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 text-white`}
+								className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-7 h-7 text-white `}
 								style={{ color: box.bgColor }}
 							/>
 						</div>

@@ -18,11 +18,6 @@ const OrderList = () => {
 	];
 
 	const router = useRouter();
-	const [activeMenuId, setActiveMenuId] = useState<number | null>(null);
-
-	const toggleAction = (id: number) => {
-		setActiveMenuId(activeMenuId === id ? null : id);
-	};
 
 	const handleRowClick = (orderId: string) => {
 		router.push(`/ecommerce/order-details/${orderId}`);
@@ -31,16 +26,15 @@ const OrderList = () => {
 	const getStatusColorClass = (status: string) => {
 		switch (status) {
 			case 'Delivered':
-				return 'bg-myGreen';
+				return 'bg-green-500/20 text-green-500';
 			case 'Pending':
-				return 'bg-myOrange';
+				return 'bg-orange-500/20 text-orange-500';
 			case 'Cancelled':
-				return 'bg-myRed';
+				return 'bg-red-500/20 text-red-500';
 			default:
 				return 'bg-gray-400';
 		}
 	};
-
 	const getPaymentMethodImage = (paymentMethod: string) => {
 		switch (paymentMethod) {
 			case 'Visa':
@@ -112,7 +106,7 @@ const OrderList = () => {
 								key={order.id}
 								variants={itemAnimation}
 								onClick={() => handleRowClick(order.orderId)}
-								className='hover:bg-zinc-800 cursor-pointer border-b border-b-myGray/60 text-white text-[14px]'
+								className='hover:bg-zinc-900 cursor-pointer border-b border-b-myGray/60 text-white text-[14px]'
 							>
 								<td className='text-left py-6 px-2'>
 									<label
@@ -172,12 +166,13 @@ const OrderList = () => {
 								</td>
 								<td className='px-4 whitespace-nowrap'>
 									<div className='flex items-center gap-x-2'>
-										<div
-											className={`w-2 h-2 rounded-full ${getStatusColorClass(
+										<p
+											className={`py-1 px-3 text-xs rounded-lg  ${getStatusColorClass(
 												order.status
 											)}`}
-										></div>
-										<p className='text-normal'>{order.status}</p>
+										>
+											{order.status}
+										</p>
 									</div>
 								</td>
 								<td className='px-4'>

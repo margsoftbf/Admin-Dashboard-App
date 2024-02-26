@@ -5,13 +5,9 @@ import { containerAnimation, itemAnimation, ordersList } from '@/data/data';
 import { motion } from 'framer-motion';
 import { OrderListTypes, ProductTypes } from '@/types/types';
 import productData from '../../../data/products.json';
-import { useRouter } from 'next/router';
-import { FiTrash2, FiEye, FiEdit } from 'react-icons/fi';
-import ButtonAction from '@/components/ui/ButtonAction';
 
-const RecentPurchases = () => {
+const Transfers = () => {
 	const [isMenuVisible, setIsMenuVisible] = useState(false);
-	const router = useRouter();
 
 	const toggleMenu = () => {
 		setIsMenuVisible(!isMenuVisible);
@@ -60,10 +56,6 @@ const RecentPurchases = () => {
 		return totalAmount.toFixed(2);
 	};
 
-	const handleRowClick = (orderId: string) => {
-		router.push(`/ecommerce/order-details/${orderId}`);
-	};
-
 	return (
 		<motion.div
 			className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5  mb-6 overflow-x-auto'
@@ -73,7 +65,7 @@ const RecentPurchases = () => {
 		>
 			<div className='flex items-center justify-between py-2'>
 				<h2 className='text-myGray font-poppins text-[14px] font-medium'>
-					Recent Purchases
+					Transfers list
 				</h2>
 				<div>
 					<button
@@ -100,22 +92,19 @@ const RecentPurchases = () => {
 								type='checkbox'
 							/>
 						</th>
-						<th className='text-left px-4'>Order ID</th>
-						<th className='text-left  px-4'>Customer name</th>
-
-						<th className='text-left px-4'>Date</th>
+						<th className='text-left px-4'>Transaction ID</th>
+						<th className='text-left  px-4'>Amount</th>
+						<th className='text-left px-4'>Card</th>
+						<th className='text-left px-4'>Customer</th>
 						<th className='text-left px-4'>Status</th>
-						<th className='text-left px-4'>Payment Method</th>
-						<th className='text-left px-4'>Amount</th>
-						<th className='text-right px-4'>Actions</th>
+						<th className='text-left px-4'>Date</th>
 					</tr>
 				</thead>
 				<tbody>
-					{ordersList.slice(0, 5).map((order, index) => (
+					{ordersList.map((order, index) => (
 						<motion.tr
 							key={order.id}
-							onClick={() => handleRowClick(order.orderId)}
-							className={`border-b border-myGray/30 text-gray-300 font-poppins text-[14px] hover:bg-zinc-900 cursor-pointer whitespace-nowrap`}
+							className={`border-b border-myGray/30 text-gray-300 font-poppins text-[14px] hover:bg-zinc-900 whitespace-nowrap`}
 							variants={itemAnimation}
 						>
 							<td className='text-left pl-2 py-4'>
@@ -134,6 +123,20 @@ const RecentPurchases = () => {
 							<td className='px-4'>
 								<span>#{order.orderId}</span>
 							</td>
+
+							<td className='px-4'>
+								${calculateTotalAmount(order, productData)}
+							</td>
+							<td className='px-4'>
+								<div className='flex items-center gap-2'>
+									<img
+										src={getPaymentMethodImage(order.payment)}
+										alt=''
+										className='w-auto h-6'
+									/>
+									{order.payment}
+								</div>
+							</td>
 							<td className='px-4'>
 								<div className='flex items-center gap-2'>
 									<div className='w-7 h-7 rounded-full overflow-hidden'>
@@ -141,9 +144,6 @@ const RecentPurchases = () => {
 									</div>
 									<p className='text-normal text-gray-1100 '>{order.name}</p>
 								</div>
-							</td>
-							<td className='px-4'>
-								<span>{order.date}</span>
 							</td>
 
 							<td className='px-4'>
@@ -158,48 +158,7 @@ const RecentPurchases = () => {
 								</div>
 							</td>
 							<td className='px-4'>
-								<div className='flex items-center gap-2'>
-									<img
-										src={getPaymentMethodImage(order.payment)}
-										alt=''
-										className='w-auto h-6'
-									/>
-									{order.payment}
-								</div>
-							</td>
-							<td className='px-4'>
-								${calculateTotalAmount(order, productData)}
-							</td>
-							<td className='text-right px-4'>
-								<div className='relative w-full flex justify-end gap-4'>
-									<ButtonAction
-										className='hover:bg-white hover:text-black'
-										onClick={(e) => {
-											e.stopPropagation();
-											handleRowClick(order.orderId);
-										}}
-									>
-										<FiEye className='w-5 h-5' />
-									</ButtonAction>
-									<ButtonAction
-										className='hover:bg-myBlue text-myBlue hover:text-white'
-										onClick={(e) => {
-											e.stopPropagation();
-											handleRowClick(order.orderId);
-										}}
-									>
-										<FiEdit className='w-5 h-5' />
-									</ButtonAction>
-									<ButtonAction
-										className='text-myRed hover:bg-myRed hover:text-white'
-										onClick={(e) => {
-											e.stopPropagation();
-											handleRowClick(order.orderId);
-										}}
-									>
-										<FiTrash2 className='w-5 h-5' />
-									</ButtonAction>
-								</div>
+								<span>{order.date}</span>
 							</td>
 						</motion.tr>
 					))}
@@ -209,4 +168,4 @@ const RecentPurchases = () => {
 	);
 };
 
-export default RecentPurchases;
+export default Transfers;

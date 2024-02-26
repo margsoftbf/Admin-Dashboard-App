@@ -30,6 +30,8 @@ const PersonalFinanceDashboard = () => {
 		other: 0,
 	});
 
+	const today = new Date().toISOString().split('T')[0];
+
 	useEffect(() => {
 		const targetValues: ProgressValuesType = {
 			shopping: 40,
@@ -212,7 +214,7 @@ const PersonalFinanceDashboard = () => {
 				</div>
 			</motion.div>
 			<motion.div
-				className='rounded-2xl border border-[#313442] bg-myPrimary py-2 flex-1 px-5'
+				className='h-64 rounded-2xl border border-[#313442] bg-myPrimary py-2 flex-1 px-5'
 				variants={itemAnimation}
 			>
 				<div className='flex items-center justify-between mb-4'>
@@ -229,7 +231,7 @@ const PersonalFinanceDashboard = () => {
 					</div>
 				</div>
 				<motion.div
-					className='flex flex-col gap-4'
+					className='flex flex-col gap-3 h-64'
 					variants={containerAnimation}
 					initial='hidden'
 					animate='visible'
@@ -246,14 +248,15 @@ const PersonalFinanceDashboard = () => {
 								</div>
 								<div className='flex flex-col gap-1 font-poppins text-[14px]'>
 									<p className='font-semibold'>{data.stockName}</p>
-									<p className='text-gray-400 text-xs'>${data.price}</p>
+									<p className='text-gray-400 text-xs'>{today}</p>
 								</div>
 							</div>
 
-							<div>
+							<div className='flex flex-col gap-1 text-[14px]'>
+								<p className={`font-semibold `}>${data.price}</p>
 								<p
-									className={`font-semibold ${
-										data.priceChange < 0 ? 'text-myRed' : 'text-myGreen'
+									className={`font-semibold text-right ${
+										data.priceChange < 0 ? 'text-red-500' : 'text-green-500'
 									}`}
 								>
 									{data.priceChange < 0 ? '-' : '+'}$

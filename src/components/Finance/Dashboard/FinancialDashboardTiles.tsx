@@ -2,6 +2,7 @@ import React from 'react';
 import { Tooltip, ResponsiveContainer, Line, LineChart, XAxis } from 'recharts';
 import { financialData, containerAnimation, itemAnimation } from '@/data/data';
 import { motion } from 'framer-motion';
+
 const FinancialDashboardTiles = () => {
 	return (
 		<motion.div
@@ -13,7 +14,7 @@ const FinancialDashboardTiles = () => {
 			{financialData.map((box) => (
 				<motion.div
 					key={box.id}
-					className='font-poppins rounded-2xl border border-[#313442] bg-myPrimary py-2 flex-1 px-5'
+					className='font-poppins rounded-2xl border border-[#313442] bg-myPrimary py-2 flex-1 px-5 '
 					variants={itemAnimation}
 				>
 					<div className='flex items-center my-2'>

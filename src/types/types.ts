@@ -24,6 +24,36 @@ export interface OrdersType {
 	date: string;
 	amount: number;
 }
+export interface TransactionsType {
+	id: number;
+	avatar: string;
+	avatarAlt: string;
+	name: string;
+	orderId: string;
+	product: string;
+	status: string;
+	date: string;
+	amount: number;
+}
+
+export interface TransactionDetails {
+	id: number;
+	img: string;
+	name: string;
+	invoiceId: string;
+	price: number;
+	date: string;
+	recipientInfo: {
+	  email: string;
+	  address: string;
+	  phone: string;
+	};
+	bankDetails: {
+	  bankName: string;
+	  bankAddress: string;
+	  accountNumber: string;
+	};
+  }
 
 import { IconType } from 'react-icons';
 

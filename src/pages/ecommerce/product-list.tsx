@@ -14,7 +14,6 @@ const ProductList = () => {
 	const productsPerPage = 10;
 	const router = useRouter();
 
-
 	const handleRowClick = (asin: string) => {
 		router.push(`/ecommerce/product-details/${asin}`);
 	};
@@ -129,7 +128,7 @@ const ProductList = () => {
 										<div className='flex items-center gap-x-2'>
 											<div
 												className={`w-2 h-2 rounded-full ${
-													product.inStock === true ? 'bg-myEmerald' : 'bg-myRed'
+													product.inStock === true ? 'bg-green-500' : 'bg-myRed'
 												}`}
 											></div>
 											<p className='text-sm leading-4 text-myGray'>

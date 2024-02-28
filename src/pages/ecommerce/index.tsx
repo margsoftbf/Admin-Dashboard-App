@@ -1,10 +1,11 @@
 import MainLayout from '@/components/layout/MainLayout';
 import React from 'react';
 import BreadCrumb from '@/components/common/Breadcrumb';
-import SellsBoxes from '@/components/Ecommerce/Dashboard/SellsBoxes';
-import Charts from '@/components/Ecommerce/Dashboard/Charts';
+
+import SalesSummaryBoxes from '@/components/Ecommerce/Dashboard/SalesSummaryBoxes';
+import SalesDashboard from '@/components/Ecommerce/Dashboard/SalesDashboard';
 import RecentPurchases from '@/components/Ecommerce/Dashboard/RecentPurchases';
-import BottomCharts from '@/components/Ecommerce/Dashboard/BottomCharts';
+import AnalyticsOverview from '@/components/Ecommerce/Dashboard/AnalyticsOverview';
 
 const EcommerceHomePage = () => {
 	const pathSegments = [
@@ -19,11 +20,10 @@ const EcommerceHomePage = () => {
 				Ecommerce
 			</h1>
 			<BreadCrumb pathSegments={pathSegments} />
-			<SellsBoxes />
-			<Charts />
+			<SalesSummaryBoxes />
+			<SalesDashboard />
 			<RecentPurchases />
-
-			<BottomCharts />
+			<AnalyticsOverview />
 		</MainLayout>
 	);
 };

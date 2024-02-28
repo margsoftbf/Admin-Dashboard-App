@@ -31,7 +31,7 @@ https://admin.marcingarski.com/
 
 ![App Screenshoot](https://github.com/margsoftbf/Travelo/blob/main/public/assets/screenshot/FullScreen.png?raw=true)
 
-[![Nazwa dla miniatury](https://github.com/margsoftbf/Travelo/blob/main/public/assets/screenshot/FullScreen.png?raw=true)](![URL_do_obrazka_w_pełnym_rozmiarze](https://github.com/margsoftbf/Travelo/blob/main/public/assets/screenshot/FullScreen.png?raw=true))
+
 
 ## Key Features:
 

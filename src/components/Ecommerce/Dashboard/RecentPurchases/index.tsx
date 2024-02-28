@@ -1,13 +1,13 @@
 import ToggleMenu from '@/components/ui/ToggleMenu';
 import React, { useState } from 'react';
-import { IconToggle } from '../../../../public/assets/svg';
 import { containerAnimation, itemAnimation, ordersList } from '@/data/data';
 import { motion } from 'framer-motion';
 import { OrderListTypes, ProductTypes } from '@/types/types';
-import productData from '../../../data/products.json';
+import productData from '../../../../data/products.json';
 import { useRouter } from 'next/router';
 import { FiTrash2, FiEye, FiEdit } from 'react-icons/fi';
 import ButtonAction from '@/components/ui/ButtonAction';
+import { IconToggle } from '../../../../../public/assets/svg';
 
 const RecentPurchases = () => {
 	const [isMenuVisible, setIsMenuVisible] = useState(false);

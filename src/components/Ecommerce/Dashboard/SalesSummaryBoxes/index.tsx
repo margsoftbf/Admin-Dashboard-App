@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
 import CountUp from 'react-countup';
 
-const SellsBoxes = () => {
+const SellsSummaryBoxes = () => {
 	return (
 		<motion.div
 			className='grid grid-cols-1 gap-6 mb-7 lg:grid-cols-2 2xl:grid-cols-4 '
@@ -58,4 +58,4 @@ const SellsBoxes = () => {
 	);
 };
 
-export default SellsBoxes;
+export default SellsSummaryBoxes;

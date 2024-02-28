@@ -2,7 +2,7 @@ import ToggleMenu from '@/components/ui/ToggleMenu';
 import React, { useState } from 'react';
 import { containerAnimation, paymentCards, itemAnimation } from '@/data/data';
 import { motion } from 'framer-motion';
-import { IconToggle } from '../../../../public/assets/svg';
+import { IconToggle } from '../../../../../public/assets/svg';
 import Button from '@/components/ui/Button';
 import AddCardModal from './AddCardModal';
 

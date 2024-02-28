@@ -3,7 +3,7 @@ import { Tooltip, ResponsiveContainer, Line, LineChart, XAxis } from 'recharts';
 import { financialData, containerAnimation, itemAnimation } from '@/data/data';
 import { motion } from 'framer-motion';
 
-const FinancialDashboardTiles = () => {
+const FinancialTiles = () => {
 	return (
 		<motion.div
 			className='grid grid-cols-1 gap-6 mb-6 md:grid-cols-2 2xl:grid-cols-4 text-white'
@@ -65,4 +65,4 @@ const FinancialDashboardTiles = () => {
 	);
 };
 
-export default FinancialDashboardTiles;
+export default FinancialTiles;

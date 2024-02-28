@@ -87,7 +87,7 @@ const TransactionDetailsModal: React.FC<ModalProps> = ({
 											</p>
 										</div>
 									</div>
-									<div className='hidden lg:flex text-xs  py-2 rounded-lg px-3 bg-myGrayDarker max-w-24 text-myViolet'>
+									<div className='hidden lg:flex text-xs  py-2 rounded-lg px-3 bg-myGrayDarker max-w-24 text-myYellow'>
 										$ {transaction.price.toFixed(2)}
 									</div>
 								</div>

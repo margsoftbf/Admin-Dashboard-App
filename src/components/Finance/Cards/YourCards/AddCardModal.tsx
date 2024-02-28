@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Box, Fade, Backdrop } from '@mui/material';
-import { Balance, CreditCard, Time } from '../../../../public/assets/svg';
+import { Balance, CreditCard, Time } from '../../../../../public/assets/svg';
 
 interface ModalProps {
 	open: boolean;

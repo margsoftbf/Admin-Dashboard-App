@@ -7,7 +7,7 @@ import {
 	latestTransfersData,
 } from '@/data/data';
 import { motion } from 'framer-motion';
-import TransactionDetailsModal from '@/components/Finance/Cards/TransactionDetailsModal';
+import TransactionDetailsModal from '@/components/Finance/TransactionDetailsModal';
 import { TransactionDetails } from '@/types/types';
 const Transactions = () => {
 	const [activeTransaction, setActiveTransaction] = useState<TransactionDetails | null>(null);

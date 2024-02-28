@@ -81,16 +81,12 @@ export const navigation = [
 			{ name: 'Transactions', href: '/finance/transactions', current: false },
 		],
 	},
+
 	{
 		name: 'Jobs',
-		href: '#',
+		href: '/jobs',
 		icon: BriefcaseIcon,
 		current: false,
-		subMenu: [
-			{ name: 'Dashboard', href: '#', current: false },
-			{ name: 'Job Listing', href: '#', current: false },
-			{ name: 'Add New Job', href: '#', current: false },
-		],
 	},
 	{
 		name: 'Analytics',
@@ -341,189 +337,59 @@ export const sellsBoxesData: SellsBoxesTypes[] = [
 	},
 ];
 
-export const dailyData = [
+
+
+export const monhtlyDataSalePerformance = [
 	{
-		name: '0:00',
-		Completed: 106,
-		Pending: 31,
-		Unpaid: 5,
-		Delivered: 63,
+		name: 'Completed',
+		data: [
+			1906, 2103, 2055, 2488, 2168, 1744, 2485, 1582, 2254, 2252, 2427, 2168,
+		],
 	},
 	{
-		name: '4:00',
-		Completed: 89,
-		Pending: 25,
-		Unpaid: 12,
-		Delivered: 55,
+		name: 'Pending',
+		data: [431, 505, 726, 646, 607, 505, 808, 799, 692, 919, 777, 674],
 	},
 	{
-		name: '8:00',
-		Completed: 120,
-		Pending: 45,
-		Unpaid: 10,
-		Delivered: 90,
+		name: 'Delivered',
+		data: [
+			1583, 1120, 815, 929, 1144, 1361, 1105, 2020, 1103, 1810, 2041, 958,
+		],
+	},
+];
+export const dailyDataSalePerformance = [
+	{
+		name: 'Completed',
+		data: [1692, 1926, 2267, 2693, 2346, 2055, 2590, 1304, 1954, 2443, 2280, 2515],
 	},
 	{
-		name: '12:00',
-		Completed: 150,
-		Pending: 55,
-		Unpaid: 15,
-		Delivered: 105,
+		name: 'Pending',
+		data: [412, 489, 586, 527, 708, 481, 924, 740, 776, 788, 781, 767],
 	},
 	{
-		name: '16:00',
-		Completed: 170,
-		Pending: 60,
-		Unpaid: 18,
-		Delivered: 120,
+		name: 'Delivered',
+		data: [
+			1537, 1081, 778, 949, 1341, 1474, 1039, 2390, 954, 1825, 1856, 768,
+		],
+	},
+];
+export const weeklyDataSalePerformance = [
+	{
+		name: 'Completed',
+		data: [1671, 2425, 2107, 2426, 2430, 1919, 2732, 1877, 2596, 2347, 2778, 2280],
 	},
 	{
-		name: '20:00',
-		Completed: 190,
-		Pending: 65,
-		Unpaid: 20,
-		Delivered: 140,
+		name: 'Pending',
+		data: [404, 524, 820, 578, 574, 436, 695, 943, 567, 1046, 887, 565],
+	},
+	{
+		name: 'Delivered',
+		data: [
+			1791, 1039, 857, 907, 1352, 1175, 1208, 2021, 887, 1661, 1960, 1147,
+		],
 	},
 ];
 
-export const weeklyData = [
-	{
-		name: 'Monday',
-		Completed: 300,
-		Pending: 100,
-		Unpaid: 20,
-		Delivered: 220,
-	},
-	{
-		name: 'Tuesday',
-		Completed: 320,
-		Pending: 110,
-		Unpaid: 25,
-		Delivered: 250,
-	},
-	{
-		name: 'Wednesday',
-		Completed: 310,
-		Pending: 120,
-		Unpaid: 22,
-		Delivered: 240,
-	},
-	{
-		name: 'Thursday',
-		Completed: 330,
-		Pending: 130,
-		Unpaid: 30,
-		Delivered: 260,
-	},
-	{
-		name: 'Friday',
-		Completed: 340,
-		Pending: 140,
-		Unpaid: 18,
-		Delivered: 240,
-	},
-	{
-		name: 'Saturday',
-		Completed: 280,
-		Pending: 90,
-		Unpaid: 15,
-		Delivered: 220,
-	},
-	{
-		name: 'Sunday',
-		Completed: 350,
-		Pending: 150,
-		Unpaid: 32,
-		Delivered: 300,
-	},
-];
-
-export const monthlyData = [
-	{
-		name: 'January',
-		Completed: 1906,
-		Pending: 431,
-		Unpaid: 65,
-		Delivered: 1583,
-	},
-	{
-		name: 'February',
-		Completed: 2103,
-		Pending: 505,
-		Unpaid: 141,
-		Delivered: 1120,
-	},
-	{
-		name: 'March',
-		Completed: 2055,
-		Pending: 726,
-		Unpaid: 295,
-		Delivered: 815,
-	},
-	{
-		name: 'April',
-		Completed: 1519,
-		Pending: 646,
-		Unpaid: 243,
-		Delivered: 929,
-	},
-	{
-		name: 'May',
-		Completed: 2488,
-		Pending: 607,
-		Unpaid: 215,
-		Delivered: 1144,
-	},
-	{
-		name: 'June',
-		Completed: 2168,
-		Pending: 505,
-		Unpaid: 200,
-		Delivered: 1361,
-	},
-	{
-		name: 'July',
-		Completed: 1744,
-		Pending: 808,
-		Unpaid: 280,
-		Delivered: 1105,
-	},
-	{
-		name: 'August',
-		Completed: 2485,
-		Pending: 799,
-		Unpaid: 297,
-		Delivered: 2020,
-	},
-	{
-		name: 'September',
-		Completed: 1582,
-		Pending: 692,
-		Unpaid: 231,
-		Delivered: 1103,
-	},
-	{
-		name: 'October',
-		Completed: 2254,
-		Pending: 919,
-		Unpaid: 147,
-		Delivered: 1810,
-	},
-	{
-		name: 'November',
-		Completed: 2252,
-		Pending: 777,
-		Unpaid: 84,
-		Delivered: 2041,
-	},
-	{
-		name: 'December',
-		Completed: 2427,
-		Pending: 674,
-		Unpaid: 192,
-		Delivered: 958,
-	},
-];
 
 export const dataBars = [
 	{

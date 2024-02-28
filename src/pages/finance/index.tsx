@@ -1,9 +1,9 @@
 import MainLayout from '@/components/layout/MainLayout';
 import React from 'react';
 import BreadCrumb from '@/components/common/Breadcrumb';
-import FinancialDashboardTiles from '@/components/Finance/Dashboard/FinancialDashboardTiles';
-import PersonalFinanceDashboard from '@/components/Finance/Dashboard/PersonalFinanceDashboard';
 import SpendingSummary from '@/components/Finance/Dashboard/SpendingSummary';
+import FinancialTiles from '@/components/Finance/Dashboard/FinancialTiles';
+import PersonalFinance from '@/components/Finance/Dashboard/PersonalFinance';
 const FinanceHomePage = () => {
 	const pathSegments = [
 		{ name: 'Home', href: '/', current: false },
@@ -17,8 +17,8 @@ const FinanceHomePage = () => {
 				Finance
 			</h1>
 			<BreadCrumb pathSegments={pathSegments} />
-			<FinancialDashboardTiles />
-			<PersonalFinanceDashboard />
+			<FinancialTiles />
+			<PersonalFinance />
 			<SpendingSummary />
 		</MainLayout>
 	);

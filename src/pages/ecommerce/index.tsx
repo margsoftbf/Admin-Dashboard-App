@@ -1,7 +1,6 @@
 import MainLayout from '@/components/layout/MainLayout';
 import React from 'react';
 import BreadCrumb from '@/components/common/Breadcrumb';
-
 import SalesSummaryBoxes from '@/components/Ecommerce/Dashboard/SalesSummaryBoxes';
 import SalesDashboard from '@/components/Ecommerce/Dashboard/SalesDashboard';
 import RecentPurchases from '@/components/Ecommerce/Dashboard/RecentPurchases';

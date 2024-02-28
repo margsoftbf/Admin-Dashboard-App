@@ -1,6 +1,6 @@
 import RecentPurchases from '@/components/Ecommerce/Dashboard/RecentPurchases';
-import SellsBoxes from '@/components/Ecommerce/Dashboard/SellsBoxes';
-import PersonalFinanceDashboard from '@/components/Finance/Dashboard/PersonalFinanceDashboard';
+import SalesSummaryBoxes from '@/components/Ecommerce/Dashboard/SalesSummaryBoxes';
+import PersonalFinance from '@/components/Finance/Dashboard/PersonalFinance';
 import MainLayout from '@/components/layout/MainLayout';
 
 export default function Home() {
@@ -10,8 +10,8 @@ export default function Home() {
 				<h1 className='mt-2 mb-4 font-poppins text-2xl ml-1 text-white font-bold'>
 					Dashboard
 				</h1>
-				<SellsBoxes />
-				<PersonalFinanceDashboard />
+				<SalesSummaryBoxes />
+				<PersonalFinance />
 				<RecentPurchases />
 			</div>
 		</MainLayout>

@@ -87,7 +87,7 @@ const ProductList = () => {
 							? modelOverviewItem.value
 							: 'No found';
 						return (
-							<tbody>
+							<tbody key={product.asin}>
 								<motion.tr
 									onClick={() => handleRowClick(product.asin)}
 									key={product.asin}

@@ -28,7 +28,6 @@ import {
 	IconBarChart,
 	IconEconomy,
 	IconMoney,
-	IconToggle,
 	IconUpdate,
 } from '.././../public/assets/svg';
 
@@ -337,8 +336,6 @@ export const sellsBoxesData: SellsBoxesTypes[] = [
 	},
 ];
 
-
-
 export const monhtlyDataSalePerformance = [
 	{
 		name: 'Completed',
@@ -352,15 +349,15 @@ export const monhtlyDataSalePerformance = [
 	},
 	{
 		name: 'Delivered',
-		data: [
-			1583, 1120, 815, 929, 1144, 1361, 1105, 2020, 1103, 1810, 2041, 958,
-		],
+		data: [1583, 1120, 815, 929, 1144, 1361, 1105, 2020, 1103, 1810, 2041, 958],
 	},
 ];
 export const dailyDataSalePerformance = [
 	{
 		name: 'Completed',
-		data: [1692, 1926, 2267, 2693, 2346, 2055, 2590, 1304, 1954, 2443, 2280, 2515],
+		data: [
+			1692, 1926, 2267, 2693, 2346, 2055, 2590, 1304, 1954, 2443, 2280, 2515,
+		],
 	},
 	{
 		name: 'Pending',
@@ -368,15 +365,15 @@ export const dailyDataSalePerformance = [
 	},
 	{
 		name: 'Delivered',
-		data: [
-			1537, 1081, 778, 949, 1341, 1474, 1039, 2390, 954, 1825, 1856, 768,
-		],
+		data: [1537, 1081, 778, 949, 1341, 1474, 1039, 2390, 954, 1825, 1856, 768],
 	},
 ];
 export const weeklyDataSalePerformance = [
 	{
 		name: 'Completed',
-		data: [1671, 2425, 2107, 2426, 2430, 1919, 2732, 1877, 2596, 2347, 2778, 2280],
+		data: [
+			1671, 2425, 2107, 2426, 2430, 1919, 2732, 1877, 2596, 2347, 2778, 2280,
+		],
 	},
 	{
 		name: 'Pending',
@@ -384,12 +381,9 @@ export const weeklyDataSalePerformance = [
 	},
 	{
 		name: 'Delivered',
-		data: [
-			1791, 1039, 857, 907, 1352, 1175, 1208, 2021, 887, 1661, 1960, 1147,
-		],
+		data: [1791, 1039, 857, 907, 1352, 1175, 1208, 2021, 887, 1661, 1960, 1147],
 	},
 ];
-
 
 export const dataBars = [
 	{
@@ -1276,5 +1270,308 @@ export const paymentCards: PaymentCard[] = [
 			to: '#0d9488',
 		},
 		iconPath: '/assets/other/Bitcoin.png',
+	},
+];
+
+export const jobListing = [
+	{
+		id: 1,
+		img: '/assets/other/youtube.png',
+		positionName: 'Javascript developer',
+		location: 'USA',
+		company: 'Youtube',
+		employmentTime: 'Full time',
+		jobListed: '2 days ago',
+		salary: '4029 - 5100',
+		tags: ['Remote', 'Junior', 'Javascript'],
+		jobDescription:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste autem itaque nesciunt aut ipsam omnis provident distinctio quia id mollitia sapiente doloremque commodi adipisci pariatur aperiam, labore possimus nam quam dolorem ea tempore rem! Autem deserunt, voluptatibus repellendus velit adipisci consequuntur rem expedita fugiat earum quisquam, vitae nihil iure architecto.',
+		qualifications: [
+			'5+ years experience',
+			'Portfolio demonstrating mastery of native iOS, Android, and/or responsive web design',
+			'Ability to autonomously pursue elegant solutions to open-ended problems',
+			'ively work on more than one project at a time',
+		],
+		perks: [
+			'Competitive pay',
+			'Competitive medical, dental, and vision insurance plans',
+			'Paid vacation and sick time',
+			'Free snacks and beverages',
+		],
+	},
+	{
+		id: 2,
+		img: '/assets/other/amazon.png',
+		positionName: 'Backend developer',
+		location: 'USA',
+		company: 'Amazon',
+		employmentTime: 'Part time',
+		jobListed: '5 days ago',
+		salary: '3600 - 7840',
+		tags: ['Senior', 'Remote', 'Backend'],
+		jobDescription:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste autem itaque nesciunt aut ipsam omnis provident distinctio quia id mollitia sapiente doloremque commodi adipisci pariatur aperiam, labore possimus nam quam dolorem ea tempore rem! Autem deserunt, voluptatibus repellendus velit adipisci consequuntur rem expedita fugiat earum quisquam, vitae nihil iure architecto.',
+		qualifications: [
+			'5+ years experience',
+			'Portfolio demonstrating mastery of native iOS, Android, and/or responsive web design',
+			'Ability to autonomously pursue elegant solutions to open-ended problems',
+			'ively work on more than one project at a time',
+		],
+		perks: [
+			'Competitive pay',
+			'Competitive medical, dental, and vision insurance plans',
+			'Paid vacation and sick time',
+			'Free snacks and beverages',
+		],
+	},
+	{
+		id: 3,
+		img: '/assets/other/apple.png',
+		positionName: 'Frontend developer',
+		location: 'USA',
+		company: 'Apple',
+		employmentTime: 'Full time',
+		jobListed: '5 days ago',
+		salary: '3163 - 5740',
+		tags: ['Junior', 'Remote', 'Frontend'],
+		jobDescription:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste autem itaque nesciunt aut ipsam omnis provident distinctio quia id mollitia sapiente doloremque commodi adipisci pariatur aperiam, labore possimus nam quam dolorem ea tempore rem! Autem deserunt, voluptatibus repellendus velit adipisci consequuntur rem expedita fugiat earum quisquam, vitae nihil iure architecto.',
+		qualifications: [
+			'5+ years experience',
+			'Portfolio demonstrating mastery of native iOS, Android, and/or responsive web design',
+			'Ability to autonomously pursue elegant solutions to open-ended problems',
+			'ively work on more than one project at a time',
+		],
+		perks: [
+			'Competitive pay',
+			'Competitive medical, dental, and vision insurance plans',
+			'Paid vacation and sick time',
+			'Free snacks and beverages',
+		],
+	},
+	{
+		id: 4,
+		img: '/assets/other/dribble.png',
+		positionName: 'React developer',
+		location: 'USA',
+		company: 'Dribble',
+		employmentTime: 'Full time',
+		jobListed: '12 days ago',
+		salary: '4103 - 8940',
+		tags: ['React', 'Remote', 'Frontend'],
+		jobDescription:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste autem itaque nesciunt aut ipsam omnis provident distinctio quia id mollitia sapiente doloremque commodi adipisci pariatur aperiam, labore possimus nam quam dolorem ea tempore rem! Autem deserunt, voluptatibus repellendus velit adipisci consequuntur rem expedita fugiat earum quisquam, vitae nihil iure architecto.',
+		qualifications: [
+			'5+ years experience',
+			'Portfolio demonstrating mastery of native iOS, Android, and/or responsive web design',
+			'Ability to autonomously pursue elegant solutions to open-ended problems',
+			'ively work on more than one project at a time',
+		],
+		perks: [
+			'Competitive pay',
+			'Competitive medical, dental, and vision insurance plans',
+			'Paid vacation and sick time',
+			'Free snacks and beverages',
+		],
+	},
+	{
+		id: 5,
+		img: '/assets/other/facebook-circle.png',
+		positionName: 'Javascript developer',
+		location: 'USA',
+		company: 'Facebook',
+		employmentTime: 'Full time',
+		jobListed: '2 days ago',
+		salary: '4029 - 5100',
+		tags: ['Remote', 'Junior', 'Javascript'],
+		jobDescription:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste autem itaque nesciunt aut ipsam omnis provident distinctio quia id mollitia sapiente doloremque commodi adipisci pariatur aperiam, labore possimus nam quam dolorem ea tempore rem! Autem deserunt, voluptatibus repellendus velit adipisci consequuntur rem expedita fugiat earum quisquam, vitae nihil iure architecto.',
+		qualifications: [
+			'5+ years experience',
+			'Portfolio demonstrating mastery of native iOS, Android, and/or responsive web design',
+			'Ability to autonomously pursue elegant solutions to open-ended problems',
+			'ively work on more than one project at a time',
+		],
+		perks: [
+			'Competitive pay',
+			'Competitive medical, dental, and vision insurance plans',
+			'Paid vacation and sick time',
+			'Free snacks and beverages',
+		],
+	},
+	{
+		id: 6,
+		img: '/assets/other/google.png',
+		positionName: 'Backend developer',
+		location: 'USA',
+		company: 'Google',
+		employmentTime: 'Part time',
+		jobListed: '5 days ago',
+		salary: '3600 - 7840',
+		tags: ['Senior', 'Remote', 'Backend'],
+		jobDescription:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste autem itaque nesciunt aut ipsam omnis provident distinctio quia id mollitia sapiente doloremque commodi adipisci pariatur aperiam, labore possimus nam quam dolorem ea tempore rem! Autem deserunt, voluptatibus repellendus velit adipisci consequuntur rem expedita fugiat earum quisquam, vitae nihil iure architecto.',
+		qualifications: [
+			'5+ years experience',
+			'Portfolio demonstrating mastery of native iOS, Android, and/or responsive web design',
+			'Ability to autonomously pursue elegant solutions to open-ended problems',
+			'ively work on more than one project at a time',
+		],
+		perks: [
+			'Competitive pay',
+			'Competitive medical, dental, and vision insurance plans',
+			'Paid vacation and sick time',
+			'Free snacks and beverages',
+		],
+	},
+	{
+		id: 7,
+		img: '/assets/other/linkedin.png',
+		positionName: 'Frontend developer',
+		location: 'USA',
+		company: 'Linkedin',
+		employmentTime: 'Full time',
+		jobListed: '5 days ago',
+		salary: '3163 - 5740',
+		tags: ['Junior', 'Remote', 'Frontend'],
+		jobDescription:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste autem itaque nesciunt aut ipsam omnis provident distinctio quia id mollitia sapiente doloremque commodi adipisci pariatur aperiam, labore possimus nam quam dolorem ea tempore rem! Autem deserunt, voluptatibus repellendus velit adipisci consequuntur rem expedita fugiat earum quisquam, vitae nihil iure architecto.',
+		qualifications: [
+			'5+ years experience',
+			'Portfolio demonstrating mastery of native iOS, Android, and/or responsive web design',
+			'Ability to autonomously pursue elegant solutions to open-ended problems',
+			'ively work on more than one project at a time',
+		],
+		perks: [
+			'Competitive pay',
+			'Competitive medical, dental, and vision insurance plans',
+			'Paid vacation and sick time',
+			'Free snacks and beverages',
+		],
+	},
+	{
+		id: 8,
+		img: '/assets/other/mcdonalds.png',
+		positionName: 'React developer',
+		location: 'USA',
+		company: 'Mcdonalds',
+		employmentTime: 'Full time',
+		jobListed: '12 days ago',
+		salary: '4103 - 8940',
+		tags: ['React', 'Remote', 'Frontend'],
+		jobDescription:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste autem itaque nesciunt aut ipsam omnis provident distinctio quia id mollitia sapiente doloremque commodi adipisci pariatur aperiam, labore possimus nam quam dolorem ea tempore rem! Autem deserunt, voluptatibus repellendus velit adipisci consequuntur rem expedita fugiat earum quisquam, vitae nihil iure architecto.',
+		qualifications: [
+			'5+ years experience',
+			'Portfolio demonstrating mastery of native iOS, Android, and/or responsive web design',
+			'Ability to autonomously pursue elegant solutions to open-ended problems',
+			'ively work on more than one project at a time',
+		],
+		perks: [
+			'Competitive pay',
+			'Competitive medical, dental, and vision insurance plans',
+			'Paid vacation and sick time',
+			'Free snacks and beverages',
+		],
+	},
+	{
+		id: 9,
+		img: '/assets/other/nvidia.png',
+		positionName: 'Javascript developer',
+		location: 'USA',
+		company: 'Nvidia',
+		employmentTime: 'Full time',
+		jobListed: '2 days ago',
+		salary: '4029 - 5100',
+		tags: ['Remote', 'Junior', 'Javascript'],
+		jobDescription:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste autem itaque nesciunt aut ipsam omnis provident distinctio quia id mollitia sapiente doloremque commodi adipisci pariatur aperiam, labore possimus nam quam dolorem ea tempore rem! Autem deserunt, voluptatibus repellendus velit adipisci consequuntur rem expedita fugiat earum quisquam, vitae nihil iure architecto.',
+		qualifications: [
+			'5+ years experience',
+			'Portfolio demonstrating mastery of native iOS, Android, and/or responsive web design principles',
+			'Ability to autonomously pursue elegant solutions to open-ended problems',
+			'ively work on more than one project at a time',
+		],
+		perks: [
+			'Competitive pay',
+			'Competitive medical, dental, and vision insurance plans',
+			'Paid vacation and sick time',
+			'Free snacks and beverages',
+		],
+	},
+	{
+		id: 10,
+		img: '/assets/other/pinterest.png',
+		positionName: 'Backend developer',
+		location: 'USA',
+		company: 'Pinterest',
+		employmentTime: 'Part time',
+		jobListed: '5 days ago',
+		salary: '3600 - 7840',
+		tags: ['Senior', 'Remote', 'Backend'],
+		jobDescription:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste autem itaque nesciunt aut ipsam omnis provident distinctio quia id mollitia sapiente doloremque commodi adipisci pariatur aperiam, labore possimus nam quam dolorem ea tempore rem! Autem deserunt, voluptatibus repellendus velit adipisci consequuntur rem expedita fugiat earum quisquam, vitae nihil iure architecto.',
+		qualifications: [
+			'5+ years experience',
+			'Portfolio demonstrating mastery of native iOS, Android, and/or responsive web design',
+			'Ability to autonomously pursue elegant solutions to open-ended problems',
+			'ively work on more than one project at a time',
+		],
+		perks: [
+			'Competitive pay',
+			'Competitive medical, dental, and vision insurance plans',
+			'Paid vacation and sick time',
+			'Free snacks and beverages',
+		],
+	},
+	{
+		id: 11,
+		img: '/assets/other/starbucks.png',
+		positionName: 'Frontend developer',
+		location: 'USA',
+		company: 'Starbucks',
+		employmentTime: 'Full time',
+		jobListed: '5 days ago',
+		salary: '3163 - 5740',
+		tags: ['Junior', 'Remote', 'Frontend'],
+		jobDescription:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste autem itaque nesciunt aut ipsam omnis provident distinctio quia id mollitia sapiente doloremque commodi adipisci pariatur aperiam, labore possimus nam quam dolorem ea tempore rem! Autem deserunt, voluptatibus repellendus velit adipisci consequuntur rem expedita fugiat earum quisquam, vitae nihil iure architecto.',
+		qualifications: [
+			'5+ years experience',
+			'Portfolio demonstrating mastery of native iOS, Android, and/or responsive web design',
+			'Ability to autonomously pursue elegant solutions to open-ended problems',
+			'ively work on more than one project at a time',
+		],
+		perks: [
+			'Competitive pay',
+			'Competitive medical, dental, and vision insurance plans',
+			'Paid vacation and sick time',
+			'Free snacks and beverages',
+		],
+	},
+	{
+		id: 12,
+		img: '/assets/other/twitter.png',
+		positionName: 'React developer',
+		location: 'USA',
+		company: 'Twitter',
+		employmentTime: 'Full time',
+		jobListed: '12 days ago',
+		salary: '4103 - 8940',
+		tags: ['React', 'Remote', 'Frontend'],
+		jobDescription:
+			'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste autem itaque nesciunt aut ipsam omnis provident distinctio quia id mollitia sapiente doloremque commodi adipisci pariatur aperiam, labore possimus nam quam dolorem ea tempore rem! Autem deserunt, voluptatibus repellendus velit adipisci consequuntur rem expedita fugiat earum quisquam, vitae nihil iure architecto.',
+		qualifications: [
+			'5+ years experience',
+			'Portfolio demonstrating mastery of native iOS, Android, and/or responsive web design',
+			'Ability to autonomously pursue elegant solutions to open-ended problems',
+			'ively work on more than one project at a time',
+		],
+		perks: [
+			'Competitive pay',
+			'Competitive medical, dental, and vision insurance plans',
+			'Paid vacation and sick time',
+			'Free snacks and beverages',
+		],
 	},
 ];

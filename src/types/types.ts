@@ -164,3 +164,18 @@ export type PaymentCard = {
 	};
 	iconPath: string;
   };
+
+  export interface JobTypes {
+	id: number;
+	img: string;
+	positionName: string;
+	location: string;
+	company: string;
+	employmentTime: string;
+	jobListed: string;
+	salary: string;
+	tags: string[];
+	jobDescription: string;
+	qualifications: string[];
+	perks: string[];
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Box, Fade, Backdrop } from '@mui/material';
 import { Balance, CreditCard, Time } from '../../../../../public/assets/svg';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 
 interface ModalProps {
 	open: boolean;
@@ -55,6 +56,10 @@ const AddCardModal: React.FC<ModalProps> = ({ open, handleClose }) => {
 			>
 				<Fade in={open}>
 					<Box className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white w-80 lg:w-96 mx-auto p-4 text-center shadow-lg max-w-96 dark:bg-myPrimary flex flex-col items-center font-poppins'>
+					<XMarkIcon
+							className='w-7 h-7 text-white absolute right-2 top-2 cursor-pointer'
+							onClick={handleClose}
+						/>
 						<div className='flex flex-col items-center gap-2 my-3 '>
 							<img src='/assets/other/add-card.png' alt='card picture' />
 							<h2 className='text-white font-bold text-2xl'>Add new card</h2>

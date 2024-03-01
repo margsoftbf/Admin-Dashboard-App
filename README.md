@@ -27,20 +27,20 @@ https://admin.marcingarski.com/
 
 ## Screenshot
 
-## Ecommerce
+# Ecommerce
 
-<img src="https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/ProductDetails.png" width="50%" height="auto">
-<img src="https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Productlist.png" width="50%" height="auto">
-<img src="https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Orderlist.png" width="50%" height="auto">
+![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/ProductDetails.png)
+![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Productlist.png)
+![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Orderlist.png)
 
-## Finance
+# Finance
 
-<img src="https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Cards.png?raw=true" width="50%" height="auto">
-<img src="https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Finance.png" width="50%" height="auto">
+![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Cards.png?raw=true)
+![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Finance.png)
 
-## Jobs
+# Jobs
 
-<img src="https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Jobs.png" width="50%" height="auto">
+![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Jobs.png)
 
 ## Key Features:
 

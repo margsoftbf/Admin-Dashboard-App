@@ -27,11 +27,20 @@ https://admin.marcingarski.com/
 
 ## Screenshot
 
-# Full screen
+## Ecommerce
 
-![App Screenshoot](https://github.com/margsoftbf/Travelo/blob/main/public/assets/screenshot/FullScreen.png?raw=true)
+<img src="https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/ProductDetails.png" width="50%" height="auto">
+<img src="https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Productlist.png" width="50%" height="auto">
+<img src="https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Orderlist.png" width="50%" height="auto">
 
+## Finance
 
+<img src="https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Cards.png?raw=true" width="50%" height="auto">
+<img src="https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Finance.png" width="50%" height="auto">
+
+## Jobs
+
+<img src="https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Jobs.png" width="50%" height="auto">
 
 ## Key Features:
 
@@ -61,11 +70,10 @@ Facilitate seamless communication within your team with built-in chat functional
 
 7. Additional Tools for Comprehensive Management:
 
- - Crypto Dashboard: For businesses dealing with cryptocurrency transactions and portfolio management.
- - Kanban Board: Visualize work, limit work-in-progress, and maximize efficiency.
- - Social Network Management: Oversee your brand's social media presence directly from the dashboard.
- - Invoice System: Generate and manage invoices with ease.
- - Help Center & FAQ: Provide support and answers to common questions, enhancing user satisfaction.
-
+- Crypto Dashboard: For businesses dealing with cryptocurrency transactions and portfolio management.
+- Kanban Board: Visualize work, limit work-in-progress, and maximize efficiency.
+- Social Network Management: Oversee your brand's social media presence directly from the dashboard.
+- Invoice System: Generate and manage invoices with ease.
+- Help Center & FAQ: Provide support and answers to common questions, enhancing user satisfaction.
 
 For any inquiries, please contact [marcin.garski@gmail.com]

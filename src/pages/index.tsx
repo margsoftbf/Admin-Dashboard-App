@@ -1,4 +1,5 @@
 import RecentPurchases from '@/components/Ecommerce/Dashboard/RecentPurchases';
+import SalesDashboard from '@/components/Ecommerce/Dashboard/SalesDashboard';
 import SalesSummaryBoxes from '@/components/Ecommerce/Dashboard/SalesSummaryBoxes';
 import PersonalFinance from '@/components/Finance/Dashboard/PersonalFinance';
 import MainLayout from '@/components/layout/MainLayout';
@@ -13,6 +14,7 @@ export default function Home() {
 				<SalesSummaryBoxes />
 				<PersonalFinance />
 				<RecentPurchases />
+				<SalesDashboard />
 			</div>
 		</MainLayout>
 	);

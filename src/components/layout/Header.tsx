@@ -33,7 +33,7 @@ interface HeaderProps {
 	setSidebarOpen: (open: boolean) => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ setSidebarOpen }) => {
+const Header = ({ setSidebarOpen }: HeaderProps) => {
 	const [isNotificationOpen, setIsNotificationOpen] = useState(false);
 	const [isMessageClicked, setIsMessageClicked] = useState(false);
 	const [checkedCount, setCheckedCount] = useState(0);

@@ -5,11 +5,11 @@ interface ButtonActionProps {
 	className?: string;
 	children: React.ReactNode;
 }
-const ButtonAction: React.FC<ButtonActionProps> = ({
+const ButtonAction = ({
 	children,
 	onClick,
 	className,
-}) => {
+}: ButtonActionProps) => {
 	const baseClasses =
 		'py-1 px-1.5 rounded-md transition duration-150';
 	const classes = `${baseClasses} ${className}`;

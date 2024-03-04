@@ -8,7 +8,7 @@ interface ModalProps {
 	job: JobTypes | null;
 }
 
-const ApplyJobModal: React.FC<ModalProps> = ({ open, handleClose, job }) => {
+const ApplyJobModal = ({ open, handleClose, job }: ModalProps) => {
 	return (
 		<div>
 			<Modal
@@ -25,7 +25,7 @@ const ApplyJobModal: React.FC<ModalProps> = ({ open, handleClose, job }) => {
 				}}
 			>
 				<Fade in={open}>
-					<Box className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white w-80 xs:w-96 md:w-[600px] lg:mx-auto p-4 shadow-lg  dark:bg-myPrimary flex flex-col font-poppins'>
+					<Box className='py-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-auto rounded-lg bg-white w-80 xs:w-96 md:w-[600px] lg:mx-auto p-4 shadow-lg  dark:bg-myPrimary flex flex-col font-poppins overflow-y-auto'>
 						<XMarkIcon
 							className='w-7 h-7 text-white absolute right-2 top-2 cursor-pointer'
 							onClick={handleClose}

@@ -7,10 +7,10 @@ interface SidebarDesktopProps {
 	toggleSubMenu: (name: string) => void;
 }
 
-const SidebarDesktop: React.FC<SidebarDesktopProps> = ({
+const SidebarDesktop = ({
 	expandedMenu,
 	toggleSubMenu,
-}) => {
+}: SidebarDesktopProps) => {
 	const router = useRouter();
 
 	return (

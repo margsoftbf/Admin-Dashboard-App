@@ -89,7 +89,7 @@ export const navigation = [
 	},
 	{
 		name: 'Analytics',
-		href: '#',
+		href: '/analytics',
 		icon: PresentationChartBarIcon,
 		current: false,
 	},
@@ -99,7 +99,7 @@ export const navigation = [
 		icon: NewspaperIcon,
 		current: false,
 	},
-	{ name: 'Chat', href: '#', icon: ChatBubbleLeftRightIcon, current: false },
+	// { name: 'Chat', href: '#', icon: ChatBubbleLeftRightIcon, current: false },
 	{ name: 'Calendar', href: '#', icon: CalendarDaysIcon, current: false },
 	{ name: 'Invoices', href: '#', icon: DocumentDuplicateIcon, current: false },
 	{ name: 'Crypto', href: '#', icon: CurrencyDollarIcon, current: false },
@@ -301,6 +301,7 @@ export const itemAnimation = {
 import { HiShoppingCart } from 'react-icons/hi';
 import { AiOutlineDollar } from 'react-icons/ai';
 import { IoPersonSharp } from 'react-icons/io5';
+import { ApexOptions } from 'apexcharts';
 export const sellsBoxesData: SellsBoxesTypes[] = [
 	{
 		id: 1,
@@ -1574,4 +1575,767 @@ export const jobListing = [
 			'Free snacks and beverages',
 		],
 	},
+];
+
+export const AnalyticsSale: ApexOptions = {
+	chart: {
+		toolbar: {
+			show: false,
+		},
+		height: 200,
+		type: 'area',
+	},
+	dataLabels: {
+		enabled: false,
+	},
+	stroke: {
+		width: 3,
+		curve: 'smooth',
+	},
+
+	xaxis: {
+		categories: [
+			'Jan',
+			'Feb',
+			'Mar',
+			'Apr',
+			'May',
+			'Jun',
+			'Jul',
+			'Aug',
+			'Sep',
+			'Oct',
+			'Nov',
+			'Dec',
+		],
+		labels: {
+			show: false,
+		},
+		axisBorder: {
+			show: false,
+		},
+	},
+	yaxis: {
+		labels: {
+			show: false,
+		},
+	},
+	grid: {
+		show: false,
+		padding: {
+			left: -10,
+			top: -25,
+			right: -40,
+			bottom: -15,
+		},
+	},
+	fill: {
+		opacity: 0.2,
+	},
+	colors: ['#5EEA8D'],
+
+	tooltip: {
+		theme: '#000000',
+
+		marker: {
+			show: true,
+		},
+	},
+	responsive: [
+		{
+			breakpoint: 576,
+			options: {
+				chart: {
+					height: 150,
+				},
+			},
+		},
+	],
+	series: [
+		{
+			data: [70, 60, 82, 80, 60, 90, 70, 120, 50, 60, 0, 10],
+		},
+	],
+};
+
+export const analyticsData = [
+	{
+		id: 1,
+		title: 'Total Sale',
+		totalSale: '$3654.00',
+		percentageChange: '+65%',
+		chartOptions: AnalyticsSale,
+		seriesData: [
+			{
+				data: [70, 60, 82, 80, 60, 90, 70, 120, 50, 60, 0, 10],
+			},
+		],
+		chartColor: '#5415F1',
+	},
+	{
+		id: 2,
+		title: 'Total Project',
+		totalSale: '12560',
+		percentageChange: '+65%',
+		chartOptions: AnalyticsSale,
+		seriesData: [
+			{
+				data: [170, 120, 102, 70, 100, 130, 200, 220, 180, 200, 20, 10],
+			},
+		],
+		chartColor: '#2775FF',
+	},
+	{
+		id: 3,
+		title: 'Total Product',
+		totalSale: '93M',
+		percentageChange: '+65%',
+		chartOptions: AnalyticsSale,
+		seriesData: [
+			{
+				data: [132, 129, 96, 77, 161, 103, 38, 82, 18, 74, 202, 41],
+			},
+		],
+		chartColor: '#ECE663',
+	},
+];
+
+export const areaChartOptions = {
+	chart: {
+		type: 'area',
+		toolbar: {
+			show: false,
+		},
+	},
+	dataLabels: {
+		enabled: false,
+	},
+	stroke: {
+		width: 1,
+	},
+	fill: {
+		type: 'gradient',
+		gradient: {
+			shadeIntensity: 0.1,
+			type: 'vertical',
+			inverseColors: false,
+			opacityFrom: 0.5,
+			opacityTo: 0,
+		},
+	},
+	plotOptions: {
+		bar: {
+			columnWidth: '45%',
+			borderRadius: 4,
+		},
+	},
+	grid: {
+		show: true,
+		borderColor: '#90A4AE',
+		strokeDashArray: 0,
+		position: 'back',
+		xaxis: {
+			lines: {
+				show: false,
+			},
+		},
+		yaxis: {
+			lines: {
+				show: false,
+			},
+		},
+		row: {
+			colors: undefined,
+			opacity: 0.5,
+		},
+		column: {
+			colors: undefined,
+			opacity: 0.5,
+		},
+		padding: {
+			top: 0,
+			right: 0,
+			bottom: 0,
+			left: 0,
+		},
+	},
+
+	legend: {
+		position: 'bottom',
+		fontSize: '12px',
+		fontWeight: 500,
+		labels: {
+			colors: ['#FFFFFF', '#FFFFFF', '#FFFFFF'],
+		},
+		itemMargin: {
+			horizontal: 15,
+			vertical: 10,
+		},
+	},
+	colors: ['#2775FF', '#BF2323', '#5EEA8D'],
+	xaxis: {
+		categories: [
+			'Jan',
+			'Feb',
+			'Mar',
+			'Apr',
+			'May',
+			'Jun',
+			'Jul',
+			'Aug',
+			'Sep',
+			'Oct',
+			'Nov',
+			'Dec',
+		],
+		labels: {
+			style: {
+				colors: [
+					'#FFF',
+					'#FFF',
+					'#FFF',
+					'#FFF',
+					'#FFF',
+					'#FFF',
+					'#FFF',
+					'#FFF',
+					'#FFF',
+					'#FFF',
+					'#FFF',
+					'#FFF',
+				],
+			},
+		},
+		axisBorder: {
+			show: false,
+		},
+		axisTicks: {
+			show: false,
+		},
+		tickAmount: 11,
+	},
+	yaxis: {
+		show: false,
+	},
+};
+
+export const analyticsSalesPerformance: ApexOptions = {
+	series: [
+		{
+			name: 'Profit',
+			data: [100, 50, 25, 50, 30, 50, 70, 50, 40, 80, 75, 65],
+		},
+		{
+			name: 'Revenue',
+			data: [70, 20, 55, 45, 35, 110, 85, 105, 120, 100, 95, 40],
+		},
+		{
+			name: 'Cash Flow',
+			data: [85, 55, 100, 35, 90, 60, 80, 95, 70, 20, 50, 65],
+		},
+	],
+	chart: {
+		type: 'bar',
+		height: 380,
+		toolbar: {
+			show: false,
+		},
+	},
+	legend: {
+		position: 'bottom',
+		fontSize: '14px',
+		fontWeight: 500,
+		labels: {
+			colors: ['#FFFFFF', '#FFFFFF', '#FFFFFF'],
+		},
+		itemMargin: {
+			horizontal: 5,
+			vertical: 0,
+		},
+	},
+	plotOptions: {
+		bar: {
+			horizontal: false,
+			columnWidth: '50%',
+		},
+	},
+	dataLabels: {
+		enabled: false,
+	},
+
+	xaxis: {
+		categories: [
+			'Jan',
+			'Feb',
+			'Mar',
+			'Apr',
+			'May',
+			'Jun',
+			'Jul',
+			'Aug',
+			'Sep',
+			'Oct',
+			'Nov',
+			'Dec',
+		],
+		labels: {
+			style: {
+				colors: '#FFFFFF',
+			},
+		},
+		axisTicks: {
+			show: false,
+		},
+	},
+	yaxis: {
+		title: {
+			text: 'Dollars in thounand',
+			style: {
+				fontSize: '14px',
+				fontWeight: 500,
+				color: '#FFFFFF',
+			},
+		},
+	},
+	colors: ['#2775FF', '#5EEA8D', '#5415F1'],
+	tooltip: {
+		y: {
+			formatter: function (val: number) {
+				return '$ ' + val + ' thousands';
+			},
+		},
+	},
+	responsive: [
+		{
+			breakpoint: 576,
+			options: {
+				chart: {
+					height: 200,
+				},
+			},
+		},
+	],
+};
+
+export const AnalyticsSaleStatus: ApexOptions = {
+	series: [90, 63, 50],
+	chart: {
+		type: 'radialBar',
+		height: 375,
+		offsetY: -10,
+		offsetX: 10,
+	},
+	plotOptions: {
+		radialBar: {
+			inverseOrder: false,
+			hollow: {
+				margin: 10,
+				size: '30%',
+				background: 'transparent',
+			},
+			track: {
+				show: true,
+				background: '#333',
+				strokeWidth: '10%',
+				opacity: 1,
+				margin: 3,
+			},
+		},
+	},
+	labels: ['Approved', 'Pending', 'Cancelled'],
+	legend: {
+		show: true,
+		fontSize: '16px',
+		fontWeight: 500,
+		labels: {
+			colors: '#FFF',
+		},
+		markers: {
+			width: 86,
+			height: 18,
+			radius: 3,
+		},
+	},
+	colors: ['#7364DB', '#ECE663', '#BF2323'],
+	responsive: [
+		{
+			breakpoint: 767,
+			options: {
+				title: {
+					style: {
+						fontSize: '16px',
+					},
+				},
+				legend: {
+					show: true,
+					fontSize: '16px',
+					fontWeight: 500,
+					labels: {
+						colors: '#FFF',
+					},
+					markers: {
+						width: 50,
+						height: 10,
+						radius: 2,
+					},
+				},
+			},
+		},
+		{
+			breakpoint: 576,
+			options: {
+				chart: {
+					offsetX: 0,
+				},
+				legend: {
+					show: true,
+					fontSize: '16px',
+					fontWeight: 500,
+					position: 'bottom',
+					labels: {
+						colors: '#FFF',
+					},
+					markers: {
+						width: 20,
+						height: 8,
+						radius: 2,
+					},
+				},
+			},
+		},
+	],
+};
+
+let optionsProgress1: ApexOptions = {
+	chart: {
+		height: 70,
+		type: 'bar',
+		stacked: true,
+		sparkline: {
+			enabled: true,
+		},
+	},
+	plotOptions: {
+		bar: {
+			horizontal: true,
+			barHeight: '20%',
+			colors: {
+				backgroundBarColors: ['#f2f2f2'],
+			},
+		},
+	},
+	colors: ['#148df6'],
+	stroke: {
+		width: 0,
+	},
+	fill: {
+		colors: ['#148df6'],
+		type: 'gradient',
+		gradient: {
+			gradientToColors: ['#148df6'],
+		},
+	},
+	series: [
+		{
+			name: 'Process 1',
+			data: [44],
+		},
+	],
+	title: {
+		floating: true,
+		offsetX: -10,
+		offsetY: 5,
+		text: 'Process 1',
+		style: {
+			color: '#FFF',
+		},
+	},
+	subtitle: {
+		floating: true,
+		align: 'right',
+		offsetY: 0,
+		text: '44%',
+		style: {
+			fontSize: '20px',
+			color: '#FFF',
+		},
+	},
+	tooltip: {
+		enabled: false,
+	},
+	xaxis: {
+		categories: ['Process 1'],
+	},
+	yaxis: {
+		max: 100,
+	},
+};
+
+let optionsProgress2: ApexOptions = {
+	chart: {
+		height: 70,
+		type: 'bar',
+		stacked: true,
+		sparkline: {
+			enabled: true,
+		},
+	},
+	plotOptions: {
+		bar: {
+			horizontal: true,
+			barHeight: '20%',
+			colors: {
+				backgroundBarColors: ['#f2f2f2'],
+			},
+		},
+	},
+	colors: ['#fb2e63'],
+	stroke: {
+		width: 0,
+	},
+	series: [
+		{
+			name: 'Process 2',
+			data: [80],
+		},
+	],
+	title: {
+		floating: true,
+		offsetX: -10,
+		offsetY: 5,
+		text: 'Process 2',
+		style: {
+			color: '#FFF',
+		},
+	},
+	subtitle: {
+		floating: true,
+		align: 'right',
+		offsetY: 0,
+		text: '80%',
+		style: {
+			fontSize: '20px',
+			color: '#FFF',
+		},
+	},
+	tooltip: {
+		enabled: false,
+	},
+	xaxis: {
+		categories: ['Process 2'],
+	},
+	yaxis: {
+		max: 100,
+	},
+	fill: {
+		colors: ['#fb2e63'],
+		type: 'gradient',
+		gradient: {
+			inverseColors: false,
+			gradientToColors: ['#fb2e63'],
+		},
+	},
+};
+
+let optionsProgress3: ApexOptions = {
+	chart: {
+		height: 70,
+		type: 'bar',
+		stacked: true,
+		sparkline: {
+			enabled: true,
+		},
+	},
+	plotOptions: {
+		bar: {
+			horizontal: true,
+			barHeight: '20%',
+			colors: {
+				backgroundBarColors: ['#f2f2f2'],
+			},
+		},
+	},
+	colors: ['#51bb25'],
+	stroke: {
+		width: 0,
+	},
+	series: [
+		{
+			name: 'Process 3',
+			data: [74],
+		},
+	],
+	fill: {
+		colors: ['#51bb25'],
+		type: 'gradient',
+		gradient: {
+			gradientToColors: ['#51bb25'],
+		},
+	},
+	title: {
+		floating: true,
+		offsetX: -10,
+		offsetY: 5,
+		text: 'Process 3',
+		style: {
+			color: '#FFF',
+		},
+	},
+	subtitle: {
+		floating: true,
+		align: 'right',
+		offsetY: 0,
+		text: '74%',
+		style: {
+			fontSize: '20px',
+			color: '#FFF',
+		},
+	},
+	tooltip: {
+		enabled: false,
+	},
+	xaxis: {
+		categories: ['Process 3'],
+	},
+	yaxis: {
+		max: 100,
+	},
+};
+
+let optionsProgress4: ApexOptions = {
+	chart: {
+		height: 70,
+		type: 'bar',
+		stacked: true,
+		sparkline: {
+			enabled: true,
+		},
+	},
+	plotOptions: {
+		bar: {
+			horizontal: true,
+			barHeight: '20%',
+			colors: {
+				backgroundBarColors: ['#f2f2f2'],
+			},
+		},
+	},
+	colors: ['#544fff'],
+	stroke: {
+		width: 0,
+	},
+	series: [
+		{
+			name: 'Process 4',
+			data: [74],
+		},
+	],
+	fill: {
+		colors: ['#544fff'],
+		type: 'gradient',
+		gradient: {
+			gradientToColors: ['#544fff'],
+		},
+	},
+	title: {
+		floating: true,
+		offsetX: -10,
+		offsetY: 5,
+		text: 'Process 4',
+		style: {
+			color: '#FFF',
+		},
+	},
+	subtitle: {
+		floating: true,
+		align: 'right',
+		offsetY: 0,
+		text: '74%',
+		style: {
+			fontSize: '20px',
+			color: '#FFF',
+		},
+	},
+	tooltip: {
+		enabled: false,
+	},
+	xaxis: {
+		categories: ['Process 4'],
+	},
+	yaxis: {
+		max: 100,
+	},
+};
+
+let optionsProgress5: ApexOptions = {
+	chart: {
+		height: 70,
+		type: 'bar',
+		stacked: true,
+		sparkline: {
+			enabled: true,
+		},
+	},
+	plotOptions: {
+		bar: {
+			horizontal: true,
+			barHeight: '20%',
+			colors: {
+				backgroundBarColors: ['#f2f2f2'],
+			},
+		},
+	},
+	colors: ['#fb740d'],
+	stroke: {
+		width: 0,
+	},
+	series: [
+		{
+			name: 'Process 5',
+			data: [74],
+		},
+	],
+	fill: {
+		colors: ['#fb740d'],
+		type: 'gradient',
+		gradient: {
+			gradientToColors: ['#fb740d'],
+		},
+	},
+	title: {
+		floating: true,
+		offsetX: -10,
+		offsetY: 5,
+		text: 'Process 5',
+		style: {
+			color: '#FFF',
+		},
+	},
+	subtitle: {
+		floating: true,
+		align: 'right',
+		offsetY: 0,
+		text: '74%',
+		style: {
+			fontSize: '20px',
+			color: '#FFF',
+		},
+	},
+	tooltip: {
+		enabled: false,
+	},
+	xaxis: {
+		categories: ['Process 5'],
+	},
+	yaxis: {
+		max: 100,
+	},
+};
+
+export let AnalyticsOrderStatus = [
+	optionsProgress1,
+	optionsProgress2,
+	optionsProgress3,
+	optionsProgress4,
+	optionsProgress5,
 ];

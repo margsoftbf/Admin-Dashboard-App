@@ -7,7 +7,7 @@ interface MainLayoutProps {
 	children: ReactNode;
 }
 
-const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
+const MainLayout = ({ children }: MainLayoutProps) => {
 	const [sidebarOpen, setSidebarOpen] = useState(false);
 	const [expandedMenu, setExpandedMenu] = useState<string | null>(null);
 

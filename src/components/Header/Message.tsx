@@ -5,7 +5,7 @@ interface MessageProps {
 	onClose: () => void;
 }
 
-const Message: React.FC<MessageProps> = ({ onClose }) => {
+const Message = ({ onClose }: MessageProps) => {
 	const messageRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {

@@ -24,12 +24,12 @@ const style = {
 	p: 4,
 };
 
-const ConfirmationModal: React.FC<ConfirmationModalProps> = ({
+const ConfirmationModal = ({
 	open,
 	onClose,
 	onConfirm,
 	title,
-}) => {
+}: ConfirmationModalProps) => {
 	return (
 		<Modal
 			aria-labelledby='transition-modal-title'

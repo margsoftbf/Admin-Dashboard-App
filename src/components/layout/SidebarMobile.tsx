@@ -14,12 +14,12 @@ interface SidebarMobileProps {
 	toggleSubMenu: (name: string) => void;
 }
 
-const SidebarMobile: React.FC<SidebarMobileProps> = ({
+const SidebarMobile = ({
 	sidebarOpen,
 	setSidebarOpen,
 	expandedMenu,
 	toggleSubMenu,
-}) => {
+}: SidebarMobileProps) => {
 	const router = useRouter();
 	return (
 		<Transition.Root show={sidebarOpen} as={Fragment}>

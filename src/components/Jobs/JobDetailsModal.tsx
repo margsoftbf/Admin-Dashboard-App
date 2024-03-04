@@ -9,7 +9,7 @@ interface ModalProps {
 	job: JobTypes | null;
 }
 
-const JobDetailsModal: React.FC<ModalProps> = ({ open, handleClose, job }) => {
+const JobDetailsModal = ({ open, handleClose, job }: ModalProps) => {
 	return (
 		<div>
 			<Modal

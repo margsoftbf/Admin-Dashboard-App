@@ -14,12 +14,12 @@ interface NotificationProps {
 	setUnread: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const Notification: React.FC<NotificationProps> = ({
+const Notification = ({
 	checkedCount,
 	setCheckedCount,
 	setUnread,
 	onClose,
-}) => {
+}: NotificationProps) => {
 	const notificationRef = useRef<HTMLDivElement>(null);
 	const [persons, setPersons] = useState(personsData);
 

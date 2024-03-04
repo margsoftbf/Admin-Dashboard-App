@@ -6,6 +6,7 @@ import {
 	monhtlyDataSalePerformance,
 	dailyDataSalePerformance,
 	weeklyDataSalePerformance,
+	areaChartOptions
 } from '@/data/data';
 import ToggleMenu from '@/components/ui/ToggleMenu';
 import 'react-circular-progressbar/dist/styles.css';
@@ -15,97 +16,6 @@ import { IconToggle } from '../../../../../public/assets/svg';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), {
 	ssr: false,
 });
-
-const areaChartOptions = {
-	chart: {
-		type: 'area',
-		toolbar: {
-			show: false,
-		},
-	},
-	dataLabels: {
-		enabled: false,
-	},
-	stroke: {
-		width: 1,
-	},
-	fill: {
-		type: 'gradient',
-		gradient: {
-			shadeIntensity: 0.1,
-			type: 'vertical',
-			inverseColors: false,
-			opacityFrom: 0.5,
-			opacityTo: 0,
-		},
-	},
-	plotOptions: {
-		bar: {
-			columnWidth: '45%',
-			borderRadius: 4,
-		},
-	},
-	grid: {
-		show: false,
-	},
-	legend: {
-		position: 'bottom',
-		fontSize: '12px',
-		fontWeight: 500,
-		labels: {
-			colors: ['#FFFFFF', '#FFFFFF', '#FFFFFF'],
-		},
-		itemMargin: {
-			horizontal: 15,
-			vertical: 10,
-		},
-	},
-	colors: ['#2775FF', '#BF2323', '#5EEA8D'],
-	xaxis: {
-		categories: [
-			'Jan',
-			'Feb',
-			'Mar',
-			'Apr',
-			'May',
-			'Jun',
-			'Jul',
-			'Aug',
-			'Sep',
-			'Oct',
-			'Nov',
-			'Dec',
-		],
-		labels: {
-			style: {
-				colors: [
-					'#FFF',
-					'#FFF',
-					'#FFF',
-					'#FFF',
-					'#FFF',
-					'#FFF',
-					'#FFF',
-					'#FFF',
-					'#FFF',
-					'#FFF',
-					'#FFF',
-					'#FFF',
-				],
-			},
-		},
-		axisBorder: {
-			show: false,
-		},
-		axisTicks: {
-			show: false,
-		},
-		tickAmount: 11,
-	},
-	yaxis: {
-		show: false,
-	},
-};
 
 
 const SalesPerformance = () => {

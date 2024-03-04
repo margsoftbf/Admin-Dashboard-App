@@ -8,7 +8,7 @@ interface ModalProps {
 	handleClose: () => void;
 }
 
-const AddCardModal: React.FC<ModalProps> = ({ open, handleClose }) => {
+const AddCardModal = ({ open, handleClose } : ModalProps) => {
 	const [accountType, setAccountType] = useState('');
 	const [formData, setFormData] = React.useState({
 		cardNumber: '',

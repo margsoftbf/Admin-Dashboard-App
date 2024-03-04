@@ -13,8 +13,8 @@ export default function Home() {
 				</h1>
 				<SalesSummaryBoxes />
 				<PersonalFinance />
-				<RecentPurchases />
 				<SalesDashboard />
+				<RecentPurchases />
 			</div>
 		</MainLayout>
 	);

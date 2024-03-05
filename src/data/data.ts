@@ -106,7 +106,7 @@ export const navigation = [
 		icon: CalendarDaysIcon,
 		current: false,
 	},
-	{ name: 'Invoices', href: '#', icon: DocumentDuplicateIcon, current: false },
+	{ name: 'Invoices', href: '/invoices', icon: DocumentDuplicateIcon, current: false },
 	{ name: 'Crypto', href: '#', icon: CurrencyDollarIcon, current: false },
 	{ name: 'Kanban', href: '#', icon: DocumentCheckIcon, current: false },
 	{ name: 'Social Network', href: '#', icon: ChartPieIcon, current: false },

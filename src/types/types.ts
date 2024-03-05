@@ -100,6 +100,11 @@ export interface ProductTypes {
 	productOverview: ProductAttribute[];
 }
 
+export interface ProductDetail extends ProductTypes {
+	quantity: number;
+	total: number;
+}
+
 export interface OrderListTypes {
 	id: number;
 	avatar: string;

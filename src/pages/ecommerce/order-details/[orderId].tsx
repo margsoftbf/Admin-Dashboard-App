@@ -2,22 +2,16 @@ import { useRouter } from 'next/router';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import { ordersList } from '@/data/data';
-import { OrderListTypes, ProductTypes } from '@/types/types';
+import { OrderListTypes, ProductDetail } from '@/types/types';
 import BreadCrumb from '@/components/common/Breadcrumb';
-import {
-	CalendarDaysIcon,
-	PrinterIcon,
-	ShoppingBagIcon,
-	InformationCircleIcon,
-} from '@heroicons/react/24/outline';
-import { containerAnimation, itemAnimation } from '@/data/data';
+import { containerAnimation} from '@/data/data';
 import { motion } from 'framer-motion';
 import productData from '../../../data/products.json';
+import OrderInfo from '@/components/Ecommerce/OrderDetails/OrderInfo';
+import PaymentInfo from '@/components/Ecommerce/OrderDetails/PaymentInfo';
+import ProductList from '@/components/Ecommerce/OrderDetails/ProductList';
+import OrderSummary from '@/components/Ecommerce/OrderDetails/OrderSummary';
 
-interface ProductDetail extends ProductTypes {
-	quantity: number;
-	total: number;
-}
 
 const OrderDetails = () => {
 	const router = useRouter();
@@ -119,205 +113,21 @@ const OrderDetails = () => {
 				initial='hidden'
 				animate='visible'
 			>
-				<p className='font-poppins text-gray-1100 text-base leading-4 mb-8 mt-2'>
-					Orders ID: #{orderId}
-				</p>
-				<div className='flex justify-between items-center flex-col gap-y-4 mb-3 lg:mb-1 xs:flex-row pb-3 border-b border-b-myGray/60'>
-					<div className='flex gap-3 text-[14px]'>
-						<CalendarDaysIcon className='w-5 h-5' />
-						{orderDetails?.date}
-					</div>
-					<div className='flex gap-4 flex-col xs:flex-row'>
-						<div>
-							<label htmlFor='orderStatus' className='sr-only'></label>
-							<select
-								id='orderStatus'
-								className='w-full border h-12 font-normal text-sm leading-4 text-black mb-0 focus:outline-none max-w-76 rounded-md'
-								value={orderDetails ? orderDetails.status : ''}
-								onChange={handleStatusChange}
-							>
-								<option value='Delivered'>Delivered</option>
-								<option value='Pending'>Pending</option>
-								<option value='Cancelled'>Cancelled</option>
-							</select>
-						</div>
-						<button className='rounded-md w-full xs:w-20 h-12 bg-myBlack transition duration-300 cursor-pointer hover:bg-myViolet'>
-							Save
-						</button>
-						<button
-							aria-label='Printer icon'
-							className='rounded-md w-full xs:w-20 h-12 bg-myBlack flex items-center justify-center transition duration-300 cursor-pointer hover:bg-myViolet'
-						>
-							<PrinterIcon className='w-6 h-6' />
-						</button>
-					</div>
-				</div>
-				<div className='flex justify-between items-center my-6  gap-y-10 flex-row flex-wrap border-b border-b-myGray/60 pb-6'>
-					<div className='flex items-start gap-x-3'>
-						<div>
-							<img
-								src={orderDetails?.avatar}
-								alt={orderDetails?.avatarAlt}
-								className='w-12 h-12 rounded-full'
-							/>
-						</div>
-						<div className='flex flex-col gap-y-1 text-[14px] font-poppins'>
-							<p className=''>Customer</p>
-							<p className='text-myGray'>Full name: {orderDetails?.name}</p>
-							<p className='text-myGray'>Email: {orderDetails?.email}</p>
-							<p className='text-myGray'>Phone: {orderDetails?.phone}</p>
-							<button className='mt-1 text-xs text-myEmerald py-2 rounded-lg px-4 bg-[#313442] max-w-28 hover:text-white duration-300 transition'>
-								View Profile
-							</button>
-						</div>
-					</div>
-					<div className='flex items-start gap-x-3'>
-						<div className='w-12 h-12 flex items-center justify-center bg-[#313442] rounded-full'>
-							<ShoppingBagIcon className='w-6 h-6' />
-						</div>
-						<div className='flex flex-col gap-y-1 text-[14px] font-poppins'>
-							<p className=''>Order info</p>
-							<p className='text-myGray'>
-								Shipping: {orderDetails?.shippingType}
-							</p>
-							<p className='text-myGray'>
-								Payment method: {orderDetails?.payment}
-							</p>
-							<p className='text-myGray'>Status: {orderDetails?.status}</p>
-							<button className='mt-1 text-xs text-myEmerald py-2 rounded-lg px-4 bg-[#313442] max-w-36 hover:text-white duration-300 transition'>
-								Download Info
-							</button>
-						</div>
-					</div>
-					<div className='flex items-start gap-x-3'>
-						<div className='w-12 h-12 flex items-center justify-center bg-[#313442] rounded-full'>
-							<InformationCircleIcon className='w-7 h-7' />
-						</div>
-						<div className='flex flex-col gap-y-1 text-[14px] font-poppins'>
-							<p className=''>Deliver to</p>
-							<p className='text-myGray'>Address: {orderDetails?.street}</p>
-							<p className='text-myGray'>Zip Code: {orderDetails?.zipCode}</p>
-							<p className='text-myGray'>City: {orderDetails?.city}</p>
-							<button className=' mt-1 text-xs text-myEmerald py-2 rounded-lg px-4 bg-[#313442] max-w-36 hover:text-white duration-300 transition'>
-								Download Info
-							</button>
-						</div>
-					</div>
-				</div>
-				<div className='flex flex-col gap-4 my-4 md:flex-row border-b border-b-myGray/60 pb-6'>
-					<div className='w-full md:w-1/2 2xl:w-1/4 flex flex-col gap-2'>
-						<p className='text-sm leading-4 pl-4'>Payment info</p>
-						<div className='border border-[#313442] py-2 px-4 gap-2 flex flex-col text-[14px] text-myGray rounded-md h-24'>
-							<div className='flex items-center gap-1'>
-								<img
-									src={
-										orderDetails?.payment
-											? getPaymentMethodImage(orderDetails.payment)
-											: ''
-									}
-									alt={orderDetails?.payment}
-									className='w-auto h-5'
-								/>
-								<span>{orderDetails?.payment}</span>
-								<span>{orderDetails?.cardNumber}</span>
-							</div>
-							<p>Name: {orderDetails?.name}</p>
-							<p>Phone: +{orderDetails?.phone}</p>
-						</div>
-					</div>
-					<div className='w-full md:w-3/4 flex flex-col gap-2'>
-						<p className='text-sm leading-4 pl-4'>Notes</p>
-						<textarea
-							className='w-full text-[14px] text-myGray border border-[#313442]  focus:outline-none bg-myPrimary h-24 rounded-md p-2 resize-none'
-							placeholder='Type some note'
-						></textarea>
-					</div>
-				</div>
-				<div className='flex flex-col mt-6 overflow-x-auto'>
-					<p>Products</p>
-					<motion.table
-						className='w-full mt-8 font-poppins'
-						variants={containerAnimation}
-						initial='hidden'
-						animate='visible'
-					>
-						<thead className='w-full h-12'>
-							<tr className='border-b bg-zinc-900 border-myGray/30 font-poppins text-[14px] text-white whitespace-nowrap'>
-								<th className='text-left pl-2'>
-									<label htmlFor='selectAll' className='sr-only'>
-										Select All
-									</label>
-									<input
-										id='selectAll'
-										className='rounded border-2 w-4 h-4 mb-2'
-										type='checkbox'
-									/>
-								</th>
-								<th className='text-left px-4'>Product Name</th>
-								<th className='text-left px-4'>Price</th>
-								<th className='text-left px-4'>Quantity</th>
-								<th className='text-left px-4'>Total</th>
-							</tr>
-						</thead>
-						<tbody>
-							{productsDetails.map((product, index) => (
-								<motion.tr
-									key={index}
-									variants={itemAnimation}
-									className='border-b border-myGray/30 text-gray-300 font-poppins text-[14px] hover:bg-zinc-900 cursor-pointer'
-									onClick={() => navigateToProductDetails(product.asin)}
-								>
-									<td className='text-left pl-2 py-4'>
-										<label
-											htmlFor={`checkbox-${product.asin}`}
-											className='sr-only'
-										>
-											Select order {product.asin}
-										</label>
-										<input
-											id={`checkbox-${product.asin}`}
-											className='rounded border-2 w-4 h-4'
-											type='checkbox'
-										/>
-									</td>
-									<td className='text-left text-xs py-6 lg:py-8 px-2 flex gap-4 items-center'>
-										<img
-											src={product.thumbnailImage}
-											alt='Product image'
-											className='hidden md:flex w-12 h-12 rounded-md'
-										/>
-										{product.title.slice(0, 20)}
-									</td>
-									<td className='px-4 py-2'>
-										${product.price.value.toFixed(2)}
-									</td>
-									<td className='px-4 whitespace-nowrap '>
-										{product.quantity}
-									</td>
-									<td className='px-4 py-2'>${product.total.toFixed(2)}</td>
-								</motion.tr>
-							))}
-						</tbody>
-					</motion.table>
-				</div>
-				<div className='my-6 flex items-center gap-x-36 justify-start lg:gap-x-48 sm:justify-end'>
-					<div className='flex flex-col gap-y-4 text-[14px] text-gray-400'>
-						<p>Subtotal:</p>
-						<p>Tax(20%):</p>
-
-						<p>Total:</p>
-						<p>Status:</p>
-					</div>
-					<div className='flex flex-col text-right gap-y-4 text-[14px] text-white'>
-						<p>${subtotal.toFixed(2)}</p>
-						<p>${tax.toFixed(2)}</p>
-
-						<p className='text-xl font-semibold'>${total.toFixed(2)}</p>
-						<button className='text-sm leading-4 border-0 py-2 px-5 text-white bg-[#313442] rounded-md'>
-							{status}
-						</button>
-					</div>
-				</div>
+				<OrderInfo
+					orderDetails={orderDetails}
+					onStatusChange={handleStatusChange}
+					orderId={orderId}
+				/>
+				<PaymentInfo
+					orderDetails={orderDetails}
+					getPaymentMethodImage={getPaymentMethodImage}
+				/>
+				<ProductList
+					productsDetails={productsDetails}
+					onNavigate={navigateToProductDetails}
+				/>
+				<OrderSummary subtotal={subtotal} total={total} tax={tax} status={status}/>
+				
 			</motion.div>
 		</MainLayout>
 	);

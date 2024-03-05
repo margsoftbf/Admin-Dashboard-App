@@ -3,18 +3,17 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import MainLayout from '@/components/layout/MainLayout';
 import BreadCrumb from '@/components/common/Breadcrumb';
 import productData from '../../../data/products.json';
-import { XMarkIcon } from '@heroicons/react/24/outline';
-import {
-	IconCheck,
-	IconDelete,
-	IconImage,
-} from '../../../../public/assets/svg';
 import { containerAnimation, itemAnimation } from '@/data/data';
 import { motion } from 'framer-motion';
 import { ProductTypes } from '@/types/types';
 import InputField from '@/components/Ecommerce/ProductDetails/InputField';
-import Button from '@/components/ui/Button';
 import ConfirmationModal from '@/components/ui/ConfirmationModal';
+import Tags from '@/components/Ecommerce/ProductDetails/Tags';
+import ProductActionsButtons from '@/components/Ecommerce/ProductDetails/ProductActionsButtons';
+import ProductMainImage from '@/components/Ecommerce/ProductDetails/ProductMainImage';
+import UploadImage from '@/components/Ecommerce/ProductDetails/UploadImage';
+import GalleryImage from '@/components/Ecommerce/ProductDetails/GalleryImage';
+import ProductInfo from '@/components/Ecommerce/ProductDetails/ProductInfo';
 
 const ProductDetails = () => {
 	const router = useRouter();
@@ -93,7 +92,7 @@ const ProductDetails = () => {
 	const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
 		setInputTag(e.target.value);
 	};
-	
+
 	const handleOpenModal = (action: string) => {
 		setModalTitle(`Are you sure you want to ${action}?`);
 		setOpenModal(true);
@@ -117,242 +116,31 @@ const ProductDetails = () => {
 				initial='hidden'
 				animate='visible'
 			>
-				<motion.div
-					className='w-full 2xl:w-1/2 flex flex-col gap-8 lg:gap-12'
-					variants={itemAnimation}
-				>
-					<div className='flex flex-col w-full 3xl:w-2/3'>
-						<InputField
-							label='Product Title'
-							name='title'
-							type='text'
-							value={product?.title || 'Please fill title'}
-							onChange={handleChange}
-						/>
-					</div>
-					<div className='flex flex-col w-full 3xl:w-2/3'>
-						<label
-							htmlFor='description'
-							className='text-white text-base leading-4 font-poppins  mb-3'
-						>
-							Description
-						</label>
-						<textarea
-							id='description'
-							name='description'
-							className='block font-inter py-2 w-full rounded-md border-0 bg-transparent text-myGray shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 h-32 xl:h-64'
-							value={product?.description || 'Please fill the description.'}
-							onChange={handleChange}
-						/>
-					</div>
-					<div className='flex flex-col w-full 3xl:w-2/3'>
-						<label
-							htmlFor='category'
-							className='text-white text-base leading-4 font-poppins  mb-3'
-						>
-							Category
-						</label>
-						<select
-							id='category'
-							name='category'
-							className='block font-inter w-full rounded-md border-0 bg-transparent text-myGray shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 [&_*]:text-black'
-						>
-							<option>Laptop</option>
-							<option>TV</option>
-							<option>Smartphones</option>
-							<option>Smartwatches</option>
-						</select>
-					</div>
-					<div className='flex flex-col w-full 3xl:w-2/3'>
-						<InputField
-							label='Brand'
-							name='brand'
-							type='text'
-							value={product?.brand || 'Please fill title'}
-							onChange={handleChange}
-						/>
-					</div>
-					<div className='flex flex-col xl:flex-row 3xl:w-2/3 gap-6'>
-						<div className='flex flex-col w-full 2xl:w-1/2'>
-							<InputField
-								label='SKU'
-								name='asin'
-								type='text'
-								value={product?.asin || 'Please fill title'}
-								onChange={handleChange}
-							/>
-						</div>
-						<div className='flex flex-col w-full 2xl:w-1/2'>
-							<label
-								htmlFor='in-stock'
-								className='text-white text-base leading-4 font-poppins  mb-3'
-							>
-								In stock
-							</label>
-							<select
-								id='in-stock'
-								name='in-stock'
-								className='block font-inter w-full rounded-md border-0 bg-transparent text-myGray shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 [&_*]:text-black'
-								value={product?.inStock ? 'True' : 'False'}
-								onChange={handleChangeInStock}
-							>
-								<option value='True'>True</option>
-								<option value='False'>False</option>
-							</select>
-						</div>
-					</div>
-					<div className='flex flex-col xl:flex-row w-full 3xl:w-2/3 gap-6'>
-						<div className='flex flex-col w-full 2xl:w-1/2'>
-							<InputField
-								label='Regular Price'
-								name='price'
-								type='number'
-								value={product?.price?.value || ''}
-								onChange={handleChange}
-							/>
-						</div>
-						<div className='flex flex-col w-full 2xl:w-1/2'>
-							<InputField
-								label='Sale Price'
-								name='sale'
-								type='number'
-								value={0}
-								onChange={handleChange}
-							/>
-						</div>
-					</div>
-					<div className='flex flex-col w-full 3xl:w-2/3 '>
-						<p className='text-white text-base leading-4 font-poppins  mb-3'>
-							Tags
-						</p>
-						<div className='font-inter py-2 w-full rounded-md border-0 bg-transparent text-white shadow-sm ring-1 ring-inset ring-white/10 sm:text-sm sm:leading-6 h-32 flex gap-x-4 flex-wrap'>
-							{tags.length > 0 ? (
-								<div className='flex gap-x-2 gap-y-2 flex-wrap px-2'>
-									{tags.map((tag, index) => (
-										<p
-											key={index}
-											className='font-poppins bg-[#313442] p-2 h-6 rounded-lg flex items-center justify-center gap-1 text-gray-300'
-										>
-											{tag}
-
-											<button
-												aria-label='Delete tag'
-												type='button'
-												onClick={() => removeTag(index)}
-											>
-												<XMarkIcon className='w-3 h-3' />
-											</button>
-										</p>
-									))}
-								</div>
-							) : (
-								<p>No tags</p>
-							)}
-						</div>
-						<input
-							type='text'
-							className='block font-inter py-2 my-2 w-48 rounded-md border-0 bg-white text-black placeholder:text-black shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
-							value={inputTag}
-							onChange={handleInputChange}
-							onKeyDown={addTag}
-							placeholder='Add a tag...'
-						/>
-					</div>
-				</motion.div>
-				<motion.div
-					className='w-full 2xl:w-1/2 flex flex-col gap-8 lg:gap-12'
-					variants={itemAnimation}
-				>
-					<div className='flex flex-col w-full 3xl:w-2/3'>
-						<p className='text-white text-base leading-4 font-poppins  mb-3'>
-							Product Main Image
-						</p>
-						<div className='flex justify-center items-center w-full shadow-sm ring-1 ring-inset ring-white/10 rounded-md p-8'>
-							<img
-								className='w-full h-full rounded-lg max-w-96 max-h-80'
-								src={product?.thumbnailImage}
-								alt='product'
-							/>
-						</div>
-					</div>
-					<div className='flex flex-col w-full 3xl:w-2/3'>
-						<p className='text-white text-base leading-4 font-poppins  mb-3'>
-							Upload image
-						</p>
-						<div className='flex flex-col justify-center items-center w-full shadow-sm border-dashed border-2 border-[#313442] rounded-md p-8'>
-							<IconImage className='w-8 h-8 mb-6 cursor-pointer' />
-							<p className='text-sm leading-6 text-gray-400 font-normal mb-1 text-center'>
-								Drop your image here, or browse
-							</p>
-							<p className='leading-6 text-gray-400 text-[14px] text-center'>
-								JPG,PNG and GIF files are allowed
-							</p>
-						</div>
-					</div>
-					<div className='flex flex-col w-full 3xl:w-2/3'>
-						<p className='text-white text-base leading-4 font-poppins  mb-3'>
-							Images
-						</p>
-						<div className='flex flex-col gap-3'>
-							{product?.galleryThumbnails
-								?.slice(0, 4)
-								.map((thumbnail: string, index: number) => (
-									<div
-										key={index}
-										className='flex items-center flex-row gap-2 justify-between border pl-3 pr-3 transition-all duration-300 border-[#313442] rounded-md hover:shadow-xl overflow-hidden py-3'
-									>
-										<img
-											className='w-16 h-16 rounded-md'
-											src={thumbnail}
-											alt={`Gallery thumbnail ${index + 1}`}
-										/>
-										<div className='flex flex-col flex-1 gap-y-3 pl-2 overflow-hidden'>
-											<div className='flex items-center justify-between'>
-												<span className='text-myGray text-xs leading-4'>
-													{`Product_thumbnail_${index + 1}.png`}
-												</span>
-											</div>
-										</div>
-										<IconCheck
-											onClick={() => handleOpenModal('set this image as a primary')}
-											className='w-5 h-5 md:w-8 md:h-8 cursor-pointer'
-										/>
-										<IconDelete
-											onClick={() => handleOpenModal('delete this image')}
-											className='w-5 h-5 md:w-8 md:h-8 cursor-pointer'
-										/>
-									</div>
-								))}
-						</div>
-					</div>
-					<div className='flex items-center justify-between xs:justify-end gap-x-4 flex-wrap gap-y-4 w-full 3xl:w-2/3'>
-						<Button
-							className='bg-myViolet hover:bg-myIndigo'
-							onClick={() => handleOpenModal('update')}
-						>
-							Update
-						</Button>
-
-						<Button
-							className='bg-myRed hover:bg-red-800'
-							onClick={() => handleOpenModal('delete')}
-						>
-							Delete
-						</Button>
-						<Button
-							className='bg-myGrayDarker hover:bg-zinc-900'
-							onClick={() => handleOpenModal('cancel')}
-						>
-							Cancel
-						</Button>
-					</div>
+				<ProductInfo
+					product={product}
+					tags={tags}
+					inputTag={inputTag}
+					handleChange={handleChange}
+					handleChangeInStock={handleChangeInStock}
+					handleInputChange={handleInputChange}
+					addTag={addTag}
+					removeTag={removeTag}
+				/>
+				<div className='w-full 2xl:w-1/2 flex flex-col gap-8 lg:gap-12'>
+					<ProductMainImage imageUrl={product?.thumbnailImage} />
+					<UploadImage />
+					<GalleryImage
+						galleryThumbnails={product?.galleryThumbnails || []}
+						onOpenModal={handleOpenModal}
+					/>
+					<ProductActionsButtons onOpenModal={handleOpenModal} />
 					<ConfirmationModal
 						open={openModal}
 						onClose={handleCloseModal}
 						onConfirm={handleConfirmAction}
 						title={modalTitle}
 					/>
-				</motion.div>
+				</div>
 			</motion.div>
 		</MainLayout>
 	);

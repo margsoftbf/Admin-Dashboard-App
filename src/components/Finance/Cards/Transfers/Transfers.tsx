@@ -101,7 +101,7 @@ const Transfers = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{ordersList.map((order, index) => (
+					{ordersList.map((order) => (
 						<motion.tr
 							key={order.id}
 							className={`border-b border-myGray/30 text-gray-300 font-poppins text-[14px] hover:bg-zinc-900 whitespace-nowrap`}

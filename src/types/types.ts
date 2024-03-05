@@ -55,6 +55,7 @@ export interface TransactionDetails {
 	};
   }
 
+import { Dispatch, SetStateAction } from 'react';
 import { IconType } from 'react-icons';
 
 
@@ -178,4 +179,24 @@ export type PaymentCard = {
 	jobDescription: string;
 	qualifications: string[];
 	perks: string[];
+}
+
+
+export interface Meeting {
+	id: string;
+	name: string;
+	title: string;
+	time: string;
+	date: string;
+}
+
+export interface MeetingProps {
+	meeting: Meeting;
+	onDelete: (id: string) => void;
+}
+
+export interface ModalProps {
+	isOpen: boolean;
+	closeModal: () => void;
+	setMeetings: Dispatch<SetStateAction<Meeting[]>>;
 }

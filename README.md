@@ -50,6 +50,10 @@ https://admin.marcingarski.com/
 
 ![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Projects.png)
 
+# Projects
+
+![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Calendar.png)
+
 ## Key Features:
 
 1. E-commerce Management:

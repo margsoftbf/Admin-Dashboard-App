@@ -30,7 +30,7 @@ const AnalyticsSummary = () => {
 				<ReactApexChart
 					options={AnalyticsSaleStatus}
 					series={AnalyticsSaleStatus.series}
-					height='350'
+					height='400'
 					type='radialBar'
 				/>
 			</div>

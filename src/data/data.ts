@@ -100,7 +100,12 @@ export const navigation = [
 		current: false,
 	},
 	// { name: 'Chat', href: '#', icon: ChatBubbleLeftRightIcon, current: false },
-	{ name: 'Calendar', href: '#', icon: CalendarDaysIcon, current: false },
+	{
+		name: 'Calendar',
+		href: '/calendar',
+		icon: CalendarDaysIcon,
+		current: false,
+	},
 	{ name: 'Invoices', href: '#', icon: DocumentDuplicateIcon, current: false },
 	{ name: 'Crypto', href: '#', icon: CurrencyDollarIcon, current: false },
 	{ name: 'Kanban', href: '#', icon: DocumentCheckIcon, current: false },
@@ -2445,4 +2450,42 @@ export const projectsManage = [
 			'/assets/people/avatar-4.png',
 		],
 	},
+];
+
+export const initialMeetings = [
+	{
+		id: '1',
+		name: "Team Strategy Workshop",
+		title: "Quarterly Planning Session",
+		date: "2024-07-20",
+		time: "13:00",
+	  },
+	  {
+		id: '2',
+		name: "Product Launch Webinar",
+		title: "Introducing Our New Product Line",
+		date: "2024-07-22",
+		time: "16:00",
+	  },
+	  {
+		id: '3',
+		name: "Sarah's Birthday Celebration",
+		title: "Cake and Coffee Gathering",
+		date: "2024-07-24",
+		time: "16:00",
+	  },
+	  {
+		id: '4',
+		name: "Annual General Meeting",
+		title: "Yearly Company Review",
+		date: "2024-07-26",
+		time: "09:00",
+	  },
+	  {
+		id: '5',
+		name: "Technology Conference",
+		title: "The Future of Tech",
+		date: "2024-07-28",
+		time: "17:00",
+	  }
 ];

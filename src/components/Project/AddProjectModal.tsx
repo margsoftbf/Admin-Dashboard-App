@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, Box, Fade, Backdrop } from '@mui/material';
-import { XMarkIcon, DocumentIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 
 interface AddProjectModalProps {
 	isOpen: boolean;

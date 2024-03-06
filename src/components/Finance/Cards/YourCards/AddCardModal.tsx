@@ -55,7 +55,7 @@ const AddCardModal = ({ open, handleClose } : ModalProps) => {
 				}}
 			>
 				<Fade in={open}>
-					<Box className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg bg-white w-80 lg:w-96 mx-auto p-4 text-center shadow-lg max-w-96 dark:bg-myPrimary flex flex-col items-center font-poppins'>
+					<Box className='py-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[90vh] rounded-lg w-80 xs:w-96 md:w-[600px] lg:mx-auto p-4 shadow-lg flex flex-col font-poppins overflow-y-auto bg-black justify-center items-center z-70'>
 					<XMarkIcon
 							className='w-7 h-7 text-white absolute right-2 top-2 cursor-pointer'
 							onClick={handleClose}

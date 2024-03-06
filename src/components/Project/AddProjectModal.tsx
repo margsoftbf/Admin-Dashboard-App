@@ -24,7 +24,7 @@ const AddProjectModal = ({ isOpen, onClose }: AddProjectModalProps) => {
 				}}
 			>
 				<Fade in={isOpen}>
-					<Box className='py-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 xs:h-auto rounded-lg bg-white w-80 xs:w-96 md:w-[600px] lg:mx-auto p-4 shadow-lg  dark:bg-myPrimary flex flex-col font-poppins overflow-y-auto h-full'>
+					<Box className='py-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[90vh] rounded-lg w-80 xs:w-96 md:w-[600px] lg:mx-auto p-4 shadow-lg flex flex-col font-poppins overflow-y-auto bg-black justify-center items-center z-70'>
 						<XMarkIcon
 							className='w-7 h-7 text-white absolute right-2 top-2 cursor-pointer'
 							onClick={onClose}

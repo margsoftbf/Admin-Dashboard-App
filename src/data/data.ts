@@ -1,5 +1,7 @@
 import {
 	InvoiceDataProps,
+	KanbanColumn,
+	KanbanTask,
 	OrdersType,
 	PaymentCard,
 	Person,
@@ -109,7 +111,7 @@ export const navigation = [
 	},
 	{ name: 'Invoices', href: '/invoices', icon: DocumentDuplicateIcon, current: false },
 	{ name: 'Crypto', href: '/crypto', icon: CurrencyDollarIcon, current: false },
-	{ name: 'Kanban', href: '#', icon: DocumentCheckIcon, current: false },
+	{ name: 'Kanban', href: '/kanban', icon: DocumentCheckIcon, current: false },
 	{ name: 'Social Network', href: '#', icon: ChartPieIcon, current: false },
 	{ name: 'Mailbox', href: '#', icon: EnvelopeIcon, current: false },
 	{ name: 'Help Center', href: '#', icon: LifebuoyIcon, current: false },
@@ -2683,5 +2685,69 @@ export const coinsArray = [
 		price_change_percentage_24h: 4.5,
 		market_cap: 5000000,
 		ath: 28,
+	},
+];
+
+
+export const defaultCols: KanbanColumn[] = [
+	{
+		id: 'todo',
+		title: 'Todo',
+	},
+	{
+		id: 'work',
+		title: 'Work',
+	},
+	{
+		id: 'home',
+		title: 'Home',
+	},
+];
+
+export const defaultTasks: KanbanTask[] = [
+	{
+		id: '1',
+		columnId: 'todo',
+		content: '1st Task',
+	},
+	{
+		id: '2',
+		columnId: 'todo',
+		content: '2nd Task',
+	},
+	{
+		id: '3',
+		columnId: 'todo',
+		content: '3rd Task',
+	},
+	{
+		id: '4',
+		columnId: 'work',
+		content: '1st Task',
+	},
+	{
+		id: '5',
+		columnId: 'work',
+		content: '2nd Task',
+	},
+	{
+		id: '6',
+		columnId: 'work',
+		content: '3rd Task',
+	},
+	{
+		id: '7',
+		columnId: 'home',
+		content: '1st Task',
+	},
+	{
+		id: '8',
+		columnId: 'home',
+		content: '2nd Task',
+	},
+	{
+		id: '9',
+		columnId: 'home',
+		content: '3rd Task',
 	},
 ];

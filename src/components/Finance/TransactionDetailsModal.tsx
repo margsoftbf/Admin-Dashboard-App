@@ -33,7 +33,7 @@ const TransactionDetailsModal: React.FC<ModalProps> = ({
 				}}
 			>
 				<Fade in={open}>
-					<Box className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-80 lg:w-[500px] mx-auto p-4 text-center shadow-lg bg-myPrimary flex flex-col items-center font-poppins'>
+					<Box className='py-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[90vh] rounded-lg w-80 xs:w-96 md:w-[600px] lg:mx-auto p-4 shadow-lg flex flex-col font-poppins overflow-y-auto bg-black justify-center items-center z-70'>
 						{transaction && (
 							<div className='w-full flex flex-col gap-2 my-1'>
 								<div className='flex flex-row w-full items-center justify-between text-myGray font-semibold mb-6'>

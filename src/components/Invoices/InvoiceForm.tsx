@@ -95,8 +95,7 @@ const InvoiceForm = ({
 			}}
 		>
 			<Fade in={isOpen}>
-            <Box className='py-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-auto rounded-lg  w-80 xs:w-96 md:w-[600px] lg:mx-auto p-4 shadow-lg flex flex-col font-poppins overflow-y-auto  bg-black justify-center items-center z-70'>
-				
+				<Box className='py-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[90vh] rounded-lg w-80 xs:w-96 md:w-[600px] lg:mx-auto p-4 shadow-lg flex flex-col font-poppins overflow-y-auto bg-black justify-center items-center z-70'>
 					<form className=' bg-lightGray p-2 rounded-md lg:max-w-[80%] max-h-[80%] overflow-auto'>
 						<div className='border-b border-white/10 pb-12'>
 							<h2 className='text-base font-semibold leading-7 text-white'>
@@ -321,8 +320,7 @@ const InvoiceForm = ({
 							</button>
 						</div>
 					</form>
-			
-                </Box>
+				</Box>
 			</Fade>
 		</Modal>
 	);

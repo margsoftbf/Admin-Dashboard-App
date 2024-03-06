@@ -44,20 +44,19 @@ export interface TransactionDetails {
 	price: number;
 	date: string;
 	recipientInfo: {
-	  email: string;
-	  address: string;
-	  phone: string;
+		email: string;
+		address: string;
+		phone: string;
 	};
 	bankDetails: {
-	  bankName: string;
-	  bankAddress: string;
-	  accountNumber: string;
+		bankName: string;
+		bankAddress: string;
+		accountNumber: string;
 	};
-  }
+}
 
 import { Dispatch, SetStateAction } from 'react';
 import { IconType } from 'react-icons';
-
 
 export interface SellsBoxesTypes {
 	id: number;
@@ -157,7 +156,6 @@ export interface VisistBySourceDataTypes {
 	options: ApexOptions;
 }
 
-
 export type PaymentCard = {
 	id: string;
 	type: string;
@@ -165,13 +163,13 @@ export type PaymentCard = {
 	cardNumber: string;
 	expiryDate: string;
 	gradientColors: {
-	  from: string;
-	  to: string;
+		from: string;
+		to: string;
 	};
 	iconPath: string;
-  };
+};
 
-  export interface JobTypes {
+export interface JobTypes {
 	id: number;
 	img: string;
 	positionName: string;
@@ -185,7 +183,6 @@ export type PaymentCard = {
 	qualifications: string[];
 	perks: string[];
 }
-
 
 export interface Meeting {
 	id: string;
@@ -206,7 +203,6 @@ export interface ModalProps {
 	setMeetings: Dispatch<SetStateAction<Meeting[]>>;
 }
 
-
 export interface InvoiceDataProps {
 	id: string;
 	clientName: string;
@@ -218,8 +214,6 @@ export interface InvoiceDataProps {
 	amount: number;
 	status: string;
 }
-
-
 
 export interface InvoiceListProps {
 	invoice: {
@@ -236,7 +230,6 @@ export interface InvoiceListProps {
 	onEdit: (id: string) => void;
 	onDelete: (id: string) => void;
 }
-
 
 export interface InvoiceFormProps {
 	onSave: (invoice: {
@@ -277,4 +270,32 @@ export interface CryptoProps {
 	market_cap: number;
 	market_cap_rank: number;
 	ath: number;
+}
+
+export interface KanbanTaskCardProps {
+	task: KanbanTask;
+	deleteTask: (id: Id) => void;
+	updateTask: (id: Id, content: string) => void;
+}
+
+export type Id = string | number;
+
+export interface KanbanColumn {
+	id: string | number;
+	title: string;
+}
+export interface KanbanTask {
+	id: string | number;
+	columnId: string | number;
+	content: string;
+}
+
+export interface KanbanContainerProps {
+	column: KanbanColumn;
+	deleteColumn: (id: Id) => void;
+	updateColumn: (id: Id, title: string) => void;
+	createTask: (columnId: Id) => void;
+	updateTask: (id: Id, content: string) => void;
+	deleteTask: (id: Id) => void;
+	tasks: KanbanTask[];
 }

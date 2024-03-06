@@ -205,3 +205,64 @@ export interface ModalProps {
 	closeModal: () => void;
 	setMeetings: Dispatch<SetStateAction<Meeting[]>>;
 }
+
+
+export interface InvoiceDataProps {
+	id: string;
+	clientName: string;
+	emailAddress: string;
+	streetAddress: string;
+	city: string;
+	state: string;
+	zipCode: number;
+	amount: number;
+	status: string;
+}
+
+
+
+export interface InvoiceListProps {
+	invoice: {
+		id: string;
+		clientName: string;
+		emailAddress: string;
+		streetAddress: string;
+		city: string;
+		state: string;
+		zipCode: number;
+		amount: number;
+		status: string;
+	};
+	onEdit: (id: string) => void;
+	onDelete: (id: string) => void;
+}
+
+
+export interface InvoiceFormProps {
+	onSave: (invoice: {
+		clientName: string;
+		emailAddress: string;
+		streetAddress: string;
+		city: string;
+		state: string;
+		zipCode: number;
+		amount: number;
+		status: string;
+	}) => void;
+	editedInvoice?:
+		| {
+				id: string;
+				clientName: string;
+				emailAddress: string;
+				streetAddress: string;
+				city: string;
+				state: string;
+				zipCode: number;
+				amount: number;
+				status: string;
+		  }
+		| undefined;
+	onClearEdit: () => void;
+	isOpen: boolean;
+	closeModal: () => void;
+}

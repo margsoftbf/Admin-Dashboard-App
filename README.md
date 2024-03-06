@@ -54,6 +54,11 @@ https://admin.marcingarski.com/
 
 ![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Calendar.png)
 
+# Invoices
+
+![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Invoices.png)
+![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/UpdateInvoice.png)
+
 ## Key Features:
 
 1. E-commerce Management:

@@ -115,7 +115,7 @@ const ApplyJobModal = ({ open, handleClose, job }: ModalProps) => {
 											<div className='mt-4 flex text-sm leading-6 text-gray-400'>
 												<label
 													htmlFor='file-upload'
-													className='relative cursor-pointer rounded-md bg-gray-900 font-semibold text-white focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 focus-within:ring-offset-gray-900 hover:text-indigo-500'
+													className='relative cursor-pointer rounded-md font-semibold text-white '
 												>
 													<span>Upload a file</span>
 													<input
@@ -165,7 +165,7 @@ const ApplyJobModal = ({ open, handleClose, job }: ModalProps) => {
 											name='city'
 											id='city'
 											autoComplete='address-level2'
-											className='block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6'
+											className='block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10  sm:text-sm sm:leading-6'
 										/>
 									</div>
 								</div>
@@ -209,6 +209,7 @@ const ApplyJobModal = ({ open, handleClose, job }: ModalProps) => {
 
 							<div className='mt-6 flex items-center justify-end gap-x-6'>
 								<button
+								onClick={handleClose}
 									type='button'
 									className='text-sm font-semibold leading-6 text-white'
 								>

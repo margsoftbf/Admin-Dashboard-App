@@ -109,14 +109,24 @@ export const navigation = [
 		icon: CalendarDaysIcon,
 		current: false,
 	},
-	{ name: 'Invoices', href: '/invoices', icon: DocumentDuplicateIcon, current: false },
+	{
+		name: 'Invoices',
+		href: '/invoices',
+		icon: DocumentDuplicateIcon,
+		current: false,
+	},
 	{ name: 'Crypto', href: '/crypto', icon: CurrencyDollarIcon, current: false },
 	{ name: 'Kanban', href: '/kanban', icon: DocumentCheckIcon, current: false },
-	{ name: 'Social Network', href: '#', icon: ChartPieIcon, current: false },
+	{
+		name: 'Social Network',
+		href: '/social',
+		icon: ChartPieIcon,
+		current: false,
+	},
 	{ name: 'Mailbox', href: '#', icon: EnvelopeIcon, current: false },
-	{ name: 'Help Center', href: '#', icon: LifebuoyIcon, current: false },
+	// { name: 'Help Center', href: '#', icon: LifebuoyIcon, current: false },
 	{ name: 'FAQ', href: '#', icon: QuestionMarkCircleIcon, current: false },
-	{ name: 'Profile', href: '#', icon: UserCircleIcon, current: false },
+	// { name: 'Profile', href: '#', icon: UserCircleIcon, current: false },
 ];
 
 export const personsData: Person[] = [
@@ -2458,41 +2468,40 @@ export const projectsManage = [
 export const initialMeetings = [
 	{
 		id: '1',
-		name: "Team Strategy Workshop",
-		title: "Quarterly Planning Session",
-		date: "2024-07-20",
-		time: "13:00",
-	  },
-	  {
+		name: 'Team Strategy Workshop',
+		title: 'Quarterly Planning Session',
+		date: '2024-07-20',
+		time: '13:00',
+	},
+	{
 		id: '2',
-		name: "Product Launch Webinar",
-		title: "Introducing Our New Product Line",
-		date: "2024-07-22",
-		time: "16:00",
-	  },
-	  {
+		name: 'Product Launch Webinar',
+		title: 'Introducing Our New Product Line',
+		date: '2024-07-22',
+		time: '16:00',
+	},
+	{
 		id: '3',
 		name: "Sarah's Birthday Celebration",
-		title: "Cake and Coffee Gathering",
-		date: "2024-07-24",
-		time: "16:00",
-	  },
-	  {
+		title: 'Cake and Coffee Gathering',
+		date: '2024-07-24',
+		time: '16:00',
+	},
+	{
 		id: '4',
-		name: "Annual General Meeting",
-		title: "Yearly Company Review",
-		date: "2024-07-26",
-		time: "09:00",
-	  },
-	  {
+		name: 'Annual General Meeting',
+		title: 'Yearly Company Review',
+		date: '2024-07-26',
+		time: '09:00',
+	},
+	{
 		id: '5',
-		name: "Technology Conference",
-		title: "The Future of Tech",
-		date: "2024-07-28",
-		time: "17:00",
-	  }
+		name: 'Technology Conference',
+		title: 'The Future of Tech',
+		date: '2024-07-28',
+		time: '17:00',
+	},
 ];
-
 
 export const invoicesData: InvoiceDataProps[] = [
 	{
@@ -2562,8 +2571,6 @@ export const invoicesData: InvoiceDataProps[] = [
 		status: 'Pending',
 	},
 ];
-
-
 
 export const coinsArray = [
 	{
@@ -2688,7 +2695,6 @@ export const coinsArray = [
 	},
 ];
 
-
 export const defaultCols: KanbanColumn[] = [
 	{
 		id: 'todo',
@@ -2708,27 +2714,27 @@ export const defaultTasks: KanbanTask[] = [
 	{
 		id: '1',
 		columnId: 'todo',
-		content: '1st Task',
+		content: 'Go to the gym',
 	},
 	{
 		id: '2',
 		columnId: 'todo',
-		content: '2nd Task',
+		content: 'Make a dinner',
 	},
 	{
 		id: '3',
 		columnId: 'todo',
-		content: '3rd Task',
+		content: 'Take a shower',
 	},
 	{
 		id: '4',
 		columnId: 'work',
-		content: '1st Task',
+		content: 'Make a coffee',
 	},
 	{
 		id: '5',
 		columnId: 'work',
-		content: '2nd Task',
+		content: 'Order candy',
 	},
 	{
 		id: '6',
@@ -2738,16 +2744,205 @@ export const defaultTasks: KanbanTask[] = [
 	{
 		id: '7',
 		columnId: 'home',
-		content: '1st Task',
+		content: 'Clean the house',
 	},
 	{
 		id: '8',
 		columnId: 'home',
-		content: '2nd Task',
+		content: 'Call to mom',
 	},
 	{
 		id: '9',
 		columnId: 'home',
-		content: '3rd Task',
+		content: 'Go to shopping',
+	},
+];
+
+export const personsPost = [
+	{
+		id: 1,
+		avatar: '/assets/people/avatar-1.png',
+		avatarAlt: 'Mark Webber Photo',
+		name: 'Mark Webber',
+		status: false,
+		sendDate: '3h ago',
+		photo:
+			'https://cdn.pixabay.com/photo/2016/03/04/19/36/beach-1236581_1280.jpg',
+		content:
+			'Explicabo nihil laborum. Saepe facilis consequuntur in eaque. Consequatur perspiciatis quam. Sed est illo quia. Culpa vitae placeat vitae. Repudiandae sunt exercitationem nihil nisi facilis placeat minima eveniet.',
+		comments: 12,
+		share: 3,
+		likes: [
+			'/assets/people/avatar-2.png',
+			'/assets/people/avatar-3.png',
+			'/assets/people/avatar-4.png',
+		],
+	},
+	{
+		id: 2,
+		avatar: '/assets/people/avatar-2.png',
+		avatarAlt: 'Angela Gray Photo',
+		name: 'Angela Gray',
+		status: true,
+		sendDate: '17h ago',
+		photo: false,
+		content:
+			'Explicabo nihil laborum. Saepe facilis consequuntur in eaque. Consequatur perspiciatis quam. Sed est illo quia. Culpa vitae placeat vitae. Repudiandae sunt exercitationem nihil nisi facilis placeat minima eveniet.',
+		comments: 9,
+		share: 1,
+		likes: [
+			'/assets/people/avatar-3.png',
+			'/assets/people/avatar-4.png',
+			'/assets/people/avatar-5.png',
+			'/assets/people/avatar-6.png',
+			'/assets/people/avatar-7.png',
+		],
+	},
+	{
+		id: 3,
+		avatar: '/assets/people/avatar-3.png',
+		avatarAlt: 'Jacob Thompson Photo',
+		name: 'Jacob Thompson',
+		status: true,
+		sendDate: '14h ago',
+		photo: false,
+		content:
+			'Explicabo nihil laborum. Saepe facilis consequuntur in eaque. Consequatur perspiciatis quam. Sed est illo quia. Culpa vitae placeat vitae. Repudiandae sunt exercitationem nihil nisi facilis placeat minima eveniet.',
+		comments: 8,
+		share: 6,
+		likes: [
+			'/assets/people/avatar-4.png',
+			'/assets/people/avatar-5.png',
+			'/assets/people/avatar-6.png',
+			'/assets/people/avatar-7.png',
+		],
+	},
+	{
+		id: 4,
+		avatar: '/assets/people/avatar-4.png',
+		avatarAlt: 'Kimberly Smith Photo',
+		name: 'Kimberly Smith',
+		status: false,
+		sendDate: '17h ago',
+		photo: false,
+		content:
+			'Explicabo nihil laborum. Saepe facilis consequuntur in eaque. Consequatur perspiciatis quam. Sed est illo quia. Culpa vitae placeat vitae. Repudiandae sunt exercitationem nihil nisi facilis placeat minima eveniet.',
+		comments: 28,
+		share: 2,
+		likes: [
+			'/assets/people/avatar-5.png',
+			'/assets/people/avatar-6.png',
+			'/assets/people/avatar-7.png',
+		],
+	},
+];
+
+import {
+	ArrowUpTrayIcon,
+	HeartIcon,
+	AtSymbolIcon,
+	HandThumbUpIcon,
+} from '@heroicons/react/24/outline';
+
+export const lastActivity = [
+	{
+		id: 1,
+		name: 'Kimberly',
+		avatar: '/assets/people/avatar-1.png',
+		avatarAlt: 'Kimberly Smith Photo',
+		when: '5 hours ago',
+		icon: EnvelopeIcon,
+		color: '#eab308',
+		react: 'sent you a message.',
+	},
+	{
+		id: 2,
+		name: 'Mark',
+		avatar: '/assets/people/avatar-2.png',
+		avatarAlt: 'Mark Webber Photo',
+		when: '7 hours ago',
+		icon: HandThumbUpIcon,
+		color: '#0ea5e9',
+		react: 'like your photo.',
+	},
+	{
+		id: 3,
+		name: 'Jacob',
+		avatar: '/assets/people/avatar-3.png',
+		avatarAlt: 'Jacob Photo',
+		when: '12 hours ago',
+		icon: ArrowUpTrayIcon,
+		color: '#a855f7',
+		react: 'upload a file.',
+	},
+	{
+		id: 4,
+		name: 'Kimberly',
+		avatar: '/assets/people/avatar-4.png',
+		avatarAlt: 'Kimberly Photo',
+		when: '10 hours ago',
+		icon: HeartIcon,
+		color: '#ef4444',
+		react: 'follows you.',
+	},
+	{
+		id: 5,
+		name: 'Gary',
+		avatar: '/assets/people/avatar-5.png',
+		avatarAlt: 'Gary Photo',
+		when: '4 hours ago',
+		icon: AtSymbolIcon,
+		color: '#22c55e',
+		react: 'sent you an email.',
+	},
+	{
+		id: 6,
+		name: 'Kimberly',
+		avatar: '/assets/people/avatar-1.png',
+		avatarAlt: 'Kimberly Smith Photo',
+		when: '5 hours ago',
+		icon: EnvelopeIcon,
+		color: '#eab308',
+		react: 'sent you a message.',
+	},
+	{
+		id: 7,
+		name: 'Mark',
+		avatar: '/assets/people/avatar-2.png',
+		avatarAlt: 'Mark Webber Photo',
+		when: '7 hours ago',
+		icon: HandThumbUpIcon,
+		color: '#0ea5e9',
+		react: 'like your photo.',
+	},
+	{
+		id: 8,
+		name: 'Jacob',
+		avatar: '/assets/people/avatar-3.png',
+		avatarAlt: 'Jacob Photo',
+		when: '12 hours ago',
+		icon: ArrowUpTrayIcon,
+		color: '#a855f7',
+		react: 'upload a file.',
+	},
+	{
+		id: 9,
+		name: 'Kimberly',
+		avatar: '/assets/people/avatar-4.png',
+		avatarAlt: 'Kimberly Photo',
+		when: '10 hours ago',
+		icon: HeartIcon,
+		color: '#ef4444',
+		react: 'follows you.',
+	},
+	{
+		id: 10,
+		name: 'Gary',
+		avatar: '/assets/people/avatar-5.png',
+		avatarAlt: 'Gary Photo',
+		when: '4 hours ago',
+		icon: AtSymbolIcon,
+		color: '#22c55e',
+		react: 'sent you an email.',
 	},
 ];

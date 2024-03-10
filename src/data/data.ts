@@ -25,6 +25,13 @@ import {
 	LifebuoyIcon,
 	QuestionMarkCircleIcon,
 	UserCircleIcon,
+	InboxIcon,
+	StarIcon,
+	BellSnoozeIcon,
+	BoltIcon,
+	PaperAirplaneIcon,
+	TrashIcon,
+	Cog8ToothIcon,
 } from '@heroicons/react/24/outline';
 import {
 	Briefcase,
@@ -123,7 +130,7 @@ export const navigation = [
 		icon: ChartPieIcon,
 		current: false,
 	},
-	{ name: 'Mailbox', href: '#', icon: EnvelopeIcon, current: false },
+	{ name: 'Mailbox', href: '/mailbox', icon: EnvelopeIcon, current: false },
 	// { name: 'Help Center', href: '#', icon: LifebuoyIcon, current: false },
 	{ name: 'FAQ', href: '#', icon: QuestionMarkCircleIcon, current: false },
 	// { name: 'Profile', href: '#', icon: UserCircleIcon, current: false },
@@ -2944,5 +2951,82 @@ export const lastActivity = [
 		icon: AtSymbolIcon,
 		color: '#22c55e',
 		react: 'sent you an email.',
+	},
+];
+
+export const mailboxData = [
+	{
+		id: 1,
+		categoryName: 'Inbox',
+		categoryNumber: '2658',
+		icon: InboxIcon,
+	},
+	{
+		id: 2,
+		categoryName: 'Starred',
+		categoryNumber: '1024',
+		icon: StarIcon,
+	},
+	{
+		id: 3,
+		categoryName: 'Snoozed',
+		categoryNumber: '754',
+		icon: BellSnoozeIcon,
+	},
+	{
+		id: 4,
+		categoryName: 'Important',
+		categoryNumber: '1554',
+		icon: BoltIcon,
+	},
+	{
+		id: 5,
+		categoryName: 'Sent',
+		categoryNumber: '794',
+		icon: PaperAirplaneIcon,
+	},
+	{
+		id: 6,
+		categoryName: 'Social',
+		categoryNumber: '1404',
+		icon: ChatBubbleLeftRightIcon,
+	},
+	{
+		id: 7,
+		categoryName: 'Trash',
+		categoryNumber: '984',
+		icon: TrashIcon,
+	},
+	{
+		id: 8,
+		categoryName: 'Settings',
+		icon: Cog8ToothIcon,
+	},
+];
+
+export const mailboxGroup = [
+	{
+		id: 1,
+		categoryName: 'Team',
+		categoryNumber: '348',
+		color: '#ef4444',
+	},
+	{
+		id: 2,
+		categoryName: 'My Work',
+		categoryNumber: '148',
+		color: '#eab308',
+	},
+	{
+		id: 3,
+		categoryName: 'Private',
+		categoryNumber: '901',
+		color: '#22c55e',
+	},
+	{
+		id: 4,
+		categoryName: 'Family',
+		categoryNumber: '58',
+		color: '#0ea5e9',
 	},
 ];

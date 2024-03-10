@@ -64,6 +64,14 @@ https://admin.marcingarski.com/
 ![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Kanban.png)
 ![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/KanbanDragable.png)
 
+# Social Network
+
+![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/SocialNetwork.png)
+
+# Mailbox
+
+![App Screenshoot](https://github.com/margsoftbf/Admin-Dashboard-App/blob/main/public/assets/screenshot/Mailbox.png)
+
 ## Key Features:
 
 1. E-commerce Management:

@@ -132,7 +132,7 @@ export const navigation = [
 	},
 	{ name: 'Mailbox', href: '/mailbox', icon: EnvelopeIcon, current: false },
 	// { name: 'Help Center', href: '#', icon: LifebuoyIcon, current: false },
-	{ name: 'FAQ', href: '#', icon: QuestionMarkCircleIcon, current: false },
+	{ name: 'FAQ', href: '/faq', icon: QuestionMarkCircleIcon, current: false },
 	// { name: 'Profile', href: '#', icon: UserCircleIcon, current: false },
 ];
 
@@ -3028,5 +3028,59 @@ export const mailboxGroup = [
 		categoryName: 'Family',
 		categoryNumber: '58',
 		color: '#0ea5e9',
+	},
+];
+
+export const faqs = [
+	{
+		question: "What's the best thing about Poland?",
+		answer:
+			"I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+	},
+	{
+		question: 'Why did the scarecrow win an award?',
+		answer:
+			'Because he was outstanding in his field. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.',
+	},
+	{
+		question: 'How do you organize a space party?',
+		answer:
+			'You planet. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.',
+	},
+	{
+		question: "What's orange and sounds like a parrot?",
+		answer:
+			'A carrot. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.',
+	},
+	{
+		question: "Why don't scientists trust atoms?",
+		answer:
+			'Because they make up everything. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.',
+	},
+	{
+		question:
+			"Did you hear about the mathematician who's afraid of negative numbers?",
+		answer:
+			"He'll stop at nothing to avoid them. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+	},
+	{
+		question: "Why don't skeletons fight each other?",
+		answer:
+			"They don't have the guts. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+	},
+	{
+		question: 'What do you call fake spaghetti?',
+		answer:
+			'An impasta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.',
+	},
+	{
+		question: 'How do you catch a squirrel?',
+		answer:
+			'Climb a tree and act like a nut! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.',
+	},
+	{
+		question: 'Why did the coffee file a police report?',
+		answer:
+			'It got mugged. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.',
 	},
 ];

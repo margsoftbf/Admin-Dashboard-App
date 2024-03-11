@@ -17,16 +17,22 @@ const MailboxHomePage = () => {
 			</h1>
 			<BreadCrumb pathSegments={pathSegments} />
 			<motion.div
-				className='grid grid-cols-1 md:grid-cols-6 gap-5'
+				className='grid grid-cols-1 xl:grid-cols-6 gap-5'
 				variants={containerAnimation}
 				initial='hidden'
 				animate='visible'
 			>
-				<motion.div className='md:col-span-1' variants={itemAnimation}>
+				<motion.div
+					className='xl:col-span-2 2xl:col-span-1'
+					variants={itemAnimation}
+				>
 					<MailboxNavigation />
 				</motion.div>
-				<motion.div className='md:col-span-5' variants={itemAnimation}>
-                    <Mails />
+				<motion.div
+					className='xl:col-span-4 2xl:col-span-5'
+					variants={itemAnimation}
+				>
+					<Mails />
 				</motion.div>
 			</motion.div>
 		</MainLayout>

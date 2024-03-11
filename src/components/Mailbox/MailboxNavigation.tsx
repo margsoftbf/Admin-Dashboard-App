@@ -6,7 +6,7 @@ FolderIcon;
 const MailboxNavigation = () => {
 	return (
 		<div className='rounded-2xl relative border border-[#313442] bg-myPrimary py-3 px-5 mb-6 text-white font-poppins overflow-x-auto flex-1'>
-			<div className='flex flex-col px-6'>
+			<div className='flex flex-col px-0'>
 				<Button className='bg-myViolet'>New Category</Button>
 				<div className='flex flex-col mt-6'>
 					{mailboxData.map((data) => (

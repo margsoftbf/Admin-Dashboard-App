@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import { InvoiceFormProps } from '../../types/types';
-import { XMarkIcon } from '@heroicons/react/24/outline';
 import { Modal, Box, Fade, Backdrop } from '@mui/material';
 const InvoiceForm = ({
 	onSave,
@@ -10,6 +8,17 @@ const InvoiceForm = ({
 	isOpen,
 	closeModal,
 }: InvoiceFormProps) => {
+	const avatars = [
+		{ id: 1, src: '/assets/people/avatar-1.png', alt: 'Avatar 1' },
+		{ id: 2, src: '/assets/people/avatar-2.png', alt: 'Avatar 2' },
+		{ id: 2, src: '/assets/people/avatar-3.png', alt: 'Avatar 3' },
+		{ id: 2, src: '/assets/people/avatar-4.png', alt: 'Avatar 4' },
+		{ id: 2, src: '/assets/people/avatar-5.png', alt: 'Avatar 5' },
+		{ id: 2, src: '/assets/people/avatar-6.png', alt: 'Avatar 6' },
+		{ id: 2, src: '/assets/people/avatar-7.png', alt: 'Avatar 7' },
+		{ id: 2, src: '/assets/people/avatar-8.png', alt: 'Avatar 8' },
+	];
+
 	const [formData, setFormData] = useState({
 		clientName: editedInvoice?.clientName || '',
 		emailAddress: editedInvoice?.emailAddress || '',
@@ -19,6 +28,7 @@ const InvoiceForm = ({
 		zipCode: editedInvoice?.zipCode || '',
 		amount: editedInvoice?.amount?.toString() || '0',
 		status: editedInvoice?.status || 'Paid',
+		avatar: editedInvoice?.avatar || avatars[0].src,
 	});
 
 	const [error, setError] = useState<Record<string, string>>({});
@@ -52,6 +62,7 @@ const InvoiceForm = ({
 				zipCode: editedInvoice.zipCode,
 				amount: editedInvoice.amount.toString(),
 				status: editedInvoice.status,
+				avatar: editedInvoice.avatar,
 			});
 		}
 	}, [editedInvoice]);
@@ -75,6 +86,7 @@ const InvoiceForm = ({
 			zipCode: 0,
 			amount: '',
 			status: 'Paid',
+			avatar: '',
 		});
 		onClearEdit();
 		closeModal();
@@ -95,8 +107,8 @@ const InvoiceForm = ({
 			}}
 		>
 			<Fade in={isOpen}>
-				<Box className='py-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[90vh] rounded-lg w-80 xs:w-96 md:w-[600px] lg:mx-auto p-4 shadow-lg flex flex-col font-poppins overflow-y-auto bg-black justify-center items-center z-70'>
-					<form className=' bg-lightGray p-2 rounded-md lg:max-w-[80%] max-h-[80%] overflow-auto'>
+				<Box className='py-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[90vh] rounded-lg w-80 xs:w-96 md:w-[600px] lg:mx-auto p-4 shadow-lg flex flex-col font-poppins overflow-y-auto bg-myPrimary justify-center items-center z-70'>
+					<form className='p-2 py-4 rounded-md lg:max-w-[80%] max-h-[80%] overflow-auto'>
 						<div className='border-b border-white/10 pb-12'>
 							<h2 className='text-base font-semibold leading-7 text-white'>
 								Bill To
@@ -105,7 +117,7 @@ const InvoiceForm = ({
 								Use a permanent address where you can receive mail.
 							</p>
 
-							<div className='mt-10 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8'>
+							<div className='mt-8 grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8'>
 								<div className='col-span-2 lg:col-span-4'>
 									<label
 										htmlFor='first-name'
@@ -130,6 +142,27 @@ const InvoiceForm = ({
 												{error.clientName}
 											</p>
 										)}
+									</div>
+								</div>
+								<div className='col-span-full'>
+									<label
+										htmlFor='avatar'
+										className='block text-sm font-medium leading-6 text-white'
+									>
+										Avatar
+									</label>
+									<div className='flex mt-2 flex-wrap gap-3'>
+										{avatars.map((avatar) => (
+											<img
+												key={avatar.id}
+												src={avatar.src}
+												alt={avatar.alt}
+												className='w-10 h-10 rounded-full overflow-hidden hover:cursor-pointer'
+												onClick={() =>
+													setFormData({ ...formData, avatar: avatar.src })
+												}
+											/>
+										))}
 									</div>
 								</div>
 								<div className='col-span-2 lg:col-span-4'>

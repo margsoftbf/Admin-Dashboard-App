@@ -245,6 +245,7 @@ export interface InvoiceFormProps {
 		zipCode: number;
 		amount: number;
 		status: string;
+		avatar: string;
 	}) => void;
 	editedInvoice?:
 		| {
@@ -257,6 +258,7 @@ export interface InvoiceFormProps {
 				zipCode: number;
 				amount: number;
 				status: string;
+				avatar: string;
 		  }
 		| undefined;
 	onClearEdit: () => void;

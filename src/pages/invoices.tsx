@@ -2,7 +2,7 @@ import BreadCrumb from '@/components/common/Breadcrumb';
 import MainLayout from '@/components/layout/MainLayout';
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
-import { PlusSmallIcon } from '@heroicons/react/20/solid';
+import { PlusIcon } from '@heroicons/react/20/solid';
 import { v4 as uuidv4 } from 'uuid';
 import { InvoiceDataProps } from '../types/types';
 import { invoicesData } from '@/data/data';
@@ -45,7 +45,12 @@ const InvoicesHomePage = () => {
 			setEditedInvoice(undefined);
 		} else {
 			const newInvoiceId = uuidv4();
-			const newInvoice: InvoiceDataProps = { id: newInvoiceId, ...invoice };
+			const newInvoice: InvoiceDataProps = {
+				id: newInvoiceId,
+				avatar: '',
+				avatarAlt: `${invoice.clientName} photo`,
+				...invoice,
+			};
 			setInvoices((prevInvoices) => [...prevInvoices, newInvoice]);
 		}
 	};
@@ -75,62 +80,68 @@ const InvoicesHomePage = () => {
 				Invoices
 			</h1>
 			<BreadCrumb pathSegments={pathSegments} />
-			<div className='w-full flex justify-center'>
+			<div className='rounded-2xl relative border border-[#313442] bg-myPrimary py-2 px-5  mb-6 overflow-x-auto'>
 				<motion.div
-					className='rounded-xl bg-myPrimary text-white  flex flex-col font-poppins relative overflow-hidden w-full max-w-[900px] p-4'
+					className='rounded-xl bg-myPrimary text-white  flex flex-col font-poppins relative overflow-x-auto w-full'
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					transition={{ duration: 1, ease: [0.6, -0.05, 0.01, 0.99] }}
 				>
-					<div className='flex md:items-center justify-between mb-4'>
-						<div className='min-w-0 flex-1'>
-							<h2 className='text-3xl font-bold leading-7 text-white sm:truncate  sm:tracking-tight'>
-								Invoices
-							</h2>
-						</div>
+					<div className='flex md:items-center justify-end my-2'>
 						<div className='flex md:ml-4'>
 							<button
 								onClick={openModal}
 								type='button'
 								className='ml-3 inline-flex items-center rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
 							>
-								<PlusSmallIcon className='-ml-1.5 h-5 w-5' aria-hidden='true' />
+								<PlusIcon className='-ml-1.5 h-5 w-5' aria-hidden='true' />
 								New invoice
 							</button>
 						</div>
 					</div>
-					<div className='flex flex-col gap-4'>
-						<div>
-							{invoices.map((invoice, index) => (
-								<motion.div
-									key={invoice.id}
-									initial={{ opacity: 0, y: -50 }}
-									animate={{
-										opacity: 1,
-										y: 0,
-										transition: { delay: index * 0.2 },
-									}}
-									exit={{ opacity: 0, y: 50 }}
-									transition={{ duration: 0.5 }}
-								>
-									<InvoiceCard
-										key={invoice.id}
-										invoice={invoice}
-										onEdit={handleEditInvoice}
-										onDelete={handleDeleteInvoice}
+					<table className='w-full table-auto my-4 font-poppins'>
+						<thead className='w-full h-12'>
+							<tr className='border-b bg-zinc-900 border-myGray/30 font-poppins text-white text-[14px] whitespace-nowrap'>
+								<th className='text-left pl-2 '>
+									<label htmlFor='selectAll' className='sr-only'>
+										Select All
+									</label>
+									<input
+										id='selectAll'
+										className='rounded border-2 w-4 h-4'
+										type='checkbox'
 									/>
-								</motion.div>
+								</th>
+								<th className='text-left px-4'>Invoice number</th>
+								<th className='text-left px-4'>Amount</th>
+								<th className='text-left px-4'>Name</th>
+								<th className='text-left px-4'>Email</th>
+								<th className='text-left px-4'>Address</th>
+								<th className='text-left px-4'>Status</th>
+								<th className='text-right px-4'>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							{invoices.map((invoice, index) => (
+								<InvoiceCard
+									key={invoice.id}
+									invoice={invoice}
+									avatar={invoice.avatar}
+									index={index}
+									onEdit={handleEditInvoice}
+									onDelete={handleDeleteInvoice}
+								/>
 							))}
-						</div>
-						<InvoiceForm
-							isOpen={modalOpen}
-							closeModal={closeModal}
-							onSave={handleSaveInvoice}
-							editedInvoice={editedInvoice}
-							onClearEdit={handleClearEdit}
-						/>
-					</div>
+						</tbody>
+					</table>
 				</motion.div>
+				<InvoiceForm
+					isOpen={modalOpen}
+					closeModal={closeModal}
+					onSave={handleSaveInvoice}
+					editedInvoice={editedInvoice}
+					onClearEdit={handleClearEdit}
+				/>
 			</div>
 		</MainLayout>
 	);

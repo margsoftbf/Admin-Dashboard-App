@@ -2514,6 +2514,8 @@ export const invoicesData: InvoiceDataProps[] = [
 	{
 		id: 'PQ1234',
 		clientName: 'John Doe',
+		avatar: '/assets/people/avatar-1.png',
+		avatarAlt: 'John Doe Photo',
 		emailAddress: 'john.doe@example.com',
 		streetAddress: '123 Main Street',
 		city: 'Cityville',
@@ -2525,6 +2527,8 @@ export const invoicesData: InvoiceDataProps[] = [
 	{
 		id: 'PQ5678',
 		clientName: 'Jane Smith',
+		avatar: '/assets/people/avatar-2.png',
+		avatarAlt: 'Jane Smith Photo',
 		emailAddress: 'jane.smith@example.com',
 		streetAddress: '456 Oak Avenue',
 		city: 'Villagetown',
@@ -2535,6 +2539,8 @@ export const invoicesData: InvoiceDataProps[] = [
 	},
 	{
 		id: 'PQ9123',
+		avatar: '/assets/people/avatar-3.png',
+		avatarAlt: 'Bob Johnson Photo',
 		clientName: 'Bob Johnson',
 		emailAddress: 'bob.johnson@example.com',
 		streetAddress: '789 Pine Road',
@@ -2546,6 +2552,8 @@ export const invoicesData: InvoiceDataProps[] = [
 	},
 	{
 		id: 'PQ4567',
+		avatar: '/assets/people/avatar-4.png',
+		avatarAlt: 'Alice Williams Photo',
 		clientName: 'Alice Williams',
 		emailAddress: 'alice.williams@example.com',
 		streetAddress: '101 Cedar Lane',
@@ -2557,6 +2565,8 @@ export const invoicesData: InvoiceDataProps[] = [
 	},
 	{
 		id: 'PQ8912',
+		avatar: '/assets/people/avatar-5.png',
+		avatarAlt: 'Charlie Brown Photo',
 		clientName: 'Charlie Brown',
 		emailAddress: 'charlie.brown@example.com',
 		streetAddress: '202 Elm Street',
@@ -2569,6 +2579,8 @@ export const invoicesData: InvoiceDataProps[] = [
 	{
 		id: 'PQ3456',
 		clientName: 'Eve Davis',
+		avatar: '/assets/people/avatar-6.png',
+		avatarAlt: 'Eve Davis Photo',
 		emailAddress: 'eve.davis@example.com',
 		streetAddress: '303 Maple Avenue',
 		city: 'Townsville',

@@ -206,6 +206,8 @@ export interface ModalProps {
 export interface InvoiceDataProps {
 	id: string;
 	clientName: string;
+	avatar: string;
+	avatarAlt: string;
 	emailAddress: string;
 	streetAddress: string;
 	city: string;
@@ -227,8 +229,10 @@ export interface InvoiceListProps {
 		amount: number;
 		status: string;
 	};
+	index: number;
 	onEdit: (id: string) => void;
 	onDelete: (id: string) => void;
+	avatar: string;
 }
 
 export interface InvoiceFormProps {

@@ -1,7 +1,5 @@
 import React from 'react';
-import {
-	IconImage,
-} from '../../../../public/assets/svg';
+import { IconImage } from '../../../../public/assets/svg';
 const UploadImage = () => {
 	return (
 		<div className='flex flex-col w-full 3xl:w-2/3'>
@@ -9,7 +7,18 @@ const UploadImage = () => {
 				Upload image
 			</p>
 			<div className='flex flex-col justify-center items-center w-full shadow-sm border-dashed border-2 border-[#313442] rounded-md p-8'>
+				<label
+					htmlFor='file-upload'
+					className='relative cursor-pointer rounded-md font-semibold text-white '
+				>
+					<input
+						id='file-upload'
+						name='file-upload'
+						type='file'
+						className='sr-only'
+					/>
 				<IconImage className='w-8 h-8 mb-6 cursor-pointer' />
+				</label>
 				<p className='text-sm leading-6 text-gray-400 font-normal mb-1 text-center'>
 					Drop your image here, or browse
 				</p>

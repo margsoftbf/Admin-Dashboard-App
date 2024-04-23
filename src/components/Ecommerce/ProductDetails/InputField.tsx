@@ -8,13 +8,13 @@ interface InputFieldProps {
 	onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
-const InputField: React.FC<InputFieldProps> = ({
+const InputField = ({
 	label,
 	type = 'text',
 	name,
 	value,
 	onChange,
-}) => {
+}: InputFieldProps) => {
 	return (
 		<div className='flex flex-col'>
 			<label

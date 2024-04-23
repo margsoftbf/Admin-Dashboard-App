@@ -122,16 +122,22 @@ const InvoicesHomePage = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{invoices.map((invoice, index) => (
-								<InvoiceCard
-									key={invoice.id}
-									invoice={invoice}
-									avatar={invoice.avatar}
-									index={index}
-									onEdit={handleEditInvoice}
-									onDelete={handleDeleteInvoice}
-								/>
-							))}
+							{invoices.length === 0 ? (
+								<tr>
+									<td className='font-medium pt-4'>No invoices</td>
+								</tr>
+							) : (
+								invoices.map((invoice, index) => (
+									<InvoiceCard
+										key={invoice.id}
+										invoice={invoice}
+										avatar={invoice.avatar}
+										index={index}
+										onEdit={handleEditInvoice}
+										onDelete={handleDeleteInvoice}
+									/>
+								))
+							)}
 						</tbody>
 					</table>
 				</motion.div>

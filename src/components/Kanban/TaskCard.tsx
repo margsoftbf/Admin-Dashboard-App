@@ -61,7 +61,7 @@ function TaskCard({ task, deleteTask, updateTask }: KanbanTaskCardProps) {
 			{...attributes}
 			{...listeners}
 			onClick={toggleEditMode}
-			className='bg-zinc-900 p-2.5 h-[50px] min-h-[50px] items-center flex text-left rounded-xl cursor-grab relative task'
+			className='bg-zinc-900 p-2.5 h-[50px] min-h-[50px] items-center flex text-left rounded-xl cursor-grab relative'
 			onMouseEnter={() => {
 				setMouseIsOver(true);
 			}}

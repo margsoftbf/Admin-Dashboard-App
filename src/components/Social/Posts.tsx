@@ -48,7 +48,7 @@ const Posts = () => {
 						<p className='text-myGray leading-5 mb-6 text-[14px]'>
 							{person.content}
 						</p>
-						<div className='flex flex-col gap-3 xs:flex-row xs:items-center xs:gap-0 justify-between mb-4'>
+						<div className='flex flex-col gap-3 xs:flex-row xs:items-center xs:gap-0 justify-between lg:flex-col lg:gap-3 lg:items-start xl:flex-row xl:items-center xl:gap-0 mb-4'>
 							<div className='flex items-center'>
 								{person.likes.map((like) => (
 									<div className='w-8 h-8 overflow-hidden rounded-full -ml-2'>
@@ -73,7 +73,7 @@ const Posts = () => {
 							</div>
 						</div>
 						<div className='w-full bg-myGrayDarker h-[1px] mb-4'></div>
-						<div className='flex items-center justify-between px-7'>
+						<div className='flex gap-2 items-center justify-between'>
 							<div className='flex items-center cursor-pointer gap-x-1 text-myGray hover:text-white duration-200'>
 								<HandThumbUpIcon className='w-4 h-4' />
 								<span className='text-[14px]'>Like</span>
@@ -107,7 +107,7 @@ const Posts = () => {
 									type='text'
 									placeholder='Write a comment...'
 								/>
-								<div className='flex items-center gap-x-3 justify-end '>
+								<div className='flex items-center gap-x-3 justify-end'>
 									<VideoCameraIcon className='w-5 h-5  cursor-pointer hover:text-white text-myGray' />
 									<PhotoIcon className='w-5 h-5 cursor-pointer hover:text-white text-myGray' />
 									<FaceSmileIcon className='w-5 h-5 cursor-pointer hover:text-white text-myGray' />

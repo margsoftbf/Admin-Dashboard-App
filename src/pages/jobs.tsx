@@ -1,11 +1,8 @@
 import MainLayout from '@/components/layout/MainLayout';
 import React, { useState } from 'react';
 import BreadCrumb from '@/components/common/Breadcrumb';
-import {
-	MagnifyingGlassIcon,
-
-} from '@heroicons/react/24/outline';
-import { jobListing, containerAnimation} from '@/data/data';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+import { jobListing, containerAnimation } from '@/data/data';
 import JobDetailsModal from '@/components/Jobs/JobDetailsModal';
 import ApplyJobModal from '@/components/Jobs/ApplyJobModal';
 import { JobTypes } from '@/types/types';
@@ -99,15 +96,21 @@ const JobsHomePage = () => {
 				initial='hidden'
 				animate='visible'
 			>
-				{filteredJobListing.map((job) => (
-					<JobCard
-					key={job.id}
-					job={job}
-					onOpenDetailsModal={handleOpenDetailsModal}
-					onOpenApplyModal={handleOpenApplyModal}
-					getTagClassName={getTagClassName}
-				  />
-				))}
+				{filteredJobListing.length > 0 ? (
+					filteredJobListing.map((job) => (
+						<JobCard
+							key={job.id}
+							job={job}
+							onOpenDetailsModal={handleOpenDetailsModal}
+							onOpenApplyModal={handleOpenApplyModal}
+							getTagClassName={getTagClassName}
+						/>
+					))
+				) : (
+					<p className='text-center text-white font-semibold text-xl'>
+						Job not found
+					</p>
+				)}
 			</motion.div>
 			<JobDetailsModal
 				open={isDetailsModalOpen}

@@ -20,8 +20,8 @@ import {
 	startOfWeek,
 	endOfWeek,
 } from 'date-fns';
-import MeetingComponent from '../components/Calendar/Meeting';
 import { Meeting } from '../types/types';
+import MeetingComponent from '../components/Calendar/Meeting';
 import CalendarModal from '@/components/Calendar/CalendarModal';
 import CalendarHeader from '@/components/Calendar/CalendarHeader';
 

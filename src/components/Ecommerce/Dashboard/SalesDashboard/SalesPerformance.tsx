@@ -6,7 +6,7 @@ import {
 	monhtlyDataSalePerformance,
 	dailyDataSalePerformance,
 	weeklyDataSalePerformance,
-	areaChartOptions
+	areaChartOptions,
 } from '@/data/data';
 import ToggleMenu from '@/components/ui/ToggleMenu';
 import 'react-circular-progressbar/dist/styles.css';
@@ -16,7 +16,6 @@ import { IconToggle } from '../../../../../public/assets/svg';
 const ReactApexChart = dynamic(() => import('react-apexcharts'), {
 	ssr: false,
 });
-
 
 const SalesPerformance = () => {
 	const [options, setOptions] = useState<ChartProps>(areaChartOptions);
@@ -54,7 +53,7 @@ const SalesPerformance = () => {
 				<h2 className='text-myGray font-poppins text-[14px] font-medium'>
 					Sales Performance
 				</h2>
-				<div className='xs:ml-auto flex gap-1 items-center translate-x-4 z-10 relative'>
+				<div className='xs:ml-auto flex gap-1 items-center translate-x-4 pr-4 z-10 relative'>
 					<div className='-z-10 flex gap-3 font-poppins text-xs text-myGray'>
 						<button
 							aria-label='Daily'
@@ -86,17 +85,6 @@ const SalesPerformance = () => {
 						>
 							Monthly
 						</button>
-					</div>
-					<div>
-						{' '}
-						<button
-							aria-label='More'
-							className='flex items-center justify-between py-2 px-4 cursor-pointer'
-							onClick={() => toggleMenu('sales')}
-						>
-							<IconToggle />
-						</button>
-						{activeMenuId === 'sales' && <ToggleMenu />}
 					</div>
 				</div>
 			</div>

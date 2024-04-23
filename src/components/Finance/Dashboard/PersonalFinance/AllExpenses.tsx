@@ -67,7 +67,7 @@ const AllExpenses = () => {
 			variants={itemAnimation}
 		>
 			<div className='flex items-center justify-between mb-4'>
-				<h2 className='text-myGray text-[14px] font-medium'>All expenses</h2>
+				<h2 className='text-myGray text-[14px] font-medium '>All expenses</h2>
 				<div className='ml-auto translate-x-4 relative'>
 					<button
 						aria-label='More'

@@ -24,7 +24,7 @@ const AddProjectModal = ({ isOpen, onClose }: AddProjectModalProps) => {
 				}}
 			>
 				<Fade in={isOpen}>
-					<Box className='py-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-h-[90vh] rounded-lg w-80 xs:w-96 md:w-[600px] lg:mx-auto p-4 shadow-lg flex flex-col font-poppins overflow-y-auto bg-black justify-center items-center z-70'>
+					<Box className='py-2 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-auto rounded-lg bg-white w-80 xs:w-96 md:w-[600px] lg:mx-auto p-4 shadow-lg  dark:bg-myPrimary flex flex-col font-poppins overflow-y-auto'>
 						<XMarkIcon
 							className='w-7 h-7 text-white absolute right-2 top-2 cursor-pointer'
 							onClick={onClose}
@@ -163,7 +163,7 @@ const AddProjectModal = ({ isOpen, onClose }: AddProjectModalProps) => {
 									type='submit'
 									className='rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500'
 								>
-									Apply
+									Add
 								</button>
 							</div>
 						</form>

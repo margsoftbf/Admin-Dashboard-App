@@ -24,12 +24,18 @@ const SocialHomePage = () => {
 				initial='hidden'
 				animate='visible'
 			>
-				<motion.div className='md:col-span-6' variants={itemAnimation}>
+				<motion.div
+					className='md:col-span-5 lg:col-span-8 xl:col-span-5'
+					variants={itemAnimation}
+				>
 					<PostInput />
 					<GroupVideo />
 					<Posts />
 				</motion.div>
-				<motion.div className='md:col-span-2' variants={itemAnimation}>
+				<motion.div
+					className='md:col-span-3 lg:col-span-8 xl:col-span-3'
+					variants={itemAnimation}
+				>
 					<Activity />
 				</motion.div>
 			</motion.div>

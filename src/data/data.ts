@@ -2508,6 +2508,20 @@ export const initialMeetings = [
 		date: '2024-07-28',
 		time: '17:00',
 	},
+	{
+		id: '6',
+		name: 'Technology Conference',
+		title: 'The Future of Tech',
+		date: '2024-06-28',
+		time: '17:00',
+	},
+	{
+		id: '7',
+		name: 'Annual General Meeting',
+		title: 'Yearly Company Review',
+		date: '2024-06-11',
+		time: '09:00',
+	},
 ];
 
 export const invoicesData: InvoiceDataProps[] = [

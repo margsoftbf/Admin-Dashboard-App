@@ -150,7 +150,7 @@ const CryptoHomePage = () => {
 									<div className='flex items-center justify-end gap-x-2 sm:justify-start'>
 										<div className='text-white sm:block'>
 											<span className='font-bold mr-2'>$</span>
-											{coin.current_price}
+											{coin.current_price.toFixed(2)}
 										</div>
 									</div>
 								</td>

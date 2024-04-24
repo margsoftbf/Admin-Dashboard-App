@@ -2876,6 +2876,7 @@ import {
 	AtSymbolIcon,
 	HandThumbUpIcon,
 } from '@heroicons/react/24/outline';
+import { id } from 'date-fns/locale';
 
 export const lastActivity = [
 	{
@@ -3108,5 +3109,38 @@ export const faqs = [
 		question: 'Why did the coffee file a police report?',
 		answer:
 			'It got mugged. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.',
+	},
+];
+
+export const faqTopic = [
+	{
+		id: 1,
+		color: '#3b82f6',
+		title: 'Using Applications',
+	},
+	{
+		id: 2,
+		color: '#22c55e',
+		title: 'UI Elements',
+	},
+	{
+		id: 3,
+		color: '#ef4444',
+		title: 'Components',
+	},
+	{
+		id: 4,
+		color: '#f59e0b',
+		title: 'Build Process',
+	},
+	{
+		id: 5,
+		color: '#8b5cf6',
+		title: 'Support Policy',
+	},
+	{
+		id: 6,
+		color: '#ec4899',
+		title: 'Account & Billing',
 	},
 ];

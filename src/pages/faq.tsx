@@ -7,6 +7,8 @@ import React, { useState } from 'react';
 import Topic from '@/components/Faq/Topic';
 import { containerAnimation, itemAnimation } from '@/data/data';
 import { motion } from 'framer-motion';
+import { FaqIcon } from '../../public/assets/svg';
+import Button from '@/components/ui/Button';
 
 const FaqHomePage = () => {
 	const pathSegments = [
@@ -30,23 +32,32 @@ const FaqHomePage = () => {
 			</h1>
 			<BreadCrumb pathSegments={pathSegments} />
 			<motion.div
-				className='grid grid-cols-1 md:grid-cols-8 gap-5'
+				className='grid grid-cols-1 lg:grid-cols-8 gap-5'
 				variants={containerAnimation}
 				initial='hidden'
 				animate='visible'
 			>
 				<motion.div
-					className='md:col-span-2 lg:col-span-8 xl:col-span-2'
+					className='lg:col-span-8 xl:col-span-2'
 					variants={itemAnimation}
 				>
 					<div className='flex flex-col'>
+
 						<Topic
 							faqTopic={faqTopic}
 							activeId={activeId}
 							handleLinkClick={handleLinkClick}
 						/>
 
-						<div className='bg-gray-500'>B</div>
+						<div className='rounded-2xl relative border border-[#313442] bg-myPrimary py-5 px-4  mb-6 text-white font-poppins overflow-x-auto'>
+							<div className='flex flex-col gap-6 items-center'>
+								<FaqIcon className='w-full h-40 md:h-48 xl:h-72' />
+								<p className='font-inter font-semibold'>
+									Not finding the help you need?
+								</p>
+								<Button className='bg-myViolet'>Contact Support</Button>
+							</div>
+						</div>
 					</div>
 				</motion.div>
 				<motion.div

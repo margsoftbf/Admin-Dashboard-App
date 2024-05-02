@@ -14,3 +14,4 @@ export { default as CreditCard } from './credit-card-icon.svg';
 export { default as Time } from './time.svg';
 export { default as Balance } from './balance.svg';
 export { default as Briefcase } from './briefcase.svg';
+export { default as FaqIcon } from './faq-svg.svg';
